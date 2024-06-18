@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 // import { TbReportMedical } from "react-icons/tb"; 아이콘 라이브러리 확정 시에만 import
 
 /* 임시 레이아웃 */
@@ -248,84 +249,82 @@ const DetailTitle = styled.p`
 
 /* 다이어리 상세 끝  */
 
-const Diary: React.FC = () => {
-  return (
-    <Body>
-      <Main>
-        <Wrapper>
-          <ProfilesWrapper>
-            <ProfilesTitle>user 님의 반려동물</ProfilesTitle>
-            <CardsWrapper>
-              <Cards>
-                <Photo />
-                <Name>이름</Name>
-                <Details>종 / 나이</Details>
-              </Cards>
-            </CardsWrapper>
-          </ProfilesWrapper>
-          <DiaryWrapper>
-            <DiaryTitle className="diaryTitle">
-              (반려동물 이름)의 <span>건강 다이어리</span>
-            </DiaryTitle>
-            <HorizontalLine />
-            <ReportWrapper>
-              <p>날짜(컴포넌트화 필요합니다)</p>
-              <Report>
-                <DeseaseName>
-                  <Icon></Icon>
-                  <DeseaseTitle>질병 타이틀</DeseaseTitle>
-                  <div>
-                    <DiaryDetailsLeft>
-                      <DiaryDetailContainer>
-                        <Icon></Icon>
-                        <DiaryDetail>
-                          <DetailTitle>증상</DetailTitle>
-                          <p>{"data.symptom" || "증상 기록이 없어요"}</p>
-                        </DiaryDetail>
-                      </DiaryDetailContainer>
-                      <DiaryDetailContainer>
-                        <Icon></Icon>
-                        <DiaryDetail>
-                          <DetailTitle>입원 여부</DetailTitle>
-                          <p>입원중 or 입원하지 않았어요</p>
-                        </DiaryDetail>
-                      </DiaryDetailContainer>
-                      <DiaryDetailContainer>
-                        <Icon></Icon>
-                        <DiaryDetail>
-                          <DetailTitle>보호자 메모</DetailTitle>
-                          <p>{"data.memo" || "메모 없음"}</p>
-                        </DiaryDetail>
-                      </DiaryDetailContainer>
-                    </DiaryDetailsLeft>
-                    <DiaryDetailsRight>
-                      <DiaryDetailContainer>
-                        <Icon></Icon>
-                        <DiaryDetail>
-                          <DetailTitle>처방</DetailTitle>
-                          <p>{"data.treatment" || "처방 기록이 없어요"}</p>
-                        </DiaryDetail>
-                      </DiaryDetailContainer>
-                      <DiaryDetailContainer>
-                        <Icon></Icon>
-                        <DiaryDetail>
-                          <DetailTitle>동물병원</DetailTitle>
-                          <p>
-                            '방문 기록 여부'
-                            <span>'수의사 선생님 성함'</span>
-                          </p>
-                        </DiaryDetail>
-                      </DiaryDetailContainer>
-                    </DiaryDetailsRight>
-                  </div>
-                </DeseaseName>
-              </Report>
-            </ReportWrapper>
-          </DiaryWrapper>
-        </Wrapper>
-      </Main>
-    </Body>
-  );
-};
+const Diary: React.FC = () => (
+  <Body>
+    <Main>
+      <Wrapper>
+        <ProfilesWrapper>
+          <ProfilesTitle>user 님의 반려동물</ProfilesTitle>
+          <CardsWrapper>
+            <Cards>
+              <Photo />
+              <Name>이름</Name>
+              <Details>종 / 나이</Details>
+            </Cards>
+          </CardsWrapper>
+        </ProfilesWrapper>
+        <DiaryWrapper>
+          <DiaryTitle className="diaryTitle">
+            (반려동물 이름)의 <span>건강 다이어리</span>
+          </DiaryTitle>
+          <HorizontalLine />
+          <ReportWrapper>
+            <p>날짜(컴포넌트화 필요합니다)</p>
+            <Report>
+              <DeseaseName>
+                <Icon>desease Icon</Icon>
+                <DeseaseTitle>질병 타이틀</DeseaseTitle>
+                <div>
+                  <DiaryDetailsLeft>
+                    <DiaryDetailContainer>
+                      <Icon>Icon</Icon>
+                      <DiaryDetail>
+                        <DetailTitle>증상</DetailTitle>
+                        <p>{'data.symptom' || '증상 기록이 없어요'}</p>
+                      </DiaryDetail>
+                    </DiaryDetailContainer>
+                    <DiaryDetailContainer>
+                      <Icon>Icon</Icon>
+                      <DiaryDetail>
+                        <DetailTitle>입원 여부</DetailTitle>
+                        <p>입원중 or 입원하지 않았어요</p>
+                      </DiaryDetail>
+                    </DiaryDetailContainer>
+                    <DiaryDetailContainer>
+                      <Icon>Icon</Icon>
+                      <DiaryDetail>
+                        <DetailTitle>보호자 메모</DetailTitle>
+                        <p>{'data.memo' || '메모 없음'}</p>
+                      </DiaryDetail>
+                    </DiaryDetailContainer>
+                  </DiaryDetailsLeft>
+                  <DiaryDetailsRight>
+                    <DiaryDetailContainer>
+                      <Icon>Icon</Icon>
+                      <DiaryDetail>
+                        <DetailTitle>처방</DetailTitle>
+                        <p>{'data.treatment' || '처방 기록이 없어요'}</p>
+                      </DiaryDetail>
+                    </DiaryDetailContainer>
+                    <DiaryDetailContainer>
+                      <Icon>Icon</Icon>
+                      <DiaryDetail>
+                        <DetailTitle>동물병원</DetailTitle>
+                        <p>
+                          방문 기록 여부
+                          <span>수의사 선생님 성함</span>
+                        </p>
+                      </DiaryDetail>
+                    </DiaryDetailContainer>
+                  </DiaryDetailsRight>
+                </div>
+              </DeseaseName>
+            </Report>
+          </ReportWrapper>
+        </DiaryWrapper>
+      </Wrapper>
+    </Main>
+  </Body>
+);
 
 export default Diary;

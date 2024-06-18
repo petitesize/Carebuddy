@@ -1,5 +1,6 @@
-import { Outlet } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
@@ -7,10 +8,10 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-export default function Layout() {
-  return (
-    <Wrapper>
-      <Outlet />
-    </Wrapper>
-  );
-}
+const Layout: React.FC = () => (
+  <Wrapper>
+    <Outlet />
+  </Wrapper>
+);
+
+export default Layout;

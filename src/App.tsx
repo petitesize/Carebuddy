@@ -1,14 +1,15 @@
-import { createGlobalStyle } from "styled-components";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ProtectedRoute from "@/protectedRoute";
-import Layout from "@/layout";
-import reset from "styled-reset";
-import styled from "styled-components";
-import Diary from "@pages/Diary/";
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import reset from 'styled-reset';
+import Home from '@pages/Home/';
+import ProtectedRoute from '@/protectedRoute';
+import Layout from '@/layout';
+// import Diary from "@pages/Diary/";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     // 로그인 유저만 접근
     element: (
       <ProtectedRoute>
@@ -16,14 +17,8 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      {
-        path: "",
-        // element: <홈페이지/>
-      },
-      {
-        path: "diary",
-        element: <Diary />,
-      },
+      { path: '', element: <Home /> },
+      // {path: "diary", element: <Diary /> },
     ],
   },
 ]);
