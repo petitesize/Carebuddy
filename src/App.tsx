@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-// 전역 공통 스타일
+// 전역 공통 스타일 
 const GlobalStyles = createGlobalStyle`
   ${reset}
 
