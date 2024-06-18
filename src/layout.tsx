@@ -1,3 +1,4 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
@@ -7,10 +8,12 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-export default function Layout() {
+const Layout: React.FC = () => {
   return (
     <Wrapper>
       <Outlet />
     </Wrapper>
   );
-}
+};
+
+export default Layout;

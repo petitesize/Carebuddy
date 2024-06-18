@@ -1,12 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import reset from "styled-reset";
+import Home from "@pages/Home/";
 import ProtectedRoute from "@/protectedRoute";
 import Layout from "@/layout";
-import reset from "styled-reset";
-import styled from "styled-components";
 // import Diary from "@pages/Diary/";
-import Home from "@pages/Home/";
-
 
 const router = createBrowserRouter([
   {
@@ -18,7 +17,7 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      {path: "",element: <Home/> },
+      { path: "", element: <Home /> },
       // {path: "diary", element: <Diary /> },
     ],
   },
@@ -91,13 +90,13 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-function App() {
+const App: React.FC = () => {
   return (
     <Wrapper>
       <GlobalStyles />
       <RouterProvider router={router} />
     </Wrapper>
   );
-}
+};
 
 export default App;

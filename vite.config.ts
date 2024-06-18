@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 import { fileURLToPath, URL } from "url";
 
 export default defineConfig({
@@ -11,9 +11,7 @@ export default defineConfig({
       "@components": fileURLToPath(
         new URL("./src/components", import.meta.url)
       ),
-      "@constants": fileURLToPath(
-        new URL("./src/constants", import.meta.url)
-      ),
+      "@constants": fileURLToPath(new URL("./src/constants", import.meta.url)),
       "@hooks": fileURLToPath(new URL("./src/hooks", import.meta.url)),
       "@pages": fileURLToPath(new URL("./src/pages", import.meta.url)),
       "@routes": fileURLToPath(new URL("./src/routes", import.meta.url)),

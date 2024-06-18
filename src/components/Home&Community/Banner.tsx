@@ -1,8 +1,9 @@
+import React from "react";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 
 // 배너 이미지
-import BannerImg from "/src/assets/bannerImg.png";
+import BannerImg from "@assets/bannerImg.png";
 
 const Banner: React.FC = () => {
   return (
@@ -14,20 +15,20 @@ const Banner: React.FC = () => {
           <StyledText>와 함께</StyledText>
         </Row>
         <Row>
-        <StyledText>
-          사랑하는 나의
-          <TypeWriterWrapper>
-          <Typewriter
-            options={{
-              strings: ["강아지와", "고양이와", "가족과"],
-              autoStart: true,
-              loop: true,
-              delay: 150,
-              deleteSpeed: 200,
-            }}
-          />
-          </TypeWriterWrapper>
-        </StyledText>
+          <StyledText>
+            사랑하는 나의
+            <TypeWriterWrapper>
+              <Typewriter
+                options={{
+                  strings: ["강아지와", "고양이와", "가족과"],
+                  autoStart: true,
+                  loop: true,
+                  delay: 150,
+                  deleteSpeed: 200,
+                }}
+              />
+            </TypeWriterWrapper>
+          </StyledText>
         </Row>
         <StyledText>건강하고 행복한 시간을 보내세요</StyledText>
         <StyledText
