@@ -40,5 +40,11 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "prettier": "^3.3.2",
     "typescript": "^5.4.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+
 }
