@@ -1,119 +1,57 @@
 import styled from "styled-components";
-import Banner from "@/components/Home/Banner";
+
+// 컴포넌트
+import Banner from "@/components/Home&Community/Banner";
+import SidePanel from "@/components/Home&Community/SidePanel";
+
+// 이 페이지에서 필요한 컴포넌트
+// FeedBox
 
 const Home: React.FC = () => {
   return (
     <>
-    <TempBackground>
       <Banner />
       <ContentContainer>
-        <FeedContainer>
-          <FeedOption>
-            <Classification>
-              <p>분류:</p>
-              {/* <CommunitySelect
-              width="100px"
-              borderRadius="30px"
-              options={CategoryOptions}
-              onChange={handleCategoryChange}
-            /> */}
-              {/* <CommunitySelect
-              width="120px"
-              borderRadius="30px"
-              options={selectedGroupOptions}
-              onChange={handleSelectedGroup}
-            /> */}
-            </Classification>
-            <WritingButton>
-              <p>함께 나누고 싶은 이야기가 있나요?</p>
-              {/* <WritingModalButton /> */}
-            </WritingButton>
-          </FeedOption>
-          {/* {selectedCategoryValue === ''
-          ? totalPost.map((post) => (
-              <FeedBox
-                postId={post?._id}
-                key={post?._id}
-                title={post?.title}
-                content={post?.content}
-                profile={`${UPLOADED_IMG_URL}${post?.userId?.profileImage[0]}`}
-                nickname={post?.userId?.nickName}
-                uploadedDate={post?.createdAt}
-              />
-            ))
-          : posts.map((post) => (
-              <FeedBox
-                postId={post?._id}
-                key={post?._id}
-                title={post?.title}
-                content={post?.content}
-                profile={`${UPLOADED_IMG_URL}${post?.userId?.profileImage[0]}`}
-                nickname={post?.userId?.nickName}
-                uploadedDate={post?.createdAt}
-              />
-            ))} */}
-        </FeedContainer>
+        <FeedBoxContainer>
+          <FeedOptionContainer>
+            <p>피드옵션 컨테이너</p>
+          </FeedOptionContainer>
+          <p>피드박스 컨테이너</p>
+        </FeedBoxContainer>
         <SidePanelContainer>
-          {/* <SidePanel name="추천 커뮤니티" array={groupArray} /> */}
+        <p>사이드패널 컨테이너</p>
         </SidePanelContainer>
       </ContentContainer>
-      </TempBackground>
     </>
   );
 };
 
 export default Home;
 
-const TempBackground = styled.div`
-width: 100%;
-height: 100%;
-background-color: yellow;
-`
-
 const ContentContainer = styled.div`
+  display: flex;
+  width: 100%;
   margin-top: 80px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const FeedContainer = styled.div`
-  width: 70%;
-  margin-bottom: 30px;
-`;
-
-const FeedOption = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const SidePanelContainer = styled.div`
-  width: 20%;
-`;
-
-const Classification = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 265px;
-
-  p {
-    color: var(--color-grey-1);
-    font-size: var(--font-size-md-1);
-  }
+  background-color: yellow;
 
   & > * {
-    padding-right: 2px;
+    margin-bottom: 30px;
   }
 `;
 
-const WritingButton = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  p {
-    font-size: var(--font-size-ft-1);
-    color: var(--color-grey-1);
-    padding: 0 10px;
-  }
+const FeedBoxContainer = styled.div`
+  height: 2000px;
+  width: 75%;
+  border: solid 2px black;
 `;
+
+const FeedOptionContainer = styled.div`
+  border: solid 2px black;
+`
+
+const SidePanelContainer = styled.div`
+  width: 25%;
+  border: solid 2px blue;
+`;
+
+

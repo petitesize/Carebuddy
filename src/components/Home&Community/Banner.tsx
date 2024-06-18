@@ -10,10 +10,11 @@ const Banner: React.FC = () => {
       <img src={BannerImg} alt="배너 이미지" />
       <TextContainer>
         <Row>
-          <Text color="var(--color-green-main)">케어버디</Text>
-          <Text>와 함께</Text>
+          <StyledText color="var(--color-green-main)">케어버디</StyledText>
+          <StyledText>와 함께</StyledText>
         </Row>
-        <Text>
+        <Row>
+        <StyledText>
           사랑하는 나의
           <TypeWriterWrapper>
           <Typewriter
@@ -26,17 +27,17 @@ const Banner: React.FC = () => {
             }}
           />
           </TypeWriterWrapper>
-        </Text>
-        <Text>건강하고 행복한 시간을 보내세요</Text>
-        <Text
+        </StyledText>
+        </Row>
+        <StyledText>건강하고 행복한 시간을 보내세요</StyledText>
+        <StyledText
           color="var(--color-grey-1)"
-          padding="10px 0"
           fontWeight="var(--font-weight-regular)"
           fontSize="var(--font-size-md-1)"
         >
           꾸준한 질병 기록으로 아이의 건강을 지키고, 아이의 행복을 위한 정보를
           나눠보아요.
-        </Text>
+        </StyledText>
       </TextContainer>
     </StyledBanner>
   );
@@ -47,7 +48,6 @@ export default Banner;
 type TextProps = {
   fontSize?: string;
   color?: string;
-  padding?: string;
   fontWeight?: string;
 };
 
@@ -70,15 +70,14 @@ const TypeWriterWrapper = styled.div`
 
 const TextContainer = styled.div`
   position: absolute;
-  top: 37%;
-  left: 5%;
+  top: 36%;
+  left: 4%;
 `;
 
-const Text = styled.div<TextProps>`
+const StyledText = styled.div<TextProps>`
   display: flex;
-  align-items: baseline;
   font-size: ${(props) => props.fontSize || "var(--font-size-lg-3)"};
   font-weight: ${(props) => props.fontWeight || "var(--font-weight-extrabold)"};
-  padding: ${(props) => props.padding || "5px 0"};
+  padding: 8px 0;
   color: ${(props) => props && props.color};
 `;

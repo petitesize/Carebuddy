@@ -18,14 +18,8 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      {
-        path: "",
-        element: <Home/>
-      },
-      // {
-      //   path: "diary",
-      //   element: <Diary />,
-      // },
+      {path: "",element: <Home/> },
+      // {path: "diary", element: <Diary /> },
     ],
   },
 ]);
