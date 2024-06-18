@@ -5,6 +5,7 @@ import Layout from "@/layout";
 import reset from "styled-reset";
 import styled from "styled-components";
 import Diary from "@pages/Diary/";
+import Mypage from "@pages/Mypage/";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "diary",
         element: <Diary />,
+      },
+      {
+        path: "mypage",
+        element: <Mypage />,
       },
     ],
   },
