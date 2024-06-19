@@ -63,6 +63,7 @@ const GlobalStyles = createGlobalStyle`
     --color-white: #ffffff;
     --color-black: #343434;
     --color-red: #E13C45;
+    --color-blue: #0069e4;
 
     --swiper-pagination-color: var(--color-green-main);
   }
