@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 // 컴포넌트
 // import Button from '@/components/common/Button';
-import Banner from '@/components/Home&Community/Banner';
 import FeedBox from '@/components/Home&Community/FeedBox';
 import SidePanel from '@/components/Home&Community/SidePanel';
 import WriteButton from '@/components/Home&Community/WirteButton';
-import GroupElement from '@/components/Home&Community/GroupElement';
+import MemberElement from '@/components/Home&Community/MemberElement';
+import Search from '@/components/Home&Community/Search';
+import Button from '@/components/common/Button';
 
 // 임시 데이터
 import {
@@ -17,32 +18,36 @@ import {
   tempNickname,
   tempProfileSrc,
   tempPostId,
-  tempGroupArray1,
+  tempMemberArray1,
 } from '../../../tempData';
 
-const Home: React.FC = () => {
+const Community: React.FC = () => {
+  // 작동 테스트용
   const tempGroup = (
-    <GroupElement
-      key={tempGroupArray1.groupId}
-      groupId={tempGroupArray1.groupId}
-      groupName={tempGroupArray1.groupName}
-      introduction={tempGroupArray1.introduction}
-      memberCount={tempGroupArray1.memberCount}
+    <MemberElement
+      key={tempMemberArray1.userId}
+      userId={tempMemberArray1.userId}
+      nickname={tempMemberArray1.nickname}
+      introduction={tempMemberArray1.introduction}
+      profileSrc={tempProfileSrc}
     />
   );
 
   return (
     <Body>
       <Main>
-        <Banner />
-        <ContentContainer>
+        <SearchContainer>
+          <Search
+            width="500px"
+            fontSize="var(--font-size-md-2)"
+            padding="15px 16px"
+            // onSearch={(value) => handleSearch(value)}
+            placeholder="검색할 게시글의 제목을 입력하세요"
+          />
+        </SearchContainer>
+        <Container>
           <FeedBoxContainer>
             <FeedOptionContainer>
-              <SelectContainer>
-                <p>분류: </p>
-                <select>홈</select>
-                <select>그룹</select>
-              </SelectContainer>
               <WriteButton />
             </FeedOptionContainer>
             <FeedBox
@@ -71,18 +76,23 @@ const Home: React.FC = () => {
             />
           </FeedBoxContainer>
           <SidePanelContainer>
-            <SidePanel
-              name="추천 그룹 or 추천 커뮤니티"
-              elementArray={tempGroup}
-            />
+            <LinkButtonContainer>
+              <Button buttonStyle="link" buttonSize="sm">
+                그룹 탈퇴
+              </Button>
+              <Button buttonStyle="link" buttonSize="sm">
+                다른 그룹 둘러보기
+              </Button>
+            </LinkButtonContainer>
+            <SidePanel name="그룹 멤버" elementArray={tempGroup} />
           </SidePanelContainer>
-        </ContentContainer>
+        </Container>
       </Main>
     </Body>
   );
 };
 
-export default Home;
+export default Community;
 
 /* 임시 레이아웃 */
 
@@ -100,41 +110,41 @@ const Main = styled.div`
 
 /* 임시 레이아웃 끝 */
 
-const ContentContainer = styled.div`
+const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 200px;
+`;
+
+const Container = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 80px;
+  height: auto;
+  margin: 0 auto;
 
   & > * {
     margin-bottom: 30px;
   }
 `;
 
+const FeedOptionContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const FeedBoxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 70%;
-  // background-color: yellow; // 임시
   color: var(--color-grey-1);
 `;
 
-const FeedOptionContainer = styled.div`
+const LinkButtonContainer = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  // background-color: aqua; // 임시
-`;
-
-const SelectContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: var(--font-size-sm-1);
-
-  & > * {
-    margin-right: 10px;
-  }
 `;
 
 const SidePanelContainer = styled.div`
   width: 20%;
-  // border: solid 2px blue; // 임시
 `;
