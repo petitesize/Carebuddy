@@ -5,7 +5,7 @@ import reset from 'styled-reset';
 import Home from '@pages/Home/';
 import ProtectedRoute from '@/protectedRoute';
 import Layout from '@/layout';
-// import Diary from "@pages/Diary/";
+import Diary from '@pages/Diary/';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '', element: <Home /> },
-      // {path: "diary", element: <Diary /> },
+      { path: 'diary', element: <Diary /> },
     ],
   },
 ]);
@@ -90,13 +90,11 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-function App() {
-  return (
-    <Wrapper>
-      <GlobalStyles />
-      <RouterProvider router={router} />
-    </Wrapper>
-  );
-}
+const App: React.FC = () => (
+  <Wrapper>
+    <GlobalStyles />
+    <RouterProvider router={router} />
+  </Wrapper>
+);
 
 export default App;
