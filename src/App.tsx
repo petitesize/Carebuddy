@@ -3,8 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
 import Home from '@pages/Home/';
-import ProtectedRoute from '@/protectedRoute';
-import Layout from '@/layout';
+import ProtectedRoute from '@/routes/protectedRoute';
+import Layout from '@/components/layout';
 import Diary from '@pages/Diary/';
 
 const router = createBrowserRouter([
