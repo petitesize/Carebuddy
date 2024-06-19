@@ -1,6 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { TbReportMedical } from "react-icons/tb"; 아이콘 라이브러리 확정 시에만 import
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination } from 'swiper/modules';
+import Button from '@/components/common/Button';
+import { TbReportMedical, TbBuildingHospital } from 'react-icons/tb';
+import {
+  LuPill,
+  LuActivitySquare,
+  LuStethoscope,
+  LuMessageSquarePlus,
+} from 'react-icons/lu';
 
 /* 임시 레이아웃 */
 
@@ -54,7 +66,7 @@ const Cards = styled.div`
   width: 244px;
   height: 90%;
   background: #ffffff;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -129,7 +141,7 @@ const DeseaseTitle = styled.h2`
   margin-left: 10px;
 `;
 
-const DiaryTitle = styled.h2`
+const NameInTitle = styled.h2`
   font-size: var(--font-size-hd-2);
   font-weight: var(--font-weight-bold);
   height: 115px;
@@ -138,6 +150,8 @@ const DiaryTitle = styled.h2`
     color: var(--color-black-main);
   }
 `;
+
+const DiaryTitle = styled.span``;
 
 const HorizontalLine = styled.div`
   border-top: 3px solid var(--color-green-sub-2);
@@ -160,6 +174,8 @@ const ReportWrapper = styled.div`
   }
 `;
 
+const Paragraph = styled.p``;
+
 // 다이어리 본문 컨테이너
 const Report = styled.div`
   padding: 20px 3%;
@@ -167,21 +183,25 @@ const Report = styled.div`
   height: 100%;
   border: 1px solid #7d7d7d;
   border-radius: 6px;
-  display: flex;
-  position: relative;
-  > div:first-child {
+  /* display: flex;
+  position: relative; */
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 20px;
+  /* > div:first-child {
     position: absolute;
     top: 20px;
     right: 30px;
-  }
+  } */
 `;
 
 const DeseaseName = styled.div`
   display: flex;
   height: 26px;
-  width: 30%;
+  width: 100%;
   padding-top: 26px;
-  padding-right: 20px;
+  /* padding-right: 20px; */
 `;
 
 const Icon = styled.div`
@@ -204,15 +224,16 @@ const DiaryDetailsLeft = styled.div`
   display: flex;
   border-left: solid 2px #cecece;
   padding: 26px 4%;
+  padding-left: 30px;
   flex-direction: column;
-  width: 35%;
+  /* width: 35%; */
 `;
 
 const DiaryDetailsRight = styled.div`
   display: flex;
   padding: 26px 30px;
   flex-direction: column;
-  width: 35%;
+  /* width: 35%; */
 `;
 
 // 질병에 대한 상세 정보 컨테이너
@@ -225,14 +246,14 @@ const DiaryDetailContainer = styled.div`
 const DiaryDetail = styled.div`
   margin-left: 15px;
   margin-bottom: 30px;
-  margin-right: 250px;
+  /* margin-right: 250px; */
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 const DetailTitle = styled.p`
-  width: 300px;
+  /* width: 300px; */
   font-weight: var(--font-weight-bold);
 
   + p {
@@ -241,13 +262,30 @@ const DetailTitle = styled.p`
     line-height: var(--font-size-hd-2);
     white-space: pre-wrap;
 
-    > span {
+    /* > span {
       color: #7d7d7d;
-    }
+    } */
   }
 `;
 
+const Doctor = styled.span`
+  color: var(--color-grey-1);
+`;
+
 /* 다이어리 상세 끝  */
+
+const StyledSwiper = styled(Swiper)`
+  width: 100%;
+  > div {
+    padding-top: 8px;
+  }
+  > div:last-child {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+`;
 
 const Diary: React.FC = () => (
   <Body>
@@ -255,70 +293,101 @@ const Diary: React.FC = () => (
       <Wrapper>
         <ProfilesWrapper>
           <ProfilesTitle>user 님의 반려동물</ProfilesTitle>
-          <CardsWrapper>
-            <Cards>
-              <Photo />
-              <Name>이름</Name>
-              <Details>종 / 나이</Details>
-            </Cards>
-          </CardsWrapper>
+          <StyledSwiper
+            slidesPerView={4}
+            spaceBetween={0}
+            // slidesOffsetBefore={20}
+            // /* 전체적인 슬라이드의 오른쪽에 20px 공백을 준다. */
+            // slidesOffsetAfter={30}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <CardsWrapper>
+                <Cards>
+                  <Photo />
+                  <Name>이름</Name>
+                  <Details>종 / 나이</Details>
+                </Cards>
+              </CardsWrapper>
+            </SwiperSlide>
+          </StyledSwiper>
         </ProfilesWrapper>
         <DiaryWrapper>
-          <DiaryTitle className="diaryTitle">
-            (반려동물 이름)의 <span>건강 다이어리</span>
-          </DiaryTitle>
+          <NameInTitle className="diaryTitle">
+            (반려동물 이름)<DiaryTitle>의 건강 다이어리</DiaryTitle>
+          </NameInTitle>
           <HorizontalLine />
+          <Button buttonStyle="square-green">기록하기</Button>
           <ReportWrapper>
-            <p>날짜(컴포넌트화 필요합니다)</p>
+            <Paragraph>날짜(컴포넌트화 필요합니다)</Paragraph>
+
             <Report>
               <DeseaseName>
-                <Icon>desease Icon</Icon>
+                <Icon>
+                  <TbReportMedical className="big" />
+                </Icon>
                 <DeseaseTitle>질병 타이틀</DeseaseTitle>
-                <div>
-                  <DiaryDetailsLeft>
-                    <DiaryDetailContainer>
-                      <Icon>Icon</Icon>
-                      <DiaryDetail>
-                        <DetailTitle>증상</DetailTitle>
-                        <p>{'data.symptom' || '증상 기록이 없어요'}</p>
-                      </DiaryDetail>
-                    </DiaryDetailContainer>
-                    <DiaryDetailContainer>
-                      <Icon>Icon</Icon>
-                      <DiaryDetail>
-                        <DetailTitle>입원 여부</DetailTitle>
-                        <p>입원중 or 입원하지 않았어요</p>
-                      </DiaryDetail>
-                    </DiaryDetailContainer>
-                    <DiaryDetailContainer>
-                      <Icon>Icon</Icon>
-                      <DiaryDetail>
-                        <DetailTitle>보호자 메모</DetailTitle>
-                        <p>{'data.memo' || '메모 없음'}</p>
-                      </DiaryDetail>
-                    </DiaryDetailContainer>
-                  </DiaryDetailsLeft>
-                  <DiaryDetailsRight>
-                    <DiaryDetailContainer>
-                      <Icon>Icon</Icon>
-                      <DiaryDetail>
-                        <DetailTitle>처방</DetailTitle>
-                        <p>{'data.treatment' || '처방 기록이 없어요'}</p>
-                      </DiaryDetail>
-                    </DiaryDetailContainer>
-                    <DiaryDetailContainer>
-                      <Icon>Icon</Icon>
-                      <DiaryDetail>
-                        <DetailTitle>동물병원</DetailTitle>
-                        <p>
-                          방문 기록 여부
-                          <span>수의사 선생님 성함</span>
-                        </p>
-                      </DiaryDetail>
-                    </DiaryDetailContainer>
-                  </DiaryDetailsRight>
-                </div>
               </DeseaseName>
+              <DiaryDetailsLeft>
+                <DiaryDetailContainer>
+                  <Icon>
+                    <LuActivitySquare />
+                  </Icon>
+                  <DiaryDetail>
+                    <DetailTitle>증상</DetailTitle>
+                    <Paragraph>
+                      {'data.symptom' || '증상 기록이 없어요'}
+                    </Paragraph>
+                  </DiaryDetail>
+                </DiaryDetailContainer>
+                <DiaryDetailContainer>
+                  <Icon>
+                    <TbBuildingHospital />
+                  </Icon>
+                  <DiaryDetail>
+                    <DetailTitle>입원 여부</DetailTitle>
+                    <Paragraph>입원중 or 입원하지 않았어요</Paragraph>
+                  </DiaryDetail>
+                </DiaryDetailContainer>
+                <DiaryDetailContainer>
+                  <Icon>
+                    <LuMessageSquarePlus />
+                  </Icon>
+                  <DiaryDetail>
+                    <DetailTitle>보호자 메모</DetailTitle>
+                    <Paragraph>{'data.memo' || '메모 없음'}</Paragraph>
+                  </DiaryDetail>
+                </DiaryDetailContainer>
+              </DiaryDetailsLeft>
+              <DiaryDetailsRight>
+                <DiaryDetailContainer>
+                  <Icon>
+                    <LuPill />
+                  </Icon>
+                  <DiaryDetail>
+                    <DetailTitle>처방</DetailTitle>
+                    <Paragraph>
+                      {'data.treatment' || '처방 기록이 없어요'}
+                    </Paragraph>
+                  </DiaryDetail>
+                </DiaryDetailContainer>
+                <DiaryDetailContainer>
+                  <Icon>
+                    <LuStethoscope />
+                  </Icon>
+                  <DiaryDetail>
+                    <DetailTitle>동물병원</DetailTitle>
+                    <Paragraph>
+                      방문 기록 여부
+                      <Doctor> 수의사 선생님 성함</Doctor>
+                    </Paragraph>
+                  </DiaryDetail>
+                </DiaryDetailContainer>
+              </DiaryDetailsRight>
             </Report>
           </ReportWrapper>
         </DiaryWrapper>
