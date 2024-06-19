@@ -1,8 +1,6 @@
-import React from "react";
+import React from 'react';
 // import styled from "styled-components";
 
-const FeedBox: React.FC = () => {
-  return <></>;
-};
+const FeedBox: React.FC = () => <>feedBox</>;
 
 export default FeedBox;

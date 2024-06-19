@@ -1,15 +1,15 @@
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import reset from "styled-reset";
-import Home from "@pages/Home/";
-import ProtectedRoute from "@/protectedRoute";
-import Layout from "@/layout";
-// import Diary from "@pages/Diary/";
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import reset from 'styled-reset';
+import Home from '@pages/Home/';
+import ProtectedRoute from '@/routes/protectedRoute';
+import Layout from '@/components/layout';
+import Diary from '@pages/Diary/';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     // 로그인 유저만 접근
     element: (
       <ProtectedRoute>
@@ -17,13 +17,13 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      { path: "", element: <Home /> },
-      // {path: "diary", element: <Diary /> },
+      { path: '', element: <Home /> },
+      { path: 'diary', element: <Diary /> },
     ],
   },
 ]);
 
-// 전역 공통 스타일 
+// 전역 공통 스타일
 const GlobalStyles = createGlobalStyle`
   ${reset}
 
@@ -90,13 +90,11 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const App: React.FC = () => {
-  return (
-    <Wrapper>
-      <GlobalStyles />
-      <RouterProvider router={router} />
-    </Wrapper>
-  );
-};
+const App: React.FC = () => (
+  <Wrapper>
+    <GlobalStyles />
+    <RouterProvider router={router} />
+  </Wrapper>
+);
 
 export default App;
