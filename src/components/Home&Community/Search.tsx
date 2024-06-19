@@ -8,14 +8,14 @@ type SearchProps = {
   fontSize?: string;
   padding?: string;
   placeholder?: string;
-  onSearch?: (value: string) => void;
+  // onSearch?: (value: string) => void;
 };
 
 const Search: React.FC<SearchProps> = ({
   width,
   fontSize,
   padding,
-  onSearch,
+  // onSearch,
   placeholder = '검색어를 입력하세요',
 }) => {
 
