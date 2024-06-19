@@ -18,11 +18,9 @@ const Main = styled.div`
 
 /* 임시 레이아웃 끝 */
 
-const Profile = styled.div`
-  background-color: green;
-`
-
-const Container = styled.div``;
+const Container = styled.div`
+  margin: 30px 0 30px 0;
+`;
 
 const Menu = styled.div`
   padding: 10px 10px 10px 0;
@@ -90,42 +88,46 @@ const ImageBox = styled.div`
   }
 `;
 
+const Data = styled.a`
+  padding: 10px 10px 10px 0;
+`;
+
 const ProfileContainer = () => (
-  <UserContainer>
-    <ImgContainer>
-      <ImageBox><img src={defaultImg} alt="프로필 사진" /></ImageBox>
-      <LinkButton>프로필 사진 업로드 하기</LinkButton>
-    </ImgContainer>
-    <Info>
-      <InputList>
-        <List>
-          <ListItem>닉네임</ListItem>
-        </List>
-      </InputList>
-      <InputList>
-        <List>
-          <ListItem>소개글</ListItem>
-        </List>
-      </InputList>
-      <DataList>
-        <Button>저장하기</Button>
-      </DataList>
-    </Info>
-  </UserContainer>
+  <Container>
+    <UserContainer>
+      <ImgContainer>
+        <ImageBox><img src={defaultImg} alt="프로필 사진" /></ImageBox>
+        <LinkButton>프로필 사진 업로드 하기</LinkButton>
+      </ImgContainer>
+      <Info>
+        <InputList>
+          <List>
+            <ListItem>닉네임</ListItem>
+          </List>
+        </InputList>
+        <InputList>
+          <List>
+            <ListItem>소개글</ListItem>
+          </List>
+        </InputList>
+        <DataList>
+          <Button>저장하기</Button>
+        </DataList>
+      </Info>
+    </UserContainer>
+  </Container>
 );
 
 const PetManagementContainer = () => (
-  <UserContainer>
-    {/* Add specific UI components for Pet Management */}
-    <div>Pet Management UI</div>
-  </UserContainer>
+  <Container>
+    <div>반려동물 카드</div>
+  </Container>
 );
 
 const PostListContainer = () => (
-  <UserContainer>
-    {/* Add specific UI components for Post List */}
-    <div>Post List UI</div>
-  </UserContainer>
+  <Container>
+    <div>작성 글 목록</div>
+  </Container>
 );
 
 const contentItems = [
@@ -137,16 +139,21 @@ const contentItems = [
 const Mypage: React.FC = () => (
   <Body>
     <Main>
-      <Profile>
-        첫번째 컨테이너
-      </Profile>
+      <Menu>
+        <Item>회원정보</Item>
+      </Menu>
+      <Container>
+        <Item>이메일</Item>
+        <Data>carebuddy@naver.com</Data>
+      </Container>
+
       <Container>
         {contentItems.map(item => (
           <React.Fragment key={item.id}>
             <Menu>
-              <Item>{item.content}</Item>
+              <Item>{item.content}</Item> {/*제목 반복*/}
             </Menu>
-            {item.component}
+            {item.component} {/*본문 컴포넌트 반복*/}
           </React.Fragment>
         ))}
       </Container>
