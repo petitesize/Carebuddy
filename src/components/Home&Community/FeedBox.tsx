@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable no-use-before-define */
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -54,13 +52,13 @@ const StyledFeedBox = styled(Link)`
   border: solid 1px var(--color-grey-2);
   height: 150px;
   padding: 24px 20px;
-  margin: 20px 0;
+  margin: 10px 0 20px 0;
   text-decoration: none;
   cursor: pointer;
 `;
 
 const TitleContainer = styled.div`
-  // 좋아요 댓글 개수 추가될거라 row 그대로
+  // 좋아요 댓글 개수 띄워주는 모달 추가될거라 flex row 그대로
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
@@ -84,7 +82,6 @@ const ProfileImg = styled.img`
   height: 24px;
   width: 24px;
   border-radius: 50%;
-
 `;
 
 const Title = styled.p`
