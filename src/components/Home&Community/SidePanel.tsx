@@ -21,7 +21,6 @@ const StyledContainer = styled.div`
   border-radius: 12px;
   border: solid 1px var(--color-grey-2);
   padding: 24px 20px;
-  height: 100px; // 임시
   text-decoration: none; // 임시, link 들어갈 가능성 있어서 미리 추가
 `;
 

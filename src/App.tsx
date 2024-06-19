@@ -6,6 +6,7 @@ import Home from '@pages/Home/';
 import ProtectedRoute from '@/protectedRoute';
 import Layout from '@/layout';
 import Diary from '@pages/Diary/';
+import Community from './pages/Community';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '', element: <Home /> },
+      { path: 'community', element: <Community /> },
       { path: 'diary', element: <Diary /> },
     ],
   },

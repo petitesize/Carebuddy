@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 // 컴포넌트
 // import Button from '@/components/common/Button';
-import Banner from '@/components/Home&Community/Banner';
 import FeedBox from '@/components/Home&Community/FeedBox';
 import SidePanel from '@/components/Home&Community/SidePanel';
 import WriteButton from '@/components/Home&Community/WirteButton';
 import GroupElement from '@/components/Home&Community/GroupElement';
+import Search from '@/components/Home&Community/Search';
 
 // 임시 데이터
 import {
@@ -20,7 +20,8 @@ import {
   tempGroupArray1,
 } from '../../../tempData';
 
-const Home: React.FC = () => {
+const Community: React.FC = () => {
+  // 작동 테스트용
   const tempGroup = (
     <GroupElement
       key={tempGroupArray1.groupId}
@@ -34,17 +35,20 @@ const Home: React.FC = () => {
   return (
     <Body>
       <Main>
-        <Banner />
-        <ContentContainer>
+        <SearchContainer>
+          <Search
+            width="500px"
+            fontSize="var(--font-size-md-2)"
+            padding="15px 16px"
+            onSearch={(value) => handleSearch(value)}
+            placeholder="검색할 게시글의 제목을 입력하세요"
+          />
+        </SearchContainer>
+        <Container>
           <FeedBoxContainer>
-            <FeedOptionContainer>
-              <SelectContainer>
-                <p>분류: </p>
-                <select>홈</select>
-                <select>그룹</select>
-              </SelectContainer>
+            <WriteButtonContainer>
               <WriteButton />
-            </FeedOptionContainer>
+            </WriteButtonContainer>
             <FeedBox
               postId={tempPostId}
               title={tempTitle}
@@ -71,18 +75,15 @@ const Home: React.FC = () => {
             />
           </FeedBoxContainer>
           <SidePanelContainer>
-            <SidePanel
-              name="추천 그룹 or 추천 커뮤니티"
-              elementArray={tempGroup}
-            />
+            <SidePanel name="그룹 멤버" elementArray={tempGroup} />
           </SidePanelContainer>
-        </ContentContainer>
+        </Container>
       </Main>
     </Body>
   );
 };
 
-export default Home;
+export default Community;
 
 /* 임시 레이아웃 */
 
@@ -100,18 +101,34 @@ const Main = styled.div`
 
 /* 임시 레이아웃 끝 */
 
-const ContentContainer = styled.div`
+const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 200px;
+`;
+
+const Container = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 80px;
+  height: auto;
+  margin: 0 auto;
 
   & > * {
     margin-bottom: 30px;
   }
 `;
 
+const WriteButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const FeedBoxContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
   width: 70%;
   // background-color: yellow; // 임시
   color: var(--color-grey-1);
