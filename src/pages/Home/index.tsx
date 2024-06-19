@@ -55,7 +55,8 @@ const Home: React.FC = () => (
         <FeedOptionContainer>
           <p>피드옵션 컨테이너</p>
         </FeedOptionContainer>
-        <p>피드박스 컨테이너</p>
+        <FeedBox postId={tempPostId} title={tempTitle} content={tempContent} uploadedDate={tempDate} nickname={tempNickname} profileSrc={tempProfileSrc}/>
+        <FeedBox postId={tempPostId} title={tempTitle} content={tempContent} uploadedDate={tempDate} nickname={tempNickname} profileSrc={tempProfileSrc}/>
         <FeedBox postId={tempPostId} title={tempTitle} content={tempContent} uploadedDate={tempDate} nickname={tempNickname} profileSrc={tempProfileSrc}/>
       </FeedBoxContainer>
       <SidePanelContainer>
