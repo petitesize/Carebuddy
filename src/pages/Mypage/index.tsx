@@ -50,6 +50,7 @@ const List = styled.span`
 const ListItem = styled.a`
   font-weight: var(--font-weight-bold);
   margin: 10px;
+  display: flex;
 `;
 
 const ImgContainer = styled.div`
@@ -88,8 +89,30 @@ const ImageBox = styled.div`
   }
 `;
 
-const Data = styled.a`
-  padding: 10px 10px 10px 0;
+const Data = styled.span`
+  padding: 10px 0 10px 0;
+  text-align: center;
+`;
+
+const Title = styled.div`
+  font-weight: bold;
+  font-size: 16px;
+  margin: auto 0;
+  text-align: center;
+`;
+
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+`;
+
+const DataContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: space-between;
+  border-bottom: 1px solid #cecece;
+  padding: 10px 0;
 `;
 
 const ProfileContainer = () => (
@@ -103,11 +126,13 @@ const ProfileContainer = () => (
         <InputList>
           <List>
             <ListItem>닉네임</ListItem>
+            <Data>케어버디</Data>
           </List>
         </InputList>
         <InputList>
           <List>
             <ListItem>소개글</ListItem>
+            <Data>안녕하세요^^</Data>
           </List>
         </InputList>
         <DataList>
@@ -124,11 +149,32 @@ const PetManagementContainer = () => (
   </Container>
 );
 
-const PostListContainer = () => (
-  <Container>
-    <div>작성 글 목록</div>
-  </Container>
-);
+const PostListContainer = () => {
+  const posts = [
+    { id: '1', group: '그룹1', title: '안녕하세요', date: '2024-01-01' },
+    { id: '2', group: '그룹2', title: '글입니다히히히', date: '2024-01-02' },
+    { id: '3', group: '그룹3', title: '가운데정렬왜안돼', date: '2024-01-03' },
+  ];
+
+  return (
+    <Container>
+      <ListContainer>
+        <DataContainer>
+          <Title>그룹</Title>
+          <Title>글제목</Title>
+          <Title>작성일</Title>
+        </DataContainer>
+        {posts.map((post) => (
+          <DataContainer key={post.id}>
+            <Data>{post.group}</Data>
+            <Data>{post.title}</Data>
+            <Data>{post.date}</Data>
+          </DataContainer>
+        ))}
+      </ListContainer>
+    </Container>
+  );
+};
 
 const contentItems = [
   { id: '1', content: '프로필', component: <ProfileContainer /> },
@@ -151,9 +197,9 @@ const Mypage: React.FC = () => (
         {contentItems.map(item => (
           <React.Fragment key={item.id}>
             <Menu>
-              <Item>{item.content}</Item> {/*제목 반복*/}
+              <Item>{item.content}</Item>
             </Menu>
-            {item.component} {/*본문 컴포넌트 반복*/}
+            {item.component}
           </React.Fragment>
         ))}
       </Container>
