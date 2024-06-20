@@ -7,6 +7,7 @@ import ProtectedRoute from '@/routes/protectedRoute';
 import Layout from '@/components/layout';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
+import Community from '@pages/Community';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '', element: <Home /> },
+      { path: 'community', element: <Community /> },
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
     ],
@@ -65,6 +67,7 @@ const GlobalStyles = createGlobalStyle`
     --color-white: #ffffff;
     --color-black: #343434;
     --color-red: #E13C45;
+    --color-blue: #0069e4;
 
     --swiper-pagination-color: var(--color-green-main);
   }

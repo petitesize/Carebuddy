@@ -16,10 +16,12 @@
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
     "sort-by": "^0.0.2",
     "styled-components": "^6.1.11",
     "styled-reset": "^4.5.2",
+    "swiper": "^11.1.4",
     "typewriter-effect": "^2.21.0",
     "vite": "^5.2.0"
   },
@@ -40,5 +42,10 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "prettier": "^3.3.2",
     "typescript": "^5.4.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
