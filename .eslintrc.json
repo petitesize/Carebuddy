@@ -38,8 +38,7 @@
       2,
       { "namedComponents": ["arrow-function", "function-declaration"] }
     ],
-    "react/require-default-props": "off",
-    "no-use-before-define" : "off"
+    "no-use-before-define": "off"
   },
   "settings": {
     "import/parsers": {
@@ -48,6 +47,7 @@
     "import/resolver": {
       "typescript": {}, // TypeScript 경로를 해석할 수 있도록 설정
       "node": {
+        "paths": ["src"],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }

@@ -6,6 +6,7 @@ import Home from '@pages/Home/';
 import ProtectedRoute from '@/routes/protectedRoute';
 import Layout from '@/components/layout';
 import Diary from '@pages/Diary/';
+import Mypage from '@pages/Mypage/';
 import Community from '@pages/Community';
 
 const router = createBrowserRouter([
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: '', element: <Home /> },
       { path: 'community', element: <Community /> },
       { path: 'diary', element: <Diary /> },
+      { path: 'mypage', element: <Mypage /> },
     ],
   },
 ]);
