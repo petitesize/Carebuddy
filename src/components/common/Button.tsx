@@ -66,11 +66,13 @@ const Button: React.FC<ButtonProps> = ({
   buttonStyle = 'round-green',
   buttonSize = 'md',
   onClick,
+  ...props
 }) => (
   <StyledButton
     buttonStyle={buttonStyle}
     buttonSize={buttonSize}
     onClick={onClick}
+    {...props}
   >
     {children}
   </StyledButton>
