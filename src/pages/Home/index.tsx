@@ -53,29 +53,11 @@ const Home: React.FC = () => {
               nickname={tempNickname}
               profileSrc={tempProfileSrc}
             />
-            <FeedBox
-              postId={tempPostId}
-              title={tempTitle}
-              content={tempContent}
-              uploadedDate={tempDate}
-              nickname={tempNickname}
-              profileSrc={tempProfileSrc}
-            />
-            <FeedBox
-              postId={tempPostId}
-              title={tempTitle}
-              content={tempContent}
-              uploadedDate={tempDate}
-              nickname={tempNickname}
-              profileSrc={tempProfileSrc}
-            />
           </FeedBoxContainer>
-          <SidePanelContainer>
-            <SidePanel
-              name="추천 그룹 or 추천 커뮤니티"
-              elementArray={tempGroup}
-            />
-          </SidePanelContainer>
+          <SidePanel
+            name="추천 그룹 or 추천 커뮤니티"
+            elementArray={tempGroup}
+          />
         </ContentContainer>
       </Main>
     </Body>
@@ -83,6 +65,40 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+const ContentContainer = styled.div`
+  display: grid;
+  grid-template-columns: 70% 20%;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 80px;
+
+  & > * {
+    margin-bottom: 30px;
+  }
+`;
+
+const FeedBoxContainer = styled.div`
+  // background-color: yellow; // 임시
+  color: var(--color-grey-1);
+`;
+
+const FeedOptionContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content: space-between;
+  // background-color: aqua; // 임시
+`;
+
+const SelectContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm-1);
+
+  & > * {
+    margin-right: 10px;
+  }
+`;
 
 /* 임시 레이아웃 */
 
@@ -99,42 +115,3 @@ const Main = styled.div`
 `;
 
 /* 임시 레이아웃 끝 */
-
-const ContentContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 80px;
-
-  & > * {
-    margin-bottom: 30px;
-  }
-`;
-
-const FeedBoxContainer = styled.div`
-  width: 70%;
-  // background-color: yellow; // 임시
-  color: var(--color-grey-1);
-`;
-
-const FeedOptionContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  // background-color: aqua; // 임시
-`;
-
-const SelectContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: var(--font-size-sm-1);
-
-  & > * {
-    margin-right: 10px;
-  }
-`;
-
-const SidePanelContainer = styled.div`
-  width: 20%;
-  // border: solid 2px blue; // 임시
-`;

@@ -2,11 +2,12 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
-import Home from '@pages/Home/';
 import ProtectedRoute from '@/routes/protectedRoute';
 import Layout from '@/components/layout';
-import Diary from '@pages/Diary/';
+import Home from '@pages/Home/';
 import Community from '@pages/Community';
+import Post from '@pages/Post';
+import Diary from '@pages/Diary/';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <Home /> },
       { path: 'community', element: <Community /> },
+      { path: 'post', element: <Post /> },
       { path: 'diary', element: <Diary /> },
     ],
   },
