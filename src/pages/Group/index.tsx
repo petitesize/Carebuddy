@@ -13,7 +13,7 @@ import {
 } from '../../../tempData';
 
 type GroupProps = {
-  groupArray: string[];
+
 };
 
 const Group: React.FC<GroupProps> = () => (
