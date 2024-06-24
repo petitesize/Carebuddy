@@ -15,6 +15,16 @@
     "prettier"
   ],
   "rules": {
+    // 커스텀 라디오 버튼 사용을 위해 접근성 규칙 설정
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["Label"],
+        "labelAttributes": ["htmlFor"],
+        "controlComponents": ["Radio"],
+        "depth": 3
+      }
+    ],
     // props spreading 허용하지 않는 경고 표시
     "react/jsx-props-no-spreading": [1, { "custom": "ignore" }],
     // defaultProps가 필수적으로 요구되지 않음

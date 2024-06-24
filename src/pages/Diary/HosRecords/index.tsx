@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Input from '@/components/common/Input';
+import Radio from '@/components/common/Radio';
 
 const Component = styled.div`
   display: flex;
@@ -36,20 +37,29 @@ const BoxTitle = styled.div`
 const ContentTitle = styled.div`
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-md-1); //16
+  margin-bottom: 4px;
 `;
 
 const ContentBody = styled.div`
   font-size: var(--font-size-md-1); //16
   margin: 10px 0 10px 0;
+  > input {
+    margin-right: 10px;
+  }
 `;
 
 const Checkbox = styled.input``;
+
+const Label = styled.label`
+  margin-right: 1rem;
+`;
 
 const HosRecords = ({ formData, setFormData }) => {
   const [checked, setChecked] = useState(false);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
-  const [selectedOption, setSelectedOption] = useState('아니오');
+
+  const [selectedOption, setSelectedOption] = useState<string>('아니오');
 
   useEffect(() => {
     setFormData((prevData) => ({
@@ -61,10 +71,6 @@ const HosRecords = ({ formData, setFormData }) => {
 
   const handleCheckboxChange = () => {
     setChecked(!checked);
-  };
-
-  const handleRadioChange = (value) => {
-    setSelectedOption(value);
   };
 
   const handleInputChange = (e) => {
@@ -93,6 +99,10 @@ const HosRecords = ({ formData, setFormData }) => {
     }));
   };
 
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(e.target.value);
+  };
+
   return (
     <Component>
       <Container>
@@ -110,15 +120,13 @@ const HosRecords = ({ formData, setFormData }) => {
             </ContentBody>
           </Content>
           <Content>
-            <ContentTitle>
-              예약하신 수의사 선생님 성함을 입력하여주세요.
-            </ContentTitle>
+            <ContentTitle>수의사 선생님 성함을 입력하여주세요.</ContentTitle>
             <ContentBody>
               <Input
                 name="doctorName"
-                // height="20px"
-                // value={formData.doctorName || ''}
-                activeOption="readOnly"
+                inputSize="sm"
+                value={formData.doctorName || ''}
+                placeholder="선생님 성함"
                 onChange={handleInputChange}
               />
             </ContentBody>
@@ -128,29 +136,26 @@ const HosRecords = ({ formData, setFormData }) => {
             <ContentBody>
               <Input
                 type="date"
-                width="180px"
-                height="20px"
-                margin="0 10px 0 0"
+                inputSize="sm"
                 value={date}
                 onChange={handleDateChange}
               />
-              <input
+              <Input
                 type="time"
-                width="180px"
-                height="20px"
-                margin="0 10px 0 0"
+                inputSize="sm"
                 value={time}
                 onChange={handleTimeChange}
               />
             </ContentBody>
           </Content>
           <Content>
-            <ContentTitle>병원 이름</ContentTitle>
+            <ContentTitle>동물병원명</ContentTitle>
             <ContentBody>
               <Input
                 name="address"
-                height="20px"
+                inputSize="sm"
                 value={formData.address || ''}
+                placeholder="동물병원명"
                 onChange={handleInputChange}
               />
             </ContentBody>
@@ -158,24 +163,24 @@ const HosRecords = ({ formData, setFormData }) => {
           <Content>
             <ContentTitle>입원 여부</ContentTitle>
             <ContentBody>
-              {/* <RadioBox
-                labelText="네"
-                value="네"
-                checked={selectedOption === '네'}
-                onChange={(value) => {
-                  handleRadioChange(value);
-                  setSelectedOption(value);
-                }}
-              />
-              <RadioBox
-                labelText="아니오"
-                value="아니오"
-                checked={selectedOption === '아니오'}
-                onChange={(value) => {
-                  handleRadioChange(value);
-                  setSelectedOption(value);
-                }}
-              /> */}
+              <Label htmlFor="radioYes">
+                <Radio
+                  id="radioYes"
+                  value="네"
+                  checked={selectedOption === '네'}
+                  onChange={handleRadioChange}
+                />
+                네
+              </Label>
+              <Label htmlFor="radioNo">
+                <Radio
+                  id="radioNo"
+                  value="아니오"
+                  checked={selectedOption === '아니오'}
+                  onChange={handleRadioChange}
+                />
+                아니오
+              </Label>
             </ContentBody>
           </Content>
         </ContentCard>
