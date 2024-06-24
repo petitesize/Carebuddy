@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 // 버튼 스타일, 사이즈 props
 interface StyledButtonProps {
   buttonStyle?: 'round-green' | 'square-green' | 'square-white' | 'link';
-  buttonSize?: 'sm' | 'md';
+  buttonSize?: 'sm' | 'md' | 'lg';
 }
 
 const buttonStyles = {
@@ -42,6 +42,9 @@ const buttonSizes = {
   `,
   md: css`
     font-size: var(--font-size-md-1);
+  `,
+  lg: css`
+    font-size: var(--font-size-hd-1);
   `,
 };
 

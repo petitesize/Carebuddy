@@ -88,3 +88,11 @@ export { tempLikeCount, tempCommentCount };
 const tempCommentText = `왕자병에서 두 냉증의 살피어요 있다 버려지다. 시정하다 대칭의 공감대가 미약하다 차든지 잡는다 뽑히다. 지난해에 계몽한지 자리의 온 주목의 올라오고 지정에 들어온다. 그는 본 엄격하기 대중화되다 치다 2,280,000원 자신이 남다. 모면하여 걸맞게 자유가 어떤 있고 보아야 작정을 모색합니다. 지르어야 알려지는 부각시킨 한 유월을 환하라 말씀, 여전히 한다.`;
 
 export { tempCommentText };
+
+// GroupCard
+
+const tempGroupName = `눈, 코, 귀`;
+const tempGroupIntroduction = `"유형을 좋다 배달을 따냐 처지가 노력에 있다" "현행법을 설날이라고, 국한되지 식량난도, 수 병합을 그 붓으라 분리의 대형을 대하다" "19일 대기를 부부로 차량과 국내를 하루를 논의하고 전산망은 섬유도 시설을 망명하다"`;
+const tempGroupMemberCount = 5;
+
+export { tempGroupName, tempGroupIntroduction, tempGroupMemberCount };

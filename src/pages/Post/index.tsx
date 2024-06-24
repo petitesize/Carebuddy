@@ -27,20 +27,24 @@ import {
 } from '../../../tempData';
 
 interface PostProps {
-  title?: string;
-  content?: string;
-  userId?: {
-    nickName: string;
-  };
-  postId?: {
-    updatedAt: string;
-    likeCount: number;
-    postImage?: string;
-    categoryId?: string;
-  };
+  // title?: string;
+  // content?: string;
+  // userId?: {
+  //   nickName: string;
+  // };
+  // postId?: {
+  //   updatedAt: string;
+  //   likeCount: number;
+  //   postImage?: string;
+  //   categoryId?: string;
+  // };
 }
 
-const Post: React.FC<PostProps> = ({ title, content, userId, postId }) => (
+// 임시 - 이 주석은 데이터 들어오면 삭제
+// eslint-disable-next-line no-empty-pattern
+const Post: React.FC<PostProps> = ({ 
+  // title, content, userId, postId 
+}) => (
   <Body>
     <Main>
       <Container>
