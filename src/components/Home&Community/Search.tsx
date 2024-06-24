@@ -1,6 +1,8 @@
 // 추후에 공통 컴포넌트화 해야함
 import React from 'react';
 import styled from 'styled-components';
+
+// 아이콘
 import {LuSearch} from 'react-icons/lu';
 
 type SearchProps = {

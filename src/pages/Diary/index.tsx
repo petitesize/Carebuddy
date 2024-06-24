@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination } from 'swiper/modules';
 import Button from '@/components/common/Button';
+import Modal from '@/components/common/Modal';
 import { TbReportMedical, TbBuildingHospital } from 'react-icons/tb';
 import {
   LuPill,
@@ -13,7 +14,7 @@ import {
   LuStethoscope,
   LuMessageSquarePlus,
 } from 'react-icons/lu';
-
+import HosRecords from './HosRecords';
 /* 임시 레이아웃 */
 
 const Body = styled.div`
@@ -287,113 +288,148 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-const Diary: React.FC = () => (
-  <Body>
-    <Main>
-      <Wrapper>
-        <ProfilesWrapper>
-          <ProfilesTitle>user 님의 반려동물</ProfilesTitle>
-          <StyledSwiper
-            slidesPerView={4}
-            spaceBetween={0}
-            // slidesOffsetBefore={20}
-            // /* 전체적인 슬라이드의 오른쪽에 20px 공백을 준다. */
-            // slidesOffsetAfter={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-              <CardsWrapper>
-                <Cards>
-                  <Photo />
-                  <Name>이름</Name>
-                  <Details>종 / 나이</Details>
-                </Cards>
-              </CardsWrapper>
-            </SwiperSlide>
-          </StyledSwiper>
-        </ProfilesWrapper>
-        <DiaryWrapper>
-          <NameInTitle className="diaryTitle">
-            (반려동물 이름)<DiaryTitle>의 건강 다이어리</DiaryTitle>
-          </NameInTitle>
-          <HorizontalLine />
-          <Button buttonStyle="square-green">기록하기</Button>
-          <ReportWrapper>
-            <Paragraph>날짜(컴포넌트화 필요합니다)</Paragraph>
+const Diary: React.FC = () => {
+  // 모달 관련 상태 관리
+  const [modalOpen, setModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', phoneNumber: '' });
 
-            <Report>
-              <DeseaseName>
-                <Icon>
-                  <TbReportMedical className="big" />
-                </Icon>
-                <DeseaseTitle>질병 타이틀</DeseaseTitle>
-              </DeseaseName>
-              <DiaryDetailsLeft>
-                <DiaryDetailContainer>
+  // 모달 관련 함수
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleFormSubmit = () => {
+    console.log('Form data:', formData);
+
+    // 모달 닫기
+    handleCloseModal();
+  };
+
+  return (
+    <Body>
+      <Main>
+        <Wrapper>
+          <ProfilesWrapper>
+            <ProfilesTitle>user 님의 반려동물</ProfilesTitle>
+            <StyledSwiper
+              slidesPerView={4}
+              spaceBetween={0}
+              // slidesOffsetBefore={20}
+              // /* 전체적인 슬라이드의 오른쪽에 20px 공백을 준다. */
+              // slidesOffsetAfter={30}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <CardsWrapper>
+                  <Cards>
+                    <Photo />
+                    <Name>이름</Name>
+                    <Details>종 / 나이</Details>
+                  </Cards>
+                </CardsWrapper>
+              </SwiperSlide>
+            </StyledSwiper>
+          </ProfilesWrapper>
+          <DiaryWrapper>
+            <NameInTitle className="diaryTitle">
+              (반려동물 이름)<DiaryTitle>의 건강 다이어리</DiaryTitle>
+            </NameInTitle>
+            <HorizontalLine />
+            <Button buttonStyle="square-green" onClick={handleOpenModal}>
+              기록하기
+            </Button>
+            {modalOpen && (
+              <Modal
+                onClose={handleCloseModal}
+                title="병원 기록"
+                value="Submit"
+                component={
+                  <HosRecords formData={formData} setFormData={setFormData} />
+                }
+                onHandleClick={handleFormSubmit}
+              />
+            )}
+            <ReportWrapper>
+              <Paragraph>날짜(컴포넌트화 필요합니다)</Paragraph>
+
+              <Report>
+                <DeseaseName>
                   <Icon>
-                    <LuActivitySquare />
+                    <TbReportMedical className="big" />
                   </Icon>
-                  <DiaryDetail>
-                    <DetailTitle>증상</DetailTitle>
-                    <Paragraph>
-                      {'data.symptom' || '증상 기록이 없어요'}
-                    </Paragraph>
-                  </DiaryDetail>
-                </DiaryDetailContainer>
-                <DiaryDetailContainer>
-                  <Icon>
-                    <TbBuildingHospital />
-                  </Icon>
-                  <DiaryDetail>
-                    <DetailTitle>입원 여부</DetailTitle>
-                    <Paragraph>입원중 or 입원하지 않았어요</Paragraph>
-                  </DiaryDetail>
-                </DiaryDetailContainer>
-                <DiaryDetailContainer>
-                  <Icon>
-                    <LuMessageSquarePlus />
-                  </Icon>
-                  <DiaryDetail>
-                    <DetailTitle>보호자 메모</DetailTitle>
-                    <Paragraph>{'data.memo' || '메모 없음'}</Paragraph>
-                  </DiaryDetail>
-                </DiaryDetailContainer>
-              </DiaryDetailsLeft>
-              <DiaryDetailsRight>
-                <DiaryDetailContainer>
-                  <Icon>
-                    <LuPill />
-                  </Icon>
-                  <DiaryDetail>
-                    <DetailTitle>처방</DetailTitle>
-                    <Paragraph>
-                      {'data.treatment' || '처방 기록이 없어요'}
-                    </Paragraph>
-                  </DiaryDetail>
-                </DiaryDetailContainer>
-                <DiaryDetailContainer>
-                  <Icon>
-                    <LuStethoscope />
-                  </Icon>
-                  <DiaryDetail>
-                    <DetailTitle>동물병원</DetailTitle>
-                    <Paragraph>
-                      방문 기록 여부
-                      <Doctor> 수의사 선생님 성함</Doctor>
-                    </Paragraph>
-                  </DiaryDetail>
-                </DiaryDetailContainer>
-              </DiaryDetailsRight>
-            </Report>
-          </ReportWrapper>
-        </DiaryWrapper>
-      </Wrapper>
-    </Main>
-  </Body>
-);
+                  <DeseaseTitle>질병 타이틀</DeseaseTitle>
+                </DeseaseName>
+                <DiaryDetailsLeft>
+                  <DiaryDetailContainer>
+                    <Icon>
+                      <LuActivitySquare />
+                    </Icon>
+                    <DiaryDetail>
+                      <DetailTitle>증상</DetailTitle>
+                      <Paragraph>
+                        {'data.symptom' || '증상 기록이 없어요'}
+                      </Paragraph>
+                    </DiaryDetail>
+                  </DiaryDetailContainer>
+                  <DiaryDetailContainer>
+                    <Icon>
+                      <TbBuildingHospital />
+                    </Icon>
+                    <DiaryDetail>
+                      <DetailTitle>입원 여부</DetailTitle>
+                      <Paragraph>입원중 or 입원하지 않았어요</Paragraph>
+                    </DiaryDetail>
+                  </DiaryDetailContainer>
+                  <DiaryDetailContainer>
+                    <Icon>
+                      <LuMessageSquarePlus />
+                    </Icon>
+                    <DiaryDetail>
+                      <DetailTitle>보호자 메모</DetailTitle>
+                      <Paragraph>{'data.memo' || '메모 없음'}</Paragraph>
+                    </DiaryDetail>
+                  </DiaryDetailContainer>
+                </DiaryDetailsLeft>
+                <DiaryDetailsRight>
+                  <DiaryDetailContainer>
+                    <Icon>
+                      <LuPill />
+                    </Icon>
+                    <DiaryDetail>
+                      <DetailTitle>처방</DetailTitle>
+                      <Paragraph>
+                        {'data.treatment' || '처방 기록이 없어요'}
+                      </Paragraph>
+                    </DiaryDetail>
+                  </DiaryDetailContainer>
+                  <DiaryDetailContainer>
+                    <Icon>
+                      <LuStethoscope />
+                    </Icon>
+                    <DiaryDetail>
+                      <DetailTitle>동물병원</DetailTitle>
+                      <Paragraph>
+                        방문 기록 여부
+                        <Doctor> 수의사 선생님 성함</Doctor>
+                      </Paragraph>
+                    </DiaryDetail>
+                  </DiaryDetailContainer>
+                </DiaryDetailsRight>
+              </Report>
+            </ReportWrapper>
+          </DiaryWrapper>
+        </Wrapper>
+      </Main>
+    </Body>
+  );
+};
 
 export default Diary;

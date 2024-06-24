@@ -17,7 +17,7 @@ const ModalBackground = styled.div`
 
 const ModalContent = styled.div`
   position: relative;
-  width: 60%;
+  width: 50%;
   max-height: 80vh;
   background-color: var(--color-white);
   border-radius: 7px;
@@ -26,8 +26,8 @@ const ModalContent = styled.div`
   padding: 20px 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   z-index: 10000;
   overflow-y: auto;
   overflow-x: hidden;

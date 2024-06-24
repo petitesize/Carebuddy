@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from 'react';
 import defaultImg from '@/assets/person.png'
+import Button from '@/components/common/Button';
 
 /* 임시 레이아웃 */
 
@@ -32,7 +33,7 @@ const Menu = styled.div`
 
 const Item = styled.a`
   font-weight: bold;
-  padding: 10px 10px 10px 0;
+  padding-right: 40px;
 `;
 
 const UserContainer = styled.div`
@@ -43,14 +44,8 @@ const UserContainer = styled.div`
 `;
 
 const List = styled.span`
-  display: flex;
-  align-items: center;
-`;
-
-const ListItem = styled.a`
-  font-weight: var(--font-weight-bold);
-  margin: 10px;
-  display: flex;
+  /* display: flex;
+  align-items: center; */
 `;
 
 const ImgContainer = styled.div`
@@ -63,11 +58,15 @@ const ImgContainer = styled.div`
 const LinkButton = styled.div`
   margin: 10px 0 10px 0;
   text-decoration: underline;
-`
+`;
 
 const DataList = styled.div`
+`;
+
+const ButtonContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 const Info = styled.div`
@@ -76,11 +75,7 @@ const Info = styled.div`
   justify-content: space-evenly;
 `;
 
-const InputList = styled.span`
-  display: flex;
-`;
-
-const Button = styled.div``;
+const InputList = styled.span``;
 
 const ImageBox = styled.div`
   img {
@@ -90,15 +85,18 @@ const ImageBox = styled.div`
 `;
 
 const Data = styled.span`
+`;
+
+const ContentList = styled.span`
   padding: 10px 0 10px 0;
   text-align: center;
 `;
 
 const Title = styled.div`
   font-weight: bold;
-  font-size: 16px;
-  margin: auto 0;
+  font-size: var(--font-size-md-1); //16
   text-align: center;
+  padding: 10px 0 10px 0;
 `;
 
 const ListContainer = styled.div`
@@ -115,6 +113,45 @@ const DataContainer = styled.div`
   padding: 10px 0;
 `;
 
+const InfoContainer = styled.div`
+  display: flex;
+  margin: 30px;
+  margin-left: 0;
+`;
+
+const GroupContent = styled(ContentList)`
+  color: #6d987a;
+`;
+
+const UserInfoContainer = () => (
+  <Container>
+    <InfoContainer>
+      <List>
+        <Item>이메일</Item>
+      </List>
+      <DataList>
+        <Data>carebuddy@naver.com</Data>
+      </DataList>
+    </InfoContainer>
+    <InfoContainer>
+      <List>
+        <Item>닉네임</Item>
+      </List>
+      <DataList>
+        <Data>케어버디</Data>
+      </DataList>
+    </InfoContainer>
+    <InfoContainer>
+      <List>
+        <Item>소개글</Item>
+      </List>
+      <DataList>
+        <Data>안녕하세요</Data>
+      </DataList>
+    </InfoContainer>
+  </Container>
+);
+
 const ProfileContainer = () => (
   <Container>
     <UserContainer>
@@ -125,19 +162,19 @@ const ProfileContainer = () => (
       <Info>
         <InputList>
           <List>
-            <ListItem>닉네임</ListItem>
+            <Item>닉네임</Item>
             <Data>케어버디</Data>
           </List>
         </InputList>
         <InputList>
           <List>
-            <ListItem>소개글</ListItem>
+            <Item>소개글</Item>
             <Data>안녕하세요^^</Data>
           </List>
         </InputList>
-        <DataList>
+        <ButtonContainer>
           <Button>저장하기</Button>
-        </DataList>
+        </ButtonContainer>
       </Info>
     </UserContainer>
   </Container>
@@ -166,9 +203,9 @@ const PostListContainer = () => {
         </DataContainer>
         {posts.map((post) => (
           <DataContainer key={post.id}>
-            <Data>{post.group}</Data>
-            <Data>{post.title}</Data>
-            <Data>{post.date}</Data>
+            <GroupContent>[{post.group}]</GroupContent>
+            <ContentList>{post.title}</ContentList>
+            <ContentList>{post.date}</ContentList>
           </DataContainer>
         ))}
       </ListContainer>
@@ -177,22 +214,15 @@ const PostListContainer = () => {
 };
 
 const contentItems = [
-  { id: '1', content: '프로필', component: <ProfileContainer /> },
-  { id: '2', content: '반려동물 관리', component: <PetManagementContainer /> },
-  { id: '3', content: '작성 글 목록', component: <PostListContainer /> },
+  { id: '1', content: '회원정보', component: <UserInfoContainer /> },
+  { id: '2', content: '프로필', component: <ProfileContainer /> },
+  { id: '3', content: '반려동물 관리', component: <PetManagementContainer /> },
+  { id: '4', content: '작성 글 목록', component: <PostListContainer /> },
 ];
 
 const Mypage: React.FC = () => (
   <Body>
     <Main>
-      <Menu>
-        <Item>회원정보</Item>
-      </Menu>
-      <Container>
-        <Item>이메일</Item>
-        <Data>carebuddy@naver.com</Data>
-      </Container>
-
       <Container>
         {contentItems.map(item => (
           <React.Fragment key={item.id}>

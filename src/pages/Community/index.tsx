@@ -58,22 +58,6 @@ const Community: React.FC = () => {
               nickname={tempNickname}
               profileSrc={tempProfileSrc}
             />
-            <FeedBox
-              postId={tempPostId}
-              title={tempTitle}
-              content={tempContent}
-              uploadedDate={tempDate}
-              nickname={tempNickname}
-              profileSrc={tempProfileSrc}
-            />
-            <FeedBox
-              postId={tempPostId}
-              title={tempTitle}
-              content={tempContent}
-              uploadedDate={tempDate}
-              nickname={tempNickname}
-              profileSrc={tempProfileSrc}
-            />
           </FeedBoxContainer>
           <SidePanelContainer>
             <LinkButtonContainer>
@@ -117,8 +101,9 @@ const SearchContainer = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+  gap: 10%;
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -136,7 +121,6 @@ const FeedOptionContainer = styled.div`
 const FeedBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
   color: var(--color-grey-1);
 `;
 
@@ -146,5 +130,4 @@ const LinkButtonContainer = styled.div`
 `;
 
 const SidePanelContainer = styled.div`
-  width: 20%;
 `;
