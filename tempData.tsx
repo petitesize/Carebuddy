@@ -92,7 +92,8 @@ export { tempCommentText };
 // GroupCard
 
 const tempGroupName = `눈, 코, 귀`;
-const tempGroupIntroduction = `"유형을 좋다 배달을 따냐 처지가 노력에 있다" "현행법을 설날이라고, 국한되지 식량난도, 수 병합을 그 붓으라 분리의 대형을 대하다" "19일 대기를 부부로 차량과 국내를 하루를 논의하고 전산망은 섬유도 시설을 망명하다"`;
+const tempGroupIntroduction = `유형을 좋다 배달을 따냐 처지가 노력에 있다. 현행법을 설날이라고, 국한되지 식량난도.`;
+const tempGroupIntroduction2 = `유형을 좋다 배달을 따냐 처지가 노력에 있다. 현행법을 설날이라고, 국한되지 식량난도.`;
 const tempGroupMemberCount = 5;
 
-export { tempGroupName, tempGroupIntroduction, tempGroupMemberCount };
+export { tempGroupName, tempGroupIntroduction, tempGroupIntroduction2, tempGroupMemberCount };

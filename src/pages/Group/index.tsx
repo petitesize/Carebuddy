@@ -9,19 +9,43 @@ import Button from '@/components/common/Button';
 import {
   tempGroupName,
   tempGroupIntroduction,
+  tempGroupIntroduction2, 
   tempGroupMemberCount,
 } from '../../../tempData';
 
-type GroupProps = {
-
-};
+type GroupProps = {};
 
 const Group: React.FC<GroupProps> = () => (
   <Body>
     <Main>
-      <Button buttonStyle="square-green" buttonSize="lg">강아지</Button>
-      <Button buttonStyle="square-white" buttonSize="lg">고양이</Button>
+      <ButtonContainer>
+        <Button buttonStyle="square-green" buttonSize="lg">
+          강아지
+        </Button>
+        <Button buttonStyle="square-white" buttonSize="lg">
+          고양이
+        </Button>
+      </ButtonContainer>
       <CardContainer>
+        <GroupCard
+          name={tempGroupName}
+          introduction={tempGroupIntroduction}
+        />
+        <GroupCard
+          name={tempGroupName}
+          introduction={tempGroupIntroduction}
+          memberCount={tempGroupMemberCount}
+        />
+        <GroupCard
+          name={tempGroupName}
+          introduction={tempGroupIntroduction}
+          memberCount={tempGroupMemberCount}
+        />
+        <GroupCard
+          name={tempGroupName}
+          introduction={tempGroupIntroduction}
+          memberCount={tempGroupMemberCount}
+        />
         <GroupCard
           name={tempGroupName}
           introduction={tempGroupIntroduction}
@@ -34,9 +58,18 @@ const Group: React.FC<GroupProps> = () => (
 
 export default Group;
 
+const ButtonContainer = styled.div`
+  padding: 20px 0;
+
+  & > * {
+    margin-right: 10px;
+  }
+`;
+
 const CardContainer = styled.div`
-  width: 100%;
-  background-color: red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 /* 임시 레이아웃 */

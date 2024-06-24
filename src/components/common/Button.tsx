@@ -22,7 +22,7 @@ const buttonStyles = {
     border-radius: 0;
     background-color: transparent;
     color: black;
-    border: solid 2px;
+    border: solid 1px var(--color-grey-2);
   `,
   link: css`
     margin-bottom: 10px;
@@ -50,6 +50,8 @@ const buttonSizes = {
 
 // 정의된 스타일들을 props로 받아서 스타일링될 버튼 컴포넌트
 const StyledButton = styled.button<StyledButtonProps>`
+  // display: inline-block; /* 인라인 블록 요소로 설정 */
+  width: auto;
   padding: 8px 16px;
   cursor: pointer;
   border: none;
