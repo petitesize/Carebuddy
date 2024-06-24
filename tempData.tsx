@@ -93,7 +93,6 @@ export { tempCommentText };
 
 const tempGroupName = `눈, 코, 귀`;
 const tempGroupIntroduction = `유형을 좋다 배달을 따냐 처지가 노력에 있다. 현행법을 설날이라고, 국한되지 식량난도.`;
-const tempGroupIntroduction2 = `유형을 좋다 배달을 따냐 처지가 노력에 있다. 현행법을 설날이라고, 국한되지 식량난도.`;
-const tempGroupMemberCount = 5;
+const tempGroupIntroduction2 = `유형을 좋다 배달을 따냐 처지가 노력에 있다. 현행법을 설날이라고, 국한되지 식량난도. 유형을 좋다 배달을 따냐 처지가 노력에 있다. 현행법을 설날이라고, 국한되지 식량난도.`;
 
-export { tempGroupName, tempGroupIntroduction, tempGroupIntroduction2, tempGroupMemberCount };
+export { tempGroupName, tempGroupIntroduction, tempGroupIntroduction2  };

@@ -50,8 +50,8 @@ const buttonSizes = {
 
 // 정의된 스타일들을 props로 받아서 스타일링될 버튼 컴포넌트
 const StyledButton = styled.button<StyledButtonProps>`
-  // display: inline-block; /* 인라인 블록 요소로 설정 */
-  width: auto;
+  // display: inline-block;
+  // width: auto;
   padding: 8px 16px;
   cursor: pointer;
   border: none;

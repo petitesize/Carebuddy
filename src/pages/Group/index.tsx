@@ -9,13 +9,18 @@ import Button from '@/components/common/Button';
 import {
   tempGroupName,
   tempGroupIntroduction,
-  tempGroupIntroduction2, 
-  tempGroupMemberCount,
+  tempGroupIntroduction2,
 } from '../../../tempData';
 
-type GroupProps = {};
+type GroupProps = {
+  // groupArray: string[]; // 임시 - 이후 데이터 들어오면 변경
+};
 
-const Group: React.FC<GroupProps> = () => (
+// 임시 - 이 주석 삭제
+// eslint-disable-next-line no-empty-pattern
+const Group: React.FC<GroupProps> = ({ 
+  // groupArray
+ }) => (
   <Body>
     <Main>
       <ButtonContainer>
@@ -27,30 +32,11 @@ const Group: React.FC<GroupProps> = () => (
         </Button>
       </ButtonContainer>
       <CardContainer>
-        <GroupCard
-          name={tempGroupName}
-          introduction={tempGroupIntroduction}
-        />
-        <GroupCard
-          name={tempGroupName}
-          introduction={tempGroupIntroduction}
-          memberCount={tempGroupMemberCount}
-        />
-        <GroupCard
-          name={tempGroupName}
-          introduction={tempGroupIntroduction}
-          memberCount={tempGroupMemberCount}
-        />
-        <GroupCard
-          name={tempGroupName}
-          introduction={tempGroupIntroduction}
-          memberCount={tempGroupMemberCount}
-        />
-        <GroupCard
-          name={tempGroupName}
-          introduction={tempGroupIntroduction}
-          memberCount={tempGroupMemberCount}
-        />
+        <GroupCard name={tempGroupName} introduction={tempGroupIntroduction} />
+        <GroupCard name={tempGroupName} introduction={tempGroupIntroduction2} />
+        <GroupCard name={tempGroupName} introduction={tempGroupIntroduction} />
+        <GroupCard name={tempGroupName} introduction={tempGroupIntroduction} />
+        <GroupCard name={tempGroupName} introduction={tempGroupIntroduction} />
       </CardContainer>
     </Main>
   </Body>

@@ -21,9 +21,11 @@ const GroupCard: React.FC<GroupCardProps> = ({ name, introduction }) => (
     <GroupInfoContainer>
       <p>{name}</p>
       <Introduction>{introduction}</Introduction>
-      <Button buttonStyle="square-white" buttonSize="sm">
-        가입
-      </Button>
+      <ButtonContainer>
+        <Button buttonStyle="square-white" buttonSize="sm">
+          가입
+        </Button>
+      </ButtonContainer>
     </GroupInfoContainer>
   </Container>
 );
@@ -32,7 +34,7 @@ const Container = styled(Link)`
   display: flex;
   flex-direction: row;
 
-  width: 220px;
+  width: 236px;
   min-height: 120px;
   text-decoration: none;
   cursor: pointer;
@@ -60,6 +62,11 @@ const Introduction = styled.p`
   font-size: var(--font-size-ft-1);
   color: var(--color-grey-1);
   padding: 20px 0;
+`;
+
+const ButtonContainer = styled.div`
+  // 임시 - 버튼 크기 조정 방법 찾으면 div 제거
+  margin-top: auto; 
 `;
 
 export default GroupCard;
