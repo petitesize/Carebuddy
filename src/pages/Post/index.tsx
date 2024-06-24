@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // 컴포넌트
 import ActionButton from '@/components/common/ActtionButton';
@@ -19,29 +19,28 @@ import {
   tempDate,
   tempNickname,
   tempProfileSrc,
-  tempPostId,
-  tempGroupArray1,
+  // tempPostId,
+  // tempGroupArray1,
   tempLikeCount,
   tempCommentCount,
   tempCommentText,
 } from '../../../tempData';
 
-interface Post {
-  // title?: string;
-  // content?: string;
-  // userId?: {
-  //   nickName: string;
-  // };
-  // updatedAt?: string;
-  // categoryId?: {
-  //   _id: string;
-  // };
-  // likeCount: number;
-  // likedUsers: string[];
-  // postImage: string;
+interface PostProps {
+  title?: string;
+  content?: string;
+  userId?: {
+    nickName: string;
+  };
+  postId?: {
+    updatedAt: string;
+    likeCount: number;
+    postImage?: string;
+    categoryId?: string;
+  };
 }
 
-const Post: React.FC = () => (
+const Post: React.FC<PostProps> = ({ title, content, userId, postId }) => (
   <Body>
     <Main>
       <Container>
@@ -80,8 +79,7 @@ const Post: React.FC = () => (
             nickname={tempNickname}
             date={tempDate}
             profileImg={tempProfileSrc}
-           />
-
+          />
         </CommentContainer>
       </Container>
     </Main>

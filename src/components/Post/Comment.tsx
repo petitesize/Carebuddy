@@ -10,8 +10,8 @@ type CommentProps = {
   profileImg: string;
   nickname: string;
   date: string;
-  userId: string;
-  commentId: string | null | undefined;
+  // userId: string;
+  // commentId: string | null | undefined;
 };
 
 const Comment: React.FC<CommentProps> = ({
@@ -19,8 +19,8 @@ const Comment: React.FC<CommentProps> = ({
   profileImg,
   nickname,
   date,
-  userId,
-  commentId,
+  // userId,
+  // commentId,
 }) => (
   <StyledComment>
     <ProfileImg src={profileImg} alt="댓글 프로필 사진" />
@@ -95,10 +95,10 @@ const Info = styled.div`
   }
 `;
 
-const OnEditComment = styled.textarea`
-  width: 650px;
-  height: 60px;
-  border-color: var(--color-grey-2);
-  margin: 5px 10px 0 0;
-  padding: 5px 5px;
-`;
+// const OnEditComment = styled.textarea`
+//   width: 650px;
+//   height: 60px;
+//   border-color: var(--color-grey-2);
+//   margin: 5px 10px 0 0;
+//   padding: 5px 5px;
+// `;
