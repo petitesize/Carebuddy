@@ -7,6 +7,7 @@ import ActionButton from '@/components/common/ActtionButton';
 // import Button from '@/components/common/Button';
 import LikeAndCommentCount from '@/components/Post/LikesAndCommentCount';
 import CommentWritingBox from '@/components/Post/CommentWritingBox';
+import Comment from '@/components/Post/Comment';
 
 // 아이콘
 import { LuThumbsUp, LuChevronLeft } from 'react-icons/lu';
@@ -20,8 +21,10 @@ import {
   tempProfileSrc,
   tempPostId,
   tempGroupArray1,
+  tempLikeCount,
+  tempCommentCount,
+  tempCommentText,
 } from '../../../tempData';
-import { tempLikeCount, tempCommentCount } from '../../../tempData';
 
 interface Post {
   // title?: string;
@@ -72,7 +75,13 @@ const Post: React.FC = () => (
         </ContentContainer>
         <CommentContainer>
           <CommentWritingBox nickname={tempNickname} />
-          <p>댓글 부분</p>
+          <Comment
+            text={tempCommentText}
+            nickname={tempNickname}
+            date={tempDate}
+            profileImg={tempProfileSrc}
+           />
+
         </CommentContainer>
       </Container>
     </Main>
@@ -169,8 +178,6 @@ const CommentContainer = styled.div`
   grid-column: 2 / 3;
   grid-row: 4 / 5;
 `;
-
-const CommentBox = styled.div``;
 
 /* 임시 레이아웃 */
 

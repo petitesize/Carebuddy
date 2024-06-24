@@ -85,6 +85,6 @@ export { tempLikeCount, tempCommentCount };
 
 // CommentWritingBox
 
-const tempCommentText = '임시 댓글 코멘트';
+const tempCommentText = `왕자병에서 두 냉증의 살피어요 있다 버려지다. 시정하다 대칭의 공감대가 미약하다 차든지 잡는다 뽑히다. 지난해에 계몽한지 자리의 온 주목의 올라오고 지정에 들어온다. 그는 본 엄격하기 대중화되다 치다 2,280,000원 자신이 남다. 모면하여 걸맞게 자유가 어떤 있고 보아야 작정을 모색합니다. 지르어야 알려지는 부각시킨 한 유월을 환하라 말씀, 여전히 한다.`;
 
 export { tempCommentText };
