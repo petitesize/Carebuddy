@@ -14,6 +14,7 @@ import {
   LuStethoscope,
   LuMessageSquarePlus,
 } from 'react-icons/lu';
+import ActionButton from '@/components/common/ActtionButton';
 import HosRecords from './HosRecords';
 /* 임시 레이아웃 */
 
@@ -74,7 +75,7 @@ const Cards = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  > div.action {
+  > button {
     position: absolute;
 
     top: 15px;
@@ -195,6 +196,7 @@ const Report = styled.div`
     top: 20px;
     right: 30px;
   } */
+  position: relative;
 `;
 
 const DeseaseName = styled.div`
@@ -235,6 +237,12 @@ const DiaryDetailsRight = styled.div`
   padding: 26px 30px;
   flex-direction: column;
   /* width: 35%; */
+  > button {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+  }
 `;
 
 // 질병에 대한 상세 정보 컨테이너
@@ -291,6 +299,7 @@ const StyledSwiper = styled(Swiper)`
 const Diary: React.FC = () => {
   // 모달 관련 상태 관리
   const [modalOpen, setModalOpen] = useState(false);
+  const [editModalOpen, setEditModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phoneNumber: '' });
 
   // 모달 관련 함수
@@ -298,8 +307,17 @@ const Diary: React.FC = () => {
     setModalOpen(true);
   };
 
+  const handleOpenEditModal = () => {
+    // 수정 모달 표시 여부를 관리하는 함수
+    setEditModalOpen(!editModalOpen);
+  };
+
   const handleCloseModal = () => {
     setModalOpen(false);
+  };
+
+  const handleCloseEditModal = () => {
+    setEditModalOpen(false);
   };
 
   const handleFormSubmit = () => {
@@ -330,6 +348,12 @@ const Diary: React.FC = () => {
               <SwiperSlide>
                 <CardsWrapper>
                   <Cards>
+                    <ActionButton
+                      buttonBorder="border-none"
+                      direction="vertical"
+                      onDelete={() => {}}
+                      onEdit={() => {}}
+                    />
                     <Photo />
                     <Name>이름</Name>
                     <Details>종 / 나이</Details>
@@ -399,6 +423,26 @@ const Diary: React.FC = () => {
                   </DiaryDetailContainer>
                 </DiaryDetailsLeft>
                 <DiaryDetailsRight>
+                  <ActionButton
+                    buttonBorder="border-none"
+                    direction="vertical"
+                    onDelete={() => {}}
+                    onEdit={handleOpenEditModal}
+                  />
+                  {editModalOpen && (
+                    <Modal
+                      onClose={handleCloseEditModal}
+                      title="병원 기록 수정"
+                      value="수정"
+                      component={
+                        <HosRecords
+                          formData={formData}
+                          setFormData={setFormData}
+                        />
+                      }
+                      onHandleClick={() => {}}
+                    />
+                  )}
                   <DiaryDetailContainer>
                     <Icon>
                       <LuPill />
