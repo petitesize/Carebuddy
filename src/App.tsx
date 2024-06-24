@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
 import Home from '@pages/Home/';
 import ProtectedRoute from '@/routes/protectedRoute';
-import Layout from '@/components/layout';
+import Layout from '@/components/Layout';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
 import Community from '@pages/Community';
