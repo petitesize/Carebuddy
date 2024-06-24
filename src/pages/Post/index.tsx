@@ -3,9 +3,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // 컴포넌트
+import ActionButton from '@/components/common/ActtionButton';
+// import Button from '@/components/common/Button';
+import LikeAndCommentCount from '@/components/Post/LikesAndCommentCount';
 
 // 아이콘
 import { LuThumbsUp, LuChevronLeft } from 'react-icons/lu';
+
+// 임시 데이터
+import { tempLikeCount, tempCommentCount } from '../../../tempData';
 
 interface Post {
   // title?: string;
@@ -31,8 +37,18 @@ const Post: React.FC = () => (
           <p>글 목록 보기</p>
         </PostListButtonContainer>
         <TitleContainer>
-          <p>제목부분</p>
+          <p>타이틀</p>
+          <PostOption>
+            <LikeAndCommentCount
+              likeCount={tempLikeCount}
+              commentCount={tempCommentCount}
+            />
+            <ActionButton buttonBorder="border-solid" direction="horizonal" />
+          </PostOption>
         </TitleContainer>
+        <InformationContainer>
+          <p>글 정보</p>
+        </InformationContainer>
         <ContentContainer>
           <p>글 내용 부분</p>
         </ContentContainer>
@@ -49,7 +65,7 @@ export default Post;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 20% 70%;
-  grid-template-rows: 60px minmax(60vh, auto) minmax(30vh, auto);
+  grid-template-rows: 60px 20px minmax(60vh, auto) minmax(30vh, auto);
 `;
 
 const PostListButtonContainer = styled.div`
@@ -58,21 +74,33 @@ const PostListButtonContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  
+  display: flex;
+  justify-content: space-between;
   border: solid 1px grey;
   color: var(--color-grey-1);
+  font-size: var(--font-size-lg-1);
+  font-weight: var(--font-weight-semibold);
+`;
+
+const PostOption = styled.div`
+  display: flex;
+`;
+
+const InformationContainer = styled.div`
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 `;
 
 const ContentContainer = styled.div`
   background-color: yellow;
   grid-column: 2 / 3;
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
 `;
 
 const CommentContainer = styled.div`
   background-color: aqua;
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
+  grid-row: 4 / 5;
 `;
 
 /* 임시 레이아웃 */

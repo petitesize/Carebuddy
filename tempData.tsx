@@ -74,3 +74,9 @@ const tempMemberArray2 = [
 
 export { tempMemberArray1, tempMemberArray2 };
 
+// LikesAndCommentCount
+
+const tempLikeCount = 2;
+const tempCommentCount =3;
+
+export { tempLikeCount, tempCommentCount };
