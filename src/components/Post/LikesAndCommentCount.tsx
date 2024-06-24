@@ -29,13 +29,18 @@ const StyledLikeAndCommentCount = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 85px;
-  height: 36px;
+  width: 80px;
+  height: 32px;
   background-color: var(--color-beige-main);
   border-radius: 4px;
-  padding: 5px 15px;
+  padding: 5px 16px;
 
   p {
     font-size: var(--font-size-ft-1);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
   }
 `;

@@ -6,11 +6,21 @@ import { Link } from 'react-router-dom';
 import ActionButton from '@/components/common/ActtionButton';
 // import Button from '@/components/common/Button';
 import LikeAndCommentCount from '@/components/Post/LikesAndCommentCount';
+import CommentWritingBox from '@/components/Post/CommentWritingBox';
 
 // 아이콘
 import { LuThumbsUp, LuChevronLeft } from 'react-icons/lu';
 
 // 임시 데이터
+import {
+  tempTitle,
+  tempContent,
+  tempDate,
+  tempNickname,
+  tempProfileSrc,
+  tempPostId,
+  tempGroupArray1,
+} from '../../../tempData';
 import { tempLikeCount, tempCommentCount } from '../../../tempData';
 
 interface Post {
@@ -37,7 +47,7 @@ const Post: React.FC = () => (
           <p>글 목록 보기</p>
         </PostListButtonContainer>
         <TitleContainer>
-          <p>타이틀</p>
+          <p>{tempTitle}</p>
           <PostOption>
             <LikeAndCommentCount
               likeCount={tempLikeCount}
@@ -47,12 +57,21 @@ const Post: React.FC = () => (
           </PostOption>
         </TitleContainer>
         <InformationContainer>
-          <p>글 정보</p>
+          <ProfileImg src={tempProfileSrc} alt="프로필 이미지" />
+          <p>{tempNickname}</p>
+          <p>|</p>
+          <p>{tempDate}</p>
         </InformationContainer>
         <ContentContainer>
-          <p>글 내용 부분</p>
+          <pre>{tempContent}</pre>
+          <img src={tempProfileSrc} alt="이미지" />
+          <Likes>
+            <LuThumbsUp />
+            <p>추천해요 {tempLikeCount}</p>
+          </Likes>
         </ContentContainer>
         <CommentContainer>
+          <CommentWritingBox nickname={tempNickname} />
           <p>댓글 부분</p>
         </CommentContainer>
       </Container>
@@ -65,7 +84,7 @@ export default Post;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 20% 70%;
-  grid-template-rows: 60px 20px minmax(60vh, auto) minmax(30vh, auto);
+  grid-template-rows: 40px 24px minmax(10vh, auto) minmax(30vh, auto);
 `;
 
 const PostListButtonContainer = styled.div`
@@ -76,10 +95,12 @@ const PostListButtonContainer = styled.div`
 const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  border: solid 1px grey;
-  color: var(--color-grey-1);
   font-size: var(--font-size-lg-1);
   font-weight: var(--font-weight-semibold);
+
+  & > p {
+    color: var(--color-black);
+  }
 `;
 
 const PostOption = styled.div`
@@ -89,19 +110,67 @@ const PostOption = styled.div`
 const InformationContainer = styled.div`
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  display: flex;
+  align-items: center;
+
+  color: var(--color-grey-1);
+
+  p {
+    font-size: var(--font-size-ft-1);
+  }
+
+  & > * {
+    padding: 0 2px;
+  }
+`;
+
+const ProfileImg = styled.img`
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 `;
 
 const ContentContainer = styled.div`
-  background-color: yellow;
   grid-column: 2 / 3;
   grid-row: 3 / 4;
+  margin: 12px 0;
+  font-size: var(--font-size-md-1);
+  line-height: 1.4rem;
+  color: var(--color-black);
+  width: 100%;
+  border-bottom: solid var(--color-grey-2) 1px;
+
+  img {
+    margin: 10px 0 20px 0;
+    margin-top: 20px;
+    width: 380px;
+    height: auto;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+`;
+
+const Likes = styled.div`
+  display: flex;
+  color: var(--color-grey-1);
+  font-size: var(--font-size-ft-1);
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 12px;
+
+  & > * {
+    margin: 0 3px;
+  }
 `;
 
 const CommentContainer = styled.div`
-  background-color: aqua;
   grid-column: 2 / 3;
   grid-row: 4 / 5;
 `;
+
+const CommentBox = styled.div``;
 
 /* 임시 레이아웃 */
 
