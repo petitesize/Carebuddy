@@ -17,12 +17,13 @@ const buttonStyles = {
     border-radius: 0;
     background-color: var(--color-green-main);
     color: white;
+    border: solid 1px var(--color-green-main);
   `,
   'square-white': css`
     border-radius: 0;
     background-color: transparent;
-    color: black;
-    border: solid 2px;
+    color: var(--color-black-main);
+    border: solid 1px var(--color-grey-2);
   `,
   link: css`
     margin-bottom: 10px;

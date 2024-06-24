@@ -350,7 +350,7 @@ const Diary: React.FC = () => {
               <Modal
                 onClose={handleCloseModal}
                 title="병원 기록"
-                value="Submit"
+                value="등록"
                 component={
                   <HosRecords formData={formData} setFormData={setFormData} />
                 }
