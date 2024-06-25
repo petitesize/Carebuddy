@@ -3,15 +3,14 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
 import ProtectedRoute from '@/routes/protectedRoute';
-import Layout from '@/components/layout';
+import Layout from '@/components/Layout';
 import Home from '@pages/Home/';
 import Community from '@pages/Community';
 import Post from '@pages/Post';
 import Group from '@pages/Group';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
-
-
+import HosInfo from '@pages/Info/HosInfo/';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +28,7 @@ const router = createBrowserRouter([
       { path: 'group', element: <Group /> },
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
+      { path: 'hosInfo', element: <HosInfo /> },
     ],
   },
 ]);
