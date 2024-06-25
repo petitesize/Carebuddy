@@ -86,7 +86,7 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  html, body, #root {
+  html, body, input, #root {
     width: 100%;
     height: auto;
     font-family: 'Pretendard-Regular', sans-serif;
