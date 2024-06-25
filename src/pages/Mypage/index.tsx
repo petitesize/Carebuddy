@@ -1,7 +1,11 @@
 import styled from "styled-components";
-import React from 'react';
+import React, { useState } from 'react';
 import defaultImg from '@/assets/person.png'
 import Button from '@/components/common/Button';
+import TextArea from '@/components/common/TextArea';
+import ListContainer from "@/components/Mypage&Userpage/ListContainer";
+import PetCardContainer from "@/components/Mypage&Userpage/PetCardContainer";
+import Input from '@/components/common/Input';
 
 /* 임시 레이아웃 */
 
@@ -40,12 +44,13 @@ const UserContainer = styled.div`
   font-size: var(--font-size-md-1); //16
   display: flex;
   justify-content: space-evenly;
-  margin: 30px 0 30px 0;
+  align-items: center;
 `;
 
 const List = styled.span`
-  /* display: flex;
-  align-items: center; */
+  display: flex;
+  align-items: center;
+  margin: 15px;
 `;
 
 const ImgContainer = styled.div`
@@ -60,13 +65,9 @@ const LinkButton = styled.div`
   text-decoration: underline;
 `;
 
-const DataList = styled.div`
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: flex-end;
 `;
 
 const Info = styled.div`
@@ -75,7 +76,10 @@ const Info = styled.div`
   justify-content: space-evenly;
 `;
 
-const InputList = styled.span``;
+const WithdrawContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 const ImageBox = styled.div`
   img {
@@ -87,154 +91,107 @@ const ImageBox = styled.div`
 const Data = styled.span`
 `;
 
-const ContentList = styled.span`
-  padding: 10px 0 10px 0;
-  text-align: center;
-`;
-
-const Title = styled.div`
-  font-weight: bold;
-  font-size: var(--font-size-md-1); //16
-  text-align: center;
-  padding: 10px 0 10px 0;
-`;
-
-const ListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: auto 0;
-`;
-
-const DataContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  justify-content: space-between;
-  border-bottom: 1px solid #cecece;
-  padding: 10px 0;
-`;
-
 const InfoContainer = styled.div`
   display: flex;
   margin: 30px;
   margin-left: 0;
 `;
 
-const GroupContent = styled(ContentList)`
-  color: #6d987a;
+const Withdraw = styled.div`
+  font-size: var(--font-size-ft-1); //14
+  text-decoration: underline;
 `;
 
-const UserInfoContainer = () => (
+const UserInfoContainer = ({ email, nickname, introduction }) => (
   <Container>
     <InfoContainer>
-      <List>
-        <Item>이메일</Item>
-      </List>
-      <DataList>
-        <Data>carebuddy@naver.com</Data>
-      </DataList>
+      <Item>이메일</Item>
+      <Data>{email}</Data>
     </InfoContainer>
     <InfoContainer>
-      <List>
-        <Item>닉네임</Item>
-      </List>
-      <DataList>
-        <Data>케어버디</Data>
-      </DataList>
+      <Item>닉네임</Item>
+      <Data>{nickname}</Data>
     </InfoContainer>
     <InfoContainer>
-      <List>
-        <Item>소개글</Item>
-      </List>
-      <DataList>
-        <Data>안녕하세요</Data>
-      </DataList>
+      <Item>소개글</Item>
+      <Data>{introduction}</Data>
     </InfoContainer>
   </Container>
 );
 
-const ProfileContainer = () => (
-  <Container>
-    <UserContainer>
-      <ImgContainer>
-        <ImageBox><img src={defaultImg} alt="프로필 사진" /></ImageBox>
-        <LinkButton>프로필 사진 업로드 하기</LinkButton>
-      </ImgContainer>
-      <Info>
-        <InputList>
-          <List>
-            <Item>닉네임</Item>
-            <Data>케어버디</Data>
-          </List>
-        </InputList>
-        <InputList>
-          <List>
-            <Item>소개글</Item>
-            <Data>안녕하세요^^</Data>
-          </List>
-        </InputList>
-        <ButtonContainer>
-          <Button>저장하기</Button>
-        </ButtonContainer>
-      </Info>
-    </UserContainer>
-  </Container>
-);
+const ProfileContainer = ({ introduction, setIntroduction }) => {
+  const handleInputChange = (e) => {
+    setIntroduction(e.target.value);
+  };
 
-const PetManagementContainer = () => (
-  <Container>
-    <div>반려동물 카드</div>
-  </Container>
-);
-
-const PostListContainer = () => {
-  const posts = [
-    { id: '1', group: '그룹1', title: '안녕하세요', date: '2024-01-01' },
-    { id: '2', group: '그룹2', title: '글입니다히히히', date: '2024-01-02' },
-    { id: '3', group: '그룹3', title: '가운데정렬왜안돼', date: '2024-01-03' },
-  ];
+  const handleSaveClick = () => {
+    alert('소개글이 저장되었습니다');
+  };
 
   return (
     <Container>
-      <ListContainer>
-        <DataContainer>
-          <Title>그룹</Title>
-          <Title>글제목</Title>
-          <Title>작성일</Title>
-        </DataContainer>
-        {posts.map((post) => (
-          <DataContainer key={post.id}>
-            <GroupContent>[{post.group}]</GroupContent>
-            <ContentList>{post.title}</ContentList>
-            <ContentList>{post.date}</ContentList>
-          </DataContainer>
-        ))}
-      </ListContainer>
+      <UserContainer>
+        <ImgContainer>
+          <ImageBox><img src={defaultImg} alt="프로필 사진" /></ImageBox>
+          <LinkButton>프로필 사진 업로드 하기</LinkButton>
+        </ImgContainer>
+        <Info>
+          <List>
+            <Item>닉네임</Item>
+            <Input
+              placeholder="입력하여주세요."
+              value="케어버디"
+            />
+          </List>
+          <List>
+            <Item>소개글</Item>
+            <Data>
+              <TextArea
+                size="md"
+                placeholder="소개글을 입력하세요"
+                value={introduction}
+                onChange={handleInputChange}
+              />
+            </Data>
+          </List>
+          <ButtonContainer>
+            <Button onClick={handleSaveClick}>저장하기</Button>
+          </ButtonContainer>
+        </Info>
+      </UserContainer>
     </Container>
   );
 };
 
-const contentItems = [
-  { id: '1', content: '회원정보', component: <UserInfoContainer /> },
-  { id: '2', content: '프로필', component: <ProfileContainer /> },
-  { id: '3', content: '반려동물 관리', component: <PetManagementContainer /> },
-  { id: '4', content: '작성 글 목록', component: <PostListContainer /> },
-];
+const Mypage: React.FC = () => {
+  const [introduction, setIntroduction] = useState('안녕하세요');
 
-const Mypage: React.FC = () => (
-  <Body>
-    <Main>
-      <Container>
-        {contentItems.map(item => (
-          <React.Fragment key={item.id}>
-            <Menu>
-              <Item>{item.content}</Item>
-            </Menu>
-            {item.component}
-          </React.Fragment>
-        ))}
-      </Container>
-    </Main>
-  </Body>
-);
+  const contentItems = [
+    { id: '1', content: '회원정보', component: <UserInfoContainer email="carebuddy@naver.com" nickname="케어버디" introduction={introduction} /> },
+    { id: '2', content: '프로필', component: <ProfileContainer introduction={introduction} setIntroduction={setIntroduction} /> },
+    { id: '3', content: '반려동물 관리', component: <PetCardContainer /> },
+    { id: '4', content: '작성 글 목록', component: <ListContainer /> },
+  ];
+
+  return (
+    <Body>
+      <Main>
+        <Container>
+          {contentItems.map(item => (
+            <React.Fragment key={item.id}>
+              <Menu>
+                <Item>{item.content}</Item>
+              </Menu>
+              {item.component}
+            </React.Fragment>
+          ))}
+          <WithdrawContainer>
+            <Withdraw>회원탈퇴</Withdraw>
+          </WithdrawContainer>
+        </Container>
+      </Main>
+    </Body>
+  );
+};
 
 export default Mypage;
