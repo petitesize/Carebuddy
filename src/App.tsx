@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
 import ProtectedRoute from '@/routes/protectedRoute';
-import Layout from '@/components/layout';
+import Layout from '@/components/Layout';
 import Home from '@pages/Home/';
 import Community from '@pages/Community';
 import Post from '@pages/Post';
@@ -11,6 +11,7 @@ import Group from '@pages/Group';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
 import Userpage from '@pages/Userpage'
+import HosInfo from '@pages/Info/HosInfo/';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
       { path: 'userpage', element: <Userpage /> },
+      { path: 'hosInfo', element: <HosInfo /> },
     ],
   },
 ]);
@@ -86,7 +88,7 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  html, body, #root {
+  html, body, input, #root {
     width: 100%;
     height: auto;
     font-family: 'Pretendard-Regular', sans-serif;
