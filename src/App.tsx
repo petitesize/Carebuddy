@@ -5,9 +5,9 @@ import reset from 'styled-reset';
 import ProtectedRoute from '@/routes/protectedRoute';
 import Layout from '@/components/layout';
 import Home from '@pages/Home/';
-import Community from '@pages/Community';
+import CommunityFeed from '@/pages/CommunityFeed';
 import Post from '@pages/Post';
-import Group from '@pages/Group';
+import Community from '@/pages/Community';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
 
@@ -24,9 +24,9 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '', element: <Home /> },
-      { path: 'community', element: <Community /> },
+      { path: 'community-feed', element: <CommunityFeed /> },
       { path: 'post', element: <Post /> },
-      { path: 'group', element: <Group /> },
+      { path: 'community', element: <Community /> },
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
     ],
