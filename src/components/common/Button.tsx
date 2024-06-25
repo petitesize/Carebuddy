@@ -17,6 +17,7 @@ const buttonStyles = {
     border-radius: 0;
     background-color: var(--color-green-main);
     color: white;
+    border: solid 1px var(--color-green-main);
   `,
   'square-white': css`
     border-radius: 0;

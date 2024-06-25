@@ -45,14 +45,17 @@ const ModalBody: React.FC<ModalBodyProps> = ({ children }) => (
 // 모달 푸터: 제출, 취소 등 버튼을 포함
 const ModalFooterContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 10px;
   border-top: 1px solid var(--color-grey-2);
   width: 100%;
 `;
 
 const ButtonContainer = styled.div`
-  padding: 0 0 20px 0;
+  padding: 10px 0 20px 0;
+  > button {
+    margin-right: 10px;
+  }
 `;
 
 interface ModalFooterProps {
@@ -68,8 +71,12 @@ const ModalFooter: React.FC<ModalFooterProps> = ({
 }) => (
   <ModalFooterContainer>
     <ButtonContainer>
-      <Button onClick={onHandleClick}>{value}</Button>
-      <Button onClick={onClose}>취소</Button>
+      <Button buttonStyle="square-green" onClick={onHandleClick}>
+        {value}
+      </Button>
+      <Button buttonStyle="square-white" onClick={onClose}>
+        취소
+      </Button>
     </ButtonContainer>
   </ModalFooterContainer>
 );
