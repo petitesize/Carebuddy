@@ -2,12 +2,15 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
-import Home from '@pages/Home/';
 import ProtectedRoute from '@/routes/protectedRoute';
-import Layout from '@/components/layout';
+import Layout from '@/components/Layout';
+import Home from '@pages/Home/';
+import Community from '@pages/Community';
+import Post from '@pages/Post';
+import Group from '@pages/Group';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
-import Community from '@pages/Community';
+import HosInfo from '@pages/Info/HosInfo/';
 
 const router = createBrowserRouter([
   {
@@ -21,8 +24,11 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <Home /> },
       { path: 'community', element: <Community /> },
+      { path: 'post', element: <Post /> },
+      { path: 'group', element: <Group /> },
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
+      { path: 'hosInfo', element: <HosInfo /> },
     ],
   },
 ]);
@@ -80,7 +86,7 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  html, body, #root {
+  html, body, input, #root {
     width: 100%;
     height: auto;
     font-family: 'Pretendard-Regular', sans-serif;

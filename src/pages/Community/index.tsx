@@ -7,7 +7,7 @@ import FeedBox from '@/components/Home&Community/FeedBox';
 import SidePanel from '@/components/Home&Community/SidePanel';
 import WriteButton from '@/components/Home&Community/WirteButton';
 import MemberElement from '@/components/Home&Community/MemberElement';
-import Search from '@/components/Home&Community/Search';
+import Search from '@/components/common/Search';
 import Button from '@/components/common/Button';
 
 // 임시 데이터
@@ -38,10 +38,7 @@ const Community: React.FC = () => {
       <Main>
         <SearchContainer>
           <Search
-            width="500px"
-            fontSize="var(--font-size-md-2)"
-            padding="15px 16px"
-            // onSearch={(value) => handleSearch(value)}
+            // // onSearch={(value) => handleSearch(value)}
             placeholder="검색할 게시글의 제목을 입력하세요"
           />
         </SearchContainer>
@@ -50,22 +47,6 @@ const Community: React.FC = () => {
             <FeedOptionContainer>
               <WriteButton />
             </FeedOptionContainer>
-            <FeedBox
-              postId={tempPostId}
-              title={tempTitle}
-              content={tempContent}
-              uploadedDate={tempDate}
-              nickname={tempNickname}
-              profileSrc={tempProfileSrc}
-            />
-            <FeedBox
-              postId={tempPostId}
-              title={tempTitle}
-              content={tempContent}
-              uploadedDate={tempDate}
-              nickname={tempNickname}
-              profileSrc={tempProfileSrc}
-            />
             <FeedBox
               postId={tempPostId}
               title={tempTitle}
@@ -117,8 +98,9 @@ const SearchContainer = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+  gap: 10%;
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -136,7 +118,6 @@ const FeedOptionContainer = styled.div`
 const FeedBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
   color: var(--color-grey-1);
 `;
 
@@ -145,6 +126,4 @@ const LinkButtonContainer = styled.div`
   justify-content: space-between;
 `;
 
-const SidePanelContainer = styled.div`
-  width: 20%;
-`;
+const SidePanelContainer = styled.div``;

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 // 버튼 스타일, 사이즈 props
 interface StyledButtonProps {
   buttonStyle?: 'round-green' | 'square-green' | 'square-white' | 'link';
-  buttonSize?: 'sm' | 'md';
+  buttonSize?: 'sm' | 'md' | 'lg';
 }
 
 const buttonStyles = {
@@ -22,7 +22,7 @@ const buttonStyles = {
   'square-white': css`
     border-radius: 0;
     background-color: transparent;
-    color: var(--color-black-main);
+    color: black;
     border: solid 1px var(--color-grey-2);
   `,
   link: css`
@@ -44,10 +44,15 @@ const buttonSizes = {
   md: css`
     font-size: var(--font-size-md-1);
   `,
+  lg: css`
+    font-size: var(--font-size-hd-1);
+  `,
 };
 
 // 정의된 스타일들을 props로 받아서 스타일링될 버튼 컴포넌트
 const StyledButton = styled.button<StyledButtonProps>`
+  // display: inline-block;
+  // width: auto;
   padding: 8px 16px;
   cursor: pointer;
   border: none;

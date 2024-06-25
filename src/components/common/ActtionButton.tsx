@@ -14,7 +14,7 @@ interface StyledActionButtonProps {
 
 const buttonBorders = {
   'border-solid': css`
-    border-radius: var(--color-grey-2) solid 1px;
+    border: var(--color-grey-2) solid 1px;
   `,
   'border-none': css`
     border: none;
@@ -95,8 +95,8 @@ const Icon = styled.div`
 
 interface ActionButtonProps extends StyledActionButtonProps {
   direction: string;
-  onEdit: () => void; // 수정 버튼 클릭 이벤트 핸들러
-  onDelete: () => void; // 삭제 버튼 클릭 이벤트 핸들러
+  onEdit?: () => void; // 수정 버튼 클릭 이벤트 핸들러
+  onDelete?: () => void; // 삭제 버튼 클릭 이벤트 핸들러
 }
 
 const ActionButton: React.FC<ActionButtonProps> = ({
