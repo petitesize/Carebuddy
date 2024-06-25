@@ -30,6 +30,9 @@ const GroupCard: React.FC<GroupCardProps> = ({ name, introduction }) => (
   </Container>
 );
 
+export default GroupCard;
+
+
 const Container = styled(Link)`
   display: flex;
   flex-direction: row;
@@ -56,17 +59,16 @@ const IconContainer = styled.div`
 const GroupInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1; 
 `;
 
 const Introduction = styled.p`
   font-size: var(--font-size-ft-1);
   color: var(--color-grey-1);
   padding: 20px 0;
+  line-height: 1.3;
 `;
 
 const ButtonContainer = styled.div`
-  // 임시 - 버튼 크기 조정 방법 찾으면 div 제거
-  margin-top: auto; 
+  margin-top: auto;
 `;
-
-export default GroupCard;
