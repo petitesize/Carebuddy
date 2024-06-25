@@ -18,7 +18,7 @@ import {
   tempProfileSrc,
   tempPostId,
   tempGroupArray1,
-} from '../../../tempData';
+} from '@constants/tempData';
 
 const Home: React.FC = () => {
   const tempGroup = (

@@ -10,7 +10,7 @@ import {
   tempCommunityName,
   tempCommunityIntroduction,
   tempCommunityIntroduction2,
-} from '../../../tempData';
+} from '@constants/tempData';
 
 type CommunityProps = {
   // groupArray: string[]; // 임시 - 이후 데이터 들어오면 변경
@@ -18,9 +18,7 @@ type CommunityProps = {
 
 // 임시 - 이 주석 삭제
 // eslint-disable-next-line no-empty-pattern
-const Community: React.FC<CommunityProps> = ({ 
-  // groupArray
- }) => (
+const Community: React.FC<CommunityProps> = () => (
   <Body>
     <Main>
       <ButtonContainer>
@@ -32,11 +30,26 @@ const Community: React.FC<CommunityProps> = ({
         </Button>
       </ButtonContainer>
       <CardContainer>
-        <CommunityCard name={tempCommunityName} introduction={tempCommunityIntroduction} />
-        <CommunityCard name={tempCommunityName} introduction={tempCommunityIntroduction2} />
-        <CommunityCard name={tempCommunityName} introduction={tempCommunityIntroduction} />
-        <CommunityCard name={tempCommunityName} introduction={tempCommunityIntroduction} />
-        <CommunityCard name={tempCommunityName} introduction={tempCommunityIntroduction} />
+        <CommunityCard
+          name={tempCommunityName}
+          introduction={tempCommunityIntroduction}
+        />
+        <CommunityCard
+          name={tempCommunityName}
+          introduction={tempCommunityIntroduction2}
+        />
+        <CommunityCard
+          name={tempCommunityName}
+          introduction={tempCommunityIntroduction}
+        />
+        <CommunityCard
+          name={tempCommunityName}
+          introduction={tempCommunityIntroduction}
+        />
+        <CommunityCard
+          name={tempCommunityName}
+          introduction={tempCommunityIntroduction}
+        />
       </CardContainer>
     </Main>
   </Body>

@@ -3,13 +3,15 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
 import ProtectedRoute from '@/routes/protectedRoute';
-import Layout from '@/components/layout';
+import Layout from '@/components/Layout';
 import Home from '@pages/Home/';
 import CommunityFeed from '@/pages/CommunityFeed';
 import Post from '@pages/Post';
 import Community from '@/pages/Community';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
+import TempPetRegister from '@pages/Temp-PetRegister'
+
 
 
 
@@ -29,6 +31,8 @@ const router = createBrowserRouter([
       { path: 'community', element: <Community /> },
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
+      // petRegister 모달용 임시 페이지
+      { path: 'pet-register', element: <TempPetRegister />},
     ],
   },
 ]);

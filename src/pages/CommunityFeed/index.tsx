@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 // 컴포넌트
-// import Button from '@/components/common/Button';
 import FeedBox from '@/components/Home&CommunityFeed/FeedBox';
 import SidePanel from '@/components/Home&CommunityFeed/SidePanel';
 import WriteButton from '@/components/Home&CommunityFeed/WirteButton';
@@ -19,7 +18,7 @@ import {
   tempProfileSrc,
   tempPostId,
   tempMemberArray1,
-} from '../../../tempData';
+} from '@constants/tempData';
 
 const CommunityFeed: React.FC = () => {
   // 작동 테스트용

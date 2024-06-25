@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../Button';
+import Button from '@components/common/Button';
 
 // 모달 헤더: 타이틀을 포함
 const ModalHeaderContainer = styled.header`
