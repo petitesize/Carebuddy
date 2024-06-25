@@ -7,7 +7,7 @@ import FeedBox from '@/components/Home&Community/FeedBox';
 import SidePanel from '@/components/Home&Community/SidePanel';
 import WriteButton from '@/components/Home&Community/WirteButton';
 import MemberElement from '@/components/Home&Community/MemberElement';
-import Search from '@/components/Home&Community/Search';
+import Search from '@/components/common/Search';
 import Button from '@/components/common/Button';
 
 // 임시 데이터
@@ -38,10 +38,7 @@ const Community: React.FC = () => {
       <Main>
         <SearchContainer>
           <Search
-            width="500px"
-            fontSize="var(--font-size-md-2)"
-            padding="15px 16px"
-            // onSearch={(value) => handleSearch(value)}
+            // // onSearch={(value) => handleSearch(value)}
             placeholder="검색할 게시글의 제목을 입력하세요"
           />
         </SearchContainer>
@@ -129,5 +126,4 @@ const LinkButtonContainer = styled.div`
   justify-content: space-between;
 `;
 
-const SidePanelContainer = styled.div`
-`;
+const SidePanelContainer = styled.div``;
