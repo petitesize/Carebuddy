@@ -100,9 +100,9 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const Wrapper = styled.div`
-  height: 100vh;
+  /* height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: center; */
 `;
 
 const App: React.FC = () => (

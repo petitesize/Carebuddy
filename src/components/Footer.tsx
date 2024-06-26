@@ -5,7 +5,7 @@ import logo from '@assets/carebuddyLogo.png';
 const FooterContainer = styled.footer`
   background-color: #eeede5;
   color: #343434;
-  width: 100vw;
+  /* width: 100vw; */
   /* height: 120px; */
   display: flex;
   flex-direction: column;
@@ -19,7 +19,6 @@ const Container = styled.div`
   width: 1024px;
   display: flex;
   flex-direction: column;
-
   gap: 20px;
 `;
 

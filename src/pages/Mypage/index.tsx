@@ -7,24 +7,7 @@ import ListContainer from "@/components/Mypage&Userpage/ListContainer";
 import PetCardContainer from "@/components/Mypage&Userpage/PetCardContainer";
 import Input from '@/components/common/Input';
 
-/* 임시 레이아웃 */
-
-const Body = styled.div`
-  flex: 1;
-  padding-top: 80px;
-`;
-
-const Main = styled.div`
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 1024px;
-`;
-
-/* 임시 레이아웃 끝 */
-
 const Container = styled.div`
-  margin: 30px 0 30px 0;
 `;
 
 const Menu = styled.div`
@@ -174,23 +157,19 @@ const Mypage: React.FC = () => {
   ];
 
   return (
-    <Body>
-      <Main>
-        <Container>
-          {contentItems.map(item => (
-            <React.Fragment key={item.id}>
-              <Menu>
-                <Item>{item.content}</Item>
-              </Menu>
-              {item.component}
-            </React.Fragment>
-          ))}
-          <WithdrawContainer>
-            <Withdraw>회원탈퇴</Withdraw>
-          </WithdrawContainer>
-        </Container>
-      </Main>
-    </Body>
+    <Container>
+      {contentItems.map(item => (
+        <React.Fragment key={item.id}>
+          <Menu>
+            <Item>{item.content}</Item>
+          </Menu>
+          {item.component}
+        </React.Fragment>
+      ))}
+      <WithdrawContainer>
+        <Withdraw>회원탈퇴</Withdraw>
+      </WithdrawContainer>
+    </Container>
   );
 };
 
