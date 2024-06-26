@@ -1,3 +1,6 @@
+// 추후 이미지 업로드 + 로직 공통컴포넌트화
+// 디바운싱 적용 필요
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -12,7 +15,7 @@ import Input from '@components/common/Input';
 import { LuCamera } from 'react-icons/lu';
 
 // 인터페이스
-import { FormData } from '@/pages/Temp-PetRegister';
+// import { FormData } from '@/pages/Temp-PetRegister';
 
 interface PetRegisterProps {
   // formData: FormData;
