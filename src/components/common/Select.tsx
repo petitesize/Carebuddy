@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 // 예쁜 select를 React에서 다루기 위해서 react-select라는 라이브러리 사용을 고려해볼 수 있음!
-import logo from '@assets/person.png';
 
 interface StyledSelectProps {
   selectStyle?: 'round' | 'square';
@@ -24,7 +23,7 @@ const selectSizes = {
     width: 100px;
   `,
   md: css`
-    width: 300px;
+    width: 150px;
   `,
 };
 
