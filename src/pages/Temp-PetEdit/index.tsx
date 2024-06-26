@@ -15,17 +15,9 @@ export interface FormData {
   neutered: string;
 }
 
-const TempPetRegister: React.FC = () => {
+const TempPetEdit: React.FC = () => {
   // 모달 관련 상태 관리
   const [modalOpen, setModalOpen] = useState(false);
-  // const [formData, setFormData] = useState<FormData>({
-  //   name: '',
-  //   age: 0,
-  //   weight: 0,
-  //   gender: '',
-  //   species: '',
-  //   neutered: '',
-  // });
 
   // 모달 관련 함수
   const handleOpenModal = () => {
@@ -45,12 +37,12 @@ const TempPetRegister: React.FC = () => {
   return (
     <Body>
       <Main>
-        <Button onClick={handleOpenModal}>동물 등록 모달용 버튼</Button>
+        <Button onClick={handleOpenModal}>동물 수정 모달용 버튼</Button>
         {modalOpen && (
           <Modal
             onClose={handleCloseModal}
-            title="동물 정보 등록"
-            value="등록"
+            title="동물 정보 수정"
+            value="수정"
             component={
               <PetRegister
                 // formData={formData}
@@ -65,7 +57,7 @@ const TempPetRegister: React.FC = () => {
   );
 };
 
-export default TempPetRegister;
+export default TempPetEdit;
 
 /* 임시 레이아웃 */
 

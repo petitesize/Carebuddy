@@ -11,6 +11,7 @@ import Community from '@/pages/Community';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
 import TempPetRegister from '@pages/Temp-PetRegister';
+import TempPetEdit from '@pages/Temp-PetEdit';
 import Userpage from '@pages/Userpage';
 import HosInfo from '@pages/Info/HosInfo/';
 
@@ -32,8 +33,9 @@ const router = createBrowserRouter([
       { path: 'mypage', element: <Mypage /> },
       { path: 'userpage', element: <Userpage /> },
       { path: 'hosInfo', element: <HosInfo /> },
-      // petRegister 모달용 임시 페이지
+      // petRegister, petEdit 모달용 임시 페이지
       { path: 'pet-register', element: <TempPetRegister /> },
+      { path: 'pet-edit', element: <TempPetEdit /> },
     ],
   },
 ]);

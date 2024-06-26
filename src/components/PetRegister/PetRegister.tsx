@@ -17,14 +17,15 @@ import { LuCamera } from 'react-icons/lu';
 // 인터페이스
 // import { FormData } from '@/pages/Temp-PetRegister';
 
-interface PetRegisterProps {
-  // formData: FormData;
-  // setFormData: React.Dispatch<React.SetStateAction<FormData>>;
-}
+// interface PetRegisterProps {
+// formData: FormData;
+// setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+// }
 
-const PetRegister = ((props: PetRegisterProps, ) => {
+const PetRegister = () => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null); // 프리뷰 이미지
-  const [selectedFile, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
+  const [, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
+  // const [selectedFile, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
 
   // const [formData, setFormData] = useState<FormData>({
   //   name: '',
@@ -33,7 +34,7 @@ const PetRegister = ((props: PetRegisterProps, ) => {
   //   gender: '',
   //   species: '',
   //   neutered: '',
-  // }); 
+  // });
 
   // petInfo 객체 초기화
   const [petInfo, setPetInfo] = useState({
@@ -68,12 +69,15 @@ const PetRegister = ((props: PetRegisterProps, ) => {
     // }));
   };
 
-
   // formData - input 핸들러
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
+    // 임시
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type: 'name' | 'age' | 'weight'
   ) => {
+    // 임시
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { value } = e.target;
 
     // setFormData((prevData) => ({
@@ -182,7 +186,7 @@ const PetRegister = ((props: PetRegisterProps, ) => {
       </Section>
     </>
   );
-});
+};
 
 export default PetRegister;
 
