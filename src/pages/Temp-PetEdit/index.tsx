@@ -6,14 +6,14 @@ import Button from '@/components/common/Button';
 import Modal from '@/components/common/Modal';
 import PetRegister from '@/components/PetRegister/PetRegister';
 
-export interface FormData {
-  name: string;
-  age: number;
-  weight: number;
-  gender: string;
-  species: string;
-  neutered: string;
-}
+// export interface FormData {
+//   name: string;
+//   age: number;
+//   weight: number;
+//   gender: string;
+//   species: string;
+//   neutered: string;
+// }
 
 const TempPetEdit: React.FC = () => {
   // 모달 관련 상태 관리
