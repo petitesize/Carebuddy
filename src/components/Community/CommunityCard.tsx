@@ -8,17 +8,17 @@ import { LuMessagesSquare } from 'react-icons/lu';
 // 컴포넌트
 import Button from '../common/Button';
 
-type GroupCardProps = {
+type CommunityCardProps = {
   name: string;
   introduction: string;
 };
 
-const GroupCard: React.FC<GroupCardProps> = ({ name, introduction }) => (
+const CommunityCard: React.FC<CommunityCardProps> = ({ name, introduction }) => (
   <Container to="/">
     <IconContainer>
       <LuMessagesSquare />
     </IconContainer>
-    <GroupInfoContainer>
+    <InfoContainer>
       <p>{name}</p>
       <Introduction>{introduction}</Introduction>
       <ButtonContainer>
@@ -26,11 +26,11 @@ const GroupCard: React.FC<GroupCardProps> = ({ name, introduction }) => (
           가입
         </Button>
       </ButtonContainer>
-    </GroupInfoContainer>
+    </InfoContainer>
   </Container>
 );
 
-export default GroupCard;
+export default CommunityCard;
 
 
 const Container = styled(Link)`
@@ -56,7 +56,7 @@ const IconContainer = styled.div`
   margin-right: 8px;
 `;
 
-const GroupInfoContainer = styled.div`
+const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1; 

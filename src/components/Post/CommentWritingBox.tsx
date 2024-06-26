@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // 임시 데이터
-import { tempCommentText } from '../../../tempData';
+import { tempCommentText } from '@constants/tempData';
 
 // 컴포넌트
 import Button from '../common/Button';
@@ -23,7 +23,9 @@ const CommentWritingBox: React.FC<CommentWritingBoxProps> = ({
       placeholder="댓글 내용을 입력하세요..."
     />
     <ButtonContainer>
-      <Button buttonStyle="link" buttonSize="sm">등록하기</Button>
+      <Button buttonStyle="link" buttonSize="sm">
+        등록하기
+      </Button>
     </ButtonContainer>
   </StyledCommentWritingBox>
 );

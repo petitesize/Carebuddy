@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 // 컴포넌트
 // import Button from '@/components/common/Button';
-import Banner from '@/components/Home&Community/Banner';
-import FeedBox from '@/components/Home&Community/FeedBox';
-import SidePanel from '@/components/Home&Community/SidePanel';
-import WriteButton from '@/components/Home&Community/WirteButton';
-import GroupElement from '@/components/Home&Community/GroupElement';
+import Banner from '@/components/Home&CommunityFeed/Banner';
+import FeedBox from '@/components/Home&CommunityFeed/FeedBox';
+import SidePanel from '@/components/Home&CommunityFeed/SidePanel';
+import WriteButton from '@/components/Home&CommunityFeed/WirteButton';
+import CommunityElement from '@/components/Home&CommunityFeed/CommunityElement';
 
 // 임시 데이터
 import {
@@ -18,14 +18,14 @@ import {
   tempProfileSrc,
   tempPostId,
   tempGroupArray1,
-} from '../../../tempData';
+} from '@constants/tempData';
 
 const Home: React.FC = () => {
   const tempGroup = (
-    <GroupElement
+    <CommunityElement
       key={tempGroupArray1.groupId}
       groupId={tempGroupArray1.groupId}
-      groupName={tempGroupArray1.groupName}
+      name={tempGroupArray1.groupName}
       introduction={tempGroupArray1.introduction}
       memberCount={tempGroupArray1.memberCount}
     />

@@ -41,21 +41,18 @@ const StyledInput = styled.input<StyledInputProps>`
 `;
 
 // 스타일을 확장한 최종 input 컴포넌트의 props
-interface InputProps extends StyledInputProps {
-  onChange?: () => void;
-}
+interface InputProps extends StyledInputProps, React.InputHTMLAttributes<HTMLInputElement> {}
+
 
 const Input: React.FC<InputProps> = ({
   inputSize = 'md',
   activeOption = 'active',
-  onChange,
   //   types나 placeholder 등.. 동적으로 나머지 props 가져옴
   ...props
 }) => (
   <StyledInput
     inputSize={inputSize}
     activeOption={activeOption}
-    onChange={onChange}
     {...props}
   />
 );

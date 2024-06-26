@@ -76,7 +76,7 @@ const Header: React.FC = () => (
         <img src={logo} alt="Logo" />
       </Logo>
       <Menu>
-        <MenuItem to="/community">커뮤니티</MenuItem>
+        <MenuItem to="/community-feed">커뮤니티</MenuItem>
         <MenuItem to="/diary">건강관리</MenuItem>
         <MenuItem to="/hosInfo">정보</MenuItem>
       </Menu>

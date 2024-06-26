@@ -2,27 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-type GroupElementProps = {
-  groupName: string;
+type CommunityElementProps = {
+  name: string;
   introduction: string;
   groupId: string;
   memberCount: number;
 };
 
-const GroupElement: React.FC<GroupElementProps> = ({
-  groupName,
+const CommunityElement: React.FC<CommunityElementProps> = ({
+  name,
   introduction,
   groupId,
   memberCount,
 }) => (
   <StyledCommunityListSidebar to={`group/${groupId}`}>
-    <GroupName>{groupName}</GroupName>
+    <Name>{name}</Name>
     <Introduction>{introduction}</Introduction>
     <MemberCount>{memberCount}명의 멤버</MemberCount>
   </StyledCommunityListSidebar>
 );
 
-export default GroupElement;
+export default CommunityElement;
 
 const StyledCommunityListSidebar = styled(Link)`
   display: flex;
@@ -39,7 +39,7 @@ const StyledCommunityListSidebar = styled(Link)`
   }
 `;
 
-const GroupName = styled.p`
+const Name = styled.p`
   font-size: var(--font-size-md-1);
   font-weight: var(--font-weight-bold);
 `;
@@ -52,7 +52,6 @@ const Introduction = styled.p`
 `;
 
 const MemberCount = styled.p`
-  //고도화시 추가
   color: var(--color-grey-1);
   font-size: var(--font-size-ft-1);
   font-weight: var(--font-weight-regular);

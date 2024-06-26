@@ -24,7 +24,7 @@ import {
   tempLikeCount,
   tempCommentCount,
   tempCommentText,
-} from '../../../tempData';
+} from '@constants/tempData';
 
 interface PostProps {
   // title?: string;
@@ -42,9 +42,7 @@ interface PostProps {
 
 // 임시 - 이 주석은 데이터 들어오면 삭제
 // eslint-disable-next-line no-empty-pattern
-const Post: React.FC<PostProps> = ({ 
-  // title, content, userId, postId 
-}) => (
+const Post: React.FC<PostProps> = () => (
   <Body>
     <Main>
       <Container>
