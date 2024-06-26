@@ -10,6 +10,7 @@ import Post from '@pages/Post';
 import Group from '@pages/Group';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
+import Userpage from '@pages/Userpage'
 import HosInfo from '@pages/Info/HosInfo/';
 
 const router = createBrowserRouter([
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: 'group', element: <Group /> },
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
+      { path: 'userpage', element: <Userpage /> },
       { path: 'hosInfo', element: <HosInfo /> },
     ],
   },
