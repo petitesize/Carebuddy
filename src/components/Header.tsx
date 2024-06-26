@@ -81,7 +81,10 @@ const Header: React.FC = () => (
         <MenuItem to="/hosInfo">정보</MenuItem>
       </Menu>
       <Notification>
-        서치, 마이페이지, 로그인, 로그아웃, 알림 등등 어떻게 할지 논의
+        라우팅용 임시버튼들
+        <MenuItem to="/login-router">로그인</MenuItem>
+        <MenuItem to="/mypage">마이페이지</MenuItem>
+        <MenuItem to="/pharInfo">약국정보</MenuItem>
       </Notification>
     </Content>
   </Wrapper>
