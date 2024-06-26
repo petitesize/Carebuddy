@@ -12,12 +12,20 @@ const buttonStyles = {
     border-radius: 20px;
     background-color: var(--color-green-main);
     color: white;
+    transition: all 0.5s;
+    &:hover {
+      background-color: #567760;
+    }
   `,
   'square-green': css`
     border-radius: 0;
     background-color: var(--color-green-main);
     color: white;
     border: solid 1px var(--color-green-main);
+    transition: all 0.5s;
+    &:hover {
+      background-color: #567760;
+    }
   `,
   'square-white': css`
     border-radius: 0;
@@ -51,8 +59,6 @@ const buttonSizes = {
 
 // 정의된 스타일들을 props로 받아서 스타일링될 버튼 컴포넌트
 const StyledButton = styled.button<StyledButtonProps>`
-  // display: inline-block;
-  // width: auto;
   padding: 8px 16px;
   cursor: pointer;
   border: none;

@@ -38,7 +38,7 @@ const BoxTitle = styled.div`
 const ContentTitle = styled.div`
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-md-1); //16
-  margin-bottom: 4px;
+  margin-top: 4px;
 `;
 
 const ContentBody = styled.div`
@@ -49,7 +49,10 @@ const ContentBody = styled.div`
   }
 `;
 
-const Checkbox = styled.input``;
+const Checkbox = styled.input`
+  height: var(--font-size-md-1);
+  width: var(--font-size-md-1);
+`;
 
 const Label = styled.label`
   margin-right: 1rem;
