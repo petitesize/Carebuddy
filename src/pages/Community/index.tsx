@@ -12,13 +12,12 @@ import {
   tempCommunityIntroduction2,
 } from '@constants/tempData';
 
-type CommunityProps = {
-  // groupArray: string[]; // 임시 - 이후 데이터 들어오면 변경
-};
+// type CommunityProps = {
+// }
 
 // 임시 - 이 주석 삭제
 // eslint-disable-next-line no-empty-pattern
-const Community: React.FC<CommunityProps> = () => (
+const Community: React.FC = () => (
   <Body>
     <Main>
       <ButtonContainer>

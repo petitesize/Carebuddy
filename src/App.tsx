@@ -10,10 +10,9 @@ import Post from '@pages/Post';
 import Community from '@/pages/Community';
 import Diary from '@pages/Diary/';
 import Mypage from '@pages/Mypage/';
-import TempPetRegister from '@pages/Temp-PetRegister'
-
-
-
+import TempPetRegister from '@pages/Temp-PetRegister';
+import Userpage from '@pages/Userpage';
+import HosInfo from '@pages/Info/HosInfo/';
 
 const router = createBrowserRouter([
   {
@@ -31,8 +30,10 @@ const router = createBrowserRouter([
       { path: 'community', element: <Community /> },
       { path: 'diary', element: <Diary /> },
       { path: 'mypage', element: <Mypage /> },
+      { path: 'userpage', element: <Userpage /> },
+      { path: 'hosInfo', element: <HosInfo /> },
       // petRegister 모달용 임시 페이지
-      { path: 'pet-register', element: <TempPetRegister />},
+      { path: 'pet-register', element: <TempPetRegister /> },
     ],
   },
 ]);
@@ -90,13 +91,14 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  html, body, #root {
+  html, body, input, #root {
     width: 100%;
     height: auto;
     font-family: 'Pretendard-Regular', sans-serif;
     margin: 0;
     padding: 0;
     color:#343434;
+    white-space: nowrap;
   }
 `;
 

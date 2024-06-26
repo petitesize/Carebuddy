@@ -133,9 +133,11 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    //  mousedown 이벤트는 버블링을 지원하지 않아, 상위 요소에서 이 공통 컴포넌트를 사용 시 클릭 이벤트를 감지할 수 없기 때문에,
+    //  버블링을 지원하는 click 이벤트를 사용합니다
+    document.addEventListener('click', handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 

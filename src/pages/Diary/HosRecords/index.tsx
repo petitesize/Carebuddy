@@ -32,12 +32,13 @@ const BoxTitle = styled.div`
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-md-2); //18
   margin: 20px 100px 20px 0;
+  min-width: 32px;
 `;
 
 const ContentTitle = styled.div`
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-md-1); //16
-  margin-bottom: 4px;
+  margin-top: 4px;
 `;
 
 const ContentBody = styled.div`
@@ -48,7 +49,10 @@ const ContentBody = styled.div`
   }
 `;
 
-const Checkbox = styled.input``;
+const Checkbox = styled.input`
+  height: var(--font-size-md-1);
+  width: var(--font-size-md-1);
+`;
 
 const Label = styled.label`
   margin-right: 1rem;
@@ -257,25 +261,6 @@ const HosRecords = ({ formData, setFormData }) => {
         </ContentCard>
       </Container>
     </Component>
-    // <div>
-    //   <label htmlFor="nameInput">Name:</label>
-    //   <input
-    //     type="text"
-    //     id="nameInput"
-    //     name="name"
-    //     value={formData.name}
-    //     onChange={handleInputChange}
-    //   />
-
-    //   <label htmlFor="phoneInput">Phone Number:</label>
-    //   <input
-    //     type="tel"
-    //     id="phoneInput"
-    //     name="phoneNumber"
-    //     value={formData.phoneNumber}
-    //     onChange={handleInputChange}
-    //   />
-    // </div>
   );
 };
 

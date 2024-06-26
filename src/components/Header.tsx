@@ -78,7 +78,7 @@ const Header: React.FC = () => (
       <Menu>
         <MenuItem to="/community-feed">커뮤니티</MenuItem>
         <MenuItem to="/diary">건강관리</MenuItem>
-        <MenuItem to="/diary">정보</MenuItem>
+        <MenuItem to="/hosInfo">정보</MenuItem>
       </Menu>
       <Notification>
         서치, 마이페이지, 로그인, 로그아웃, 알림 등등 어떻게 할지 논의
