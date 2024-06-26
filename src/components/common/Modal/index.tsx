@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { ModalHeader, ModalBody, ModalFooter } from './ModalComponents'; 
-
+import { ModalHeader, ModalBody, ModalFooter } from './ModalComponents';
 
 const ModalBackground = styled.div`
   position: fixed;

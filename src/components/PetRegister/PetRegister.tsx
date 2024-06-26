@@ -23,14 +23,14 @@ const PetRegister = ((props: PetRegisterProps, ) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null); // 프리뷰 이미지
   const [selectedFile, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
 
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    age: 0,
-    weight: 0,
-    gender: '',
-    species: '',
-    neutered: '',
-  }); 
+  // const [formData, setFormData] = useState<FormData>({
+  //   name: '',
+  //   age: 0,
+  //   weight: 0,
+  //   gender: '',
+  //   species: '',
+  //   neutered: '',
+  // }); 
 
   // petInfo 객체 초기화
   const [petInfo, setPetInfo] = useState({
@@ -59,10 +59,10 @@ const PetRegister = ((props: PetRegisterProps, ) => {
       ...petInfo,
       [type]: value,
     });
-    setFormData((prevData) => ({
-      ...prevData,
-      [type]: value,
-    }));
+    // setFormData((prevData) => ({
+    //   ...prevData,
+    //   [type]: value,
+    // }));
   };
 
 
@@ -73,10 +73,10 @@ const PetRegister = ((props: PetRegisterProps, ) => {
   ) => {
     const { value } = e.target;
 
-    setFormData((prevData) => ({
-      ...prevData,
-      [type]: type === 'age' || type === 'weight' ? parseInt(value, 10) : value,
-    }));
+    // setFormData((prevData) => ({
+    //   ...prevData,
+    //   [type]: type === 'age' || type === 'weight' ? parseInt(value, 10) : value,
+    // }));
   };
 
   // 이미지 전송 핸들러

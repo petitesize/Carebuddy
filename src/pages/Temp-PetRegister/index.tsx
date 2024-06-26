@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
 import styled from 'styled-components';
 
 // 컴포넌트
@@ -18,14 +18,14 @@ export interface FormData {
 const TempPetRegister: React.FC = () => {
   // 모달 관련 상태 관리
   const [modalOpen, setModalOpen] = useState(false);
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    age: 0,
-    weight: 0,
-    gender: '',
-    species: '',
-    neutered: '',
-  });
+  // const [formData, setFormData] = useState<FormData>({
+  //   name: '',
+  //   age: 0,
+  //   weight: 0,
+  //   gender: '',
+  //   species: '',
+  //   neutered: '',
+  // });
 
   // 모달 관련 함수
   const handleOpenModal = () => {
@@ -37,7 +37,7 @@ const TempPetRegister: React.FC = () => {
   };
 
   const handleFormSubmit = () => {
-    console.log('Form data:', formData);
+    // console.log('Form data:', formData);
     // 모달 닫기
     handleCloseModal();
   };
