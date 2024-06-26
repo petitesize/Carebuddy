@@ -331,6 +331,12 @@ const Diary: React.FC = () => {
           <SwiperSlide>
             <CardsWrapper>
               <Cards>
+                <ActionButton
+                  buttonBorder="border-none"
+                  direction="vertical"
+                  onDelete={() => {}}
+                  onEdit={() => {}}
+                />
                 <Photo />
                 <Name>이름</Name>
                 <Details>종 / 나이</Details>
@@ -400,6 +406,23 @@ const Diary: React.FC = () => {
               </DiaryDetailContainer>
             </DiaryDetailsLeft>
             <DiaryDetailsRight>
+              <ActionButton
+                buttonBorder="border-none"
+                direction="vertical"
+                onDelete={() => {}}
+                onEdit={handleOpenEditModal}
+              />
+              {editModalOpen && (
+                <Modal
+                  onClose={handleCloseEditModal}
+                  title="병원 기록 수정"
+                  value="수정"
+                  component={
+                    <HosRecords formData={formData} setFormData={setFormData} />
+                  }
+                  onHandleClick={() => {}}
+                />
+              )}
               <DiaryDetailContainer>
                 <Icon>
                   <LuPill />
