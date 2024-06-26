@@ -8,6 +8,7 @@ import PetCardContainer from "@/components/Mypage&Userpage/PetCardContainer";
 import Input from '@/components/common/Input';
 
 const Container = styled.div`
+  margin: 30px 0 30px 0;
 `;
 
 const Menu = styled.div`
