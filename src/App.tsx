@@ -4,16 +4,19 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reset from 'styled-reset';
 import ProtectedRoute from '@/routes/protectedRoute';
 import Layout from '@/components/Layout';
-import Home from '@pages/Home/';
-import CommunityFeed from '@/pages/CommunityFeed';
-import Post from '@pages/Post';
-import Community from '@/pages/Community';
-import Diary from '@pages/Diary/';
-import Mypage from '@pages/Mypage/';
-import TempPetRegister from '@pages/Temp-PetRegister';
-import TempPetEdit from '@pages/Temp-PetEdit';
-import Userpage from '@pages/Userpage';
-import HosInfo from '@pages/Info/HosInfo/';
+import {
+  Home,
+  CommunityFeed,
+  Post,
+  Community,
+  Diary,
+  Mypage,
+  TempPetRegister,
+  TempPetEdit,
+  Userpage,
+  HosInfo,
+  PharInfo,
+} from '@/pages';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +36,7 @@ const router = createBrowserRouter([
       { path: 'mypage', element: <Mypage /> },
       { path: 'userpage', element: <Userpage /> },
       { path: 'hosInfo', element: <HosInfo /> },
+      { path: 'pharInfo', element: <PharInfo /> },
       // petRegister, petEdit 모달용 임시 페이지
       { path: 'pet-register', element: <TempPetRegister /> },
       { path: 'pet-edit', element: <TempPetEdit /> },
