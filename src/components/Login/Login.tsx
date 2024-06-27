@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Button from '../common/Button';
-import Input from '../common/Input';
-import CheckBox from '../common/CheckBox';
+import Button from '@components/common/Button';
+import Input from '@components/common/Input';
+import CheckBox from '@components/common/CheckBox';
 
 const Login: React.FC = () => {
   const [keepLogin, setKeepLogin] = useState(false);

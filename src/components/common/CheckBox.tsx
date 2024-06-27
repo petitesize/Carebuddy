@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 // 체크박스 텍스트 컬러 props
@@ -34,8 +34,13 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   const handleCheck = () => {
     const newChecked = !isChecked;
     setIsChecked(newChecked);
-    onChange(newChecked); // onChange 이벤트 후 상태를 전달
+    onChange(newChecked);
   };
+
+  useEffect(() => {
+    console.log(isChecked)
+  }, [isChecked])
+  
 
   return (
     <Label htmlFor={value} className="chk_box">
