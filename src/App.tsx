@@ -99,15 +99,14 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-    *, *::before, *::after {
+    *, *::before, *::after { 
     font-family: 'Pretendard-Regular', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-
-  html, body, input, button, textarea, select, #root {
+  html, body, input, #root {
     width: 100%;
     height: auto;
     font-family: 'Pretendard-Regular', sans-serif;
