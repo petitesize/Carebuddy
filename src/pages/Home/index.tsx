@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// 컴포넌트
-// import Button from '@/components/common/Button';
 import Banner from '@/components/Home&CommunityFeed/Banner';
 import FeedBox from '@/components/Home&CommunityFeed/FeedBox';
 import SidePanel from '@/components/Home&CommunityFeed/SidePanel';

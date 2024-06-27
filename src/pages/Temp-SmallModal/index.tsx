@@ -1,10 +1,10 @@
-import React, { useState  } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // 컴포넌트
 import Button from '@/components/common/Button';
 import SmallModal from '@/components/common/SmallModal';
-import PetRegister from '@/components/PetRegister/PetRegister';
+import Login from '@/components/Login/Login';
 
 const TempSmallModal: React.FC = () => {
   // 모달 관련 상태 관리
@@ -30,15 +30,7 @@ const TempSmallModal: React.FC = () => {
       <Main>
         <Button onClick={handleOpenModal}>SmallModal 테스트용 버튼</Button>
         {modalOpen && (
-          <SmallModal
-            onClose={handleCloseModal}
-            component={
-              <PetRegister
-                // formData={formData}
-                // setFormData={setFormData}
-              />
-            }
-          />
+          <SmallModal onClose={handleCloseModal} component={<Login />} />
         )}
       </Main>
     </Body>
