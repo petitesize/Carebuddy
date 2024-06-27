@@ -107,6 +107,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     color:#343434;
     white-space: nowrap;
+    overflow-x: hidden;
   }
 `;
 
