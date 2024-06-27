@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-interface CheckBoxProps {
+// 체크박스 텍스트 컬러 props
+interface StyledCheckBoxProps {
+  textColor?: 'grey' | 'black';
+}
+
+const textColors = {
+  grey: css`
+    color: var(--color-grey-1);
+  `,
+  black: css`
+    color: var(--color-black);
+  `,
+};
+
+interface CheckBoxProps extends StyledCheckBoxProps {
   value: string;
   checked: boolean;
   text: string;
-  onChange: () => void;
+  onChange: (checked: boolean) => void;
 }
 
 const CheckBox: React.FC<CheckBoxProps> = ({
@@ -13,12 +27,14 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   checked = false,
   text,
   onChange,
+  textColor = 'grey'
 }) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleCheck = () => {
-    setIsChecked((prevState) => !prevState);
-    onChange();
+    const newChecked = !isChecked;
+    setIsChecked(newChecked);
+    onChange(newChecked); // onChange 이벤트 후 상태를 전달
   };
 
   return (
@@ -31,7 +47,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
       />
       <TextContainer>
         <Span className={isChecked ? 'on' : ''} />
-        <Text>{text}</Text>
+        <Text textColor={textColor}>{text}</Text>
       </TextContainer>
     </Label>
   );
@@ -80,9 +96,9 @@ const Span = styled.span`
   }
 `;
 
-const Text = styled.p`
+const Text = styled.p<StyledCheckBoxProps>`
   margin: 0;
   font-size: var(--font-size-ft-1);
-  color: var(--color-grey-1);
+  ${(props) => props.textColor && textColors[props.textColor]}
   font-weight: var(--font-weight-regular);
 `;
