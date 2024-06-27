@@ -82,4 +82,5 @@ const Span = styled.span`
 
 const Text = styled.p`
   margin: 0;
+  font-size: var(--font-size-ft-1);
 `;
