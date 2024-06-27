@@ -162,6 +162,7 @@ const Header: React.FC = () => {
           <MenuItem to="/login-router">로그인</MenuItem>
           <MenuItem to="/mypage">마이페이지</MenuItem>
           <MenuItem to="/pharInfo">약국정보</MenuItem>
+          <MenuItem to="/globalSearch">전체 검색</MenuItem>
         </Notification>
       </Content>
     </Wrapper>

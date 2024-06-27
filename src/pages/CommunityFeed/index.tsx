@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // 컴포넌트
+import TopBar from '@/components/common/TopBar';
 import FeedBox from '@/components/Home&CommunityFeed/FeedBox';
 import SidePanel from '@/components/Home&CommunityFeed/SidePanel';
 import WriteButton from '@/components/Home&CommunityFeed/WirteButton';
@@ -18,6 +19,7 @@ import {
   tempProfileSrc,
   tempPostId,
   tempMemberArray1,
+  tempGroupArray1,
 } from '@constants/tempData';
 
 const CommunityFeed: React.FC = () => {
@@ -35,6 +37,7 @@ const CommunityFeed: React.FC = () => {
   return (
     <Body>
       <Main>
+        <TopBar category="커뮤니티" title={tempGroupArray1.groupName} communityCategory={tempGroupArray1.category}  />
         <SearchContainer>
           <Search
             // onSearch={(value) => handleSearch(value)}

@@ -7,6 +7,7 @@ import FeedBox from '@/components/Home&CommunityFeed/FeedBox';
 import SidePanel from '@/components/Home&CommunityFeed/SidePanel';
 import WriteButton from '@/components/Home&CommunityFeed/WirteButton';
 import CommunityElement from '@/components/Home&CommunityFeed/CommunityElement';
+import TopBar from '@/components/common/TopBar';
 
 // 로그인 모달 테스트용
 import SmallModal from '@/components/common/SmallModal';
@@ -26,7 +27,6 @@ import PetRegister from '@/components/PetRegister/PetRegister';
 // import Button from '@components/common/Button';
 // import SmallModal from '@/components/common/SmallModal';
 import BasicRegistration from '@/components/Registration/BasicRegistration';
-
 
 // 임시 데이터
 import {
@@ -137,6 +137,7 @@ const Home: React.FC = () => {
   return (
     <Body>
       <Main>
+        <TopBar category="반려동물 건강 관리 서비스" title="Carebuddy" />
         <h1>모달 테스트 구역시작</h1>
         {/* 로그인 */}
         <Button onClick={handleOpenModal1}>로그인 모달</Button>
@@ -178,7 +179,10 @@ const Home: React.FC = () => {
         {/* 일반 회원가입 */}
         <Button onClick={handleOpenModal4}>일반 회원가입 모달</Button>
         {modalOpen4 && (
-          <SmallModal onClose={handleCloseModal4} component={<BasicRegistration />} />
+          <SmallModal
+            onClose={handleCloseModal4}
+            component={<BasicRegistration />}
+          />
         )}
 
         <h1>모달 테스트 구역 끝</h1>

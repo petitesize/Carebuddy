@@ -13,7 +13,8 @@ import {
   Mypage,
   Userpage,
   HosInfo,
-  PharInfo
+  PharInfo,
+  GlobalSearch
 } from '@/pages';
 
 const router = createBrowserRouter([
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: 'userpage', element: <Userpage /> },
       { path: 'hosInfo', element: <HosInfo /> },
       { path: 'pharInfo', element: <PharInfo /> },
+      { path: 'globalSearch', element: <GlobalSearch /> },
     ],
   },
 ]);

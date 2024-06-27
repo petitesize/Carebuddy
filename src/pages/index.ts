@@ -7,3 +7,4 @@ export { default as Mypage } from './Mypage';
 export { default as Userpage } from './Userpage';
 export { default as HosInfo } from './Info/HosInfo';
 export { default as PharInfo } from './Info/PharInfo';
+export { default as GlobalSearch } from './GlobalSearch';

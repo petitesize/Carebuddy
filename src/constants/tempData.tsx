@@ -28,9 +28,10 @@ export {
 
 const tempGroupArray1 = {
   groupId: '그룹아이디',
-  groupName: '그룹네임',
+  groupName: '눈/코/귀',
   introduction: '그룹 설명',
   memberCount: 5,
+  category: '고양이'
 };
 
 const tempGroupArray2 = [
