@@ -16,7 +16,7 @@ import {
   Userpage,
   HosInfo,
   PharInfo,
-  SmallModal
+  SmallModal,
 } from '@/pages';
 
 const router = createBrowserRouter([
@@ -99,7 +99,15 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  html, body, input, #root {
+    *, *::before, *::after {
+    font-family: 'Pretendard-Regular', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+  html, body, input, button, textarea, select, #root {
     width: 100%;
     height: auto;
     font-family: 'Pretendard-Regular', sans-serif;
