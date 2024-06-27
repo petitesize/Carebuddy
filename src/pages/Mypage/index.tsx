@@ -1,11 +1,13 @@
-import styled from "styled-components";
 import React, { useState } from 'react';
-import defaultImg from '@/assets/person.png'
+import styled from 'styled-components';
+import defaultImg from '@/assets/person.png';
 import Button from '@/components/common/Button';
 import TextArea from '@/components/common/TextArea';
-import ListContainer from "@/components/Mypage&Userpage/ListContainer";
-import PetCardContainer from "@/components/Mypage&Userpage/PetCardContainer";
+import ListContainer from '@/components/Mypage&Userpage/ListContainer';
+import PetCardContainer from '@/components/Mypage&Userpage/PetCardContainer';
 import Input from '@/components/common/Input';
+import SmallModal from '@/components/common/SmallModal';
+import UserAsk from '@/pages/Mypage/UserAsk';
 
 const Container = styled.div`
   margin: 30px 0 30px 0;
@@ -84,6 +86,7 @@ const InfoContainer = styled.div`
 const Withdraw = styled.div`
   font-size: var(--font-size-ft-1); //14
   text-decoration: underline;
+  cursor: pointer; /* 클릭할 수 있음을 나타내기 위해 커서 변경 */
 `;
 
 const UserInfoContainer = ({ email, nickname, introduction }) => (
@@ -149,6 +152,20 @@ const ProfileContainer = ({ introduction, setIntroduction }) => {
 
 const Mypage: React.FC = () => {
   const [introduction, setIntroduction] = useState('안녕하세요');
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가
+
+  const handleWithdrawClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleConfirmWithdraw = () => {
+    alert('회원탈퇴가 완료되었습니다.');
+    setIsModalOpen(false);
+  };
 
   const contentItems = [
     { id: '1', content: '회원정보', component: <UserInfoContainer email="carebuddy@naver.com" nickname="케어버디" introduction={introduction} /> },
@@ -168,8 +185,14 @@ const Mypage: React.FC = () => {
         </React.Fragment>
       ))}
       <WithdrawContainer>
-        <Withdraw>회원탈퇴</Withdraw>
+        <Withdraw onClick={handleWithdrawClick}>회원탈퇴</Withdraw>
       </WithdrawContainer>
+      {isModalOpen && (
+        <SmallModal
+          component={<UserAsk onConfirm={handleConfirmWithdraw} onCancel={handleCloseModal} />}
+          onClose={handleCloseModal}
+        />
+      )}
     </Container>
   );
 };

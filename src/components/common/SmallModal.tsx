@@ -6,7 +6,7 @@ interface SmallModalProps {
   component: React.ReactNode;
 }
 
-const SmallModal: React.FC<SmallModalProps> = ({onClose, component}) => {
+const SmallModal: React.FC<SmallModalProps> = ({ onClose, component }) => {
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'; // 모달 열렸을 때 배경 스크롤 막음
@@ -21,7 +21,6 @@ const SmallModal: React.FC<SmallModalProps> = ({onClose, component}) => {
       <ModalContent onClick={(e) => e.stopPropagation()}>
         {component}
       </ModalContent>
-      <p>모달 테스트</p>
     </ModalBackground>
   );
 };
@@ -37,8 +36,7 @@ const ModalBackground = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: flex-start; 
-  padding-top: 16vh; 
+  align-items: center;
   z-index: 9999;
 `;
 
