@@ -1,5 +1,3 @@
-// 체크박스 베이스컴포넌트화
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -16,9 +14,19 @@ const Login: React.FC = () => {
 
   return (
     <Container>
-      <p>로그인</p>
-      <Input borderStyle="square" />
-      <Input borderStyle="square" />
+      <LargeText>로그인</LargeText>
+      <Input
+        placeholderColor="light-grey"
+        inputPadding="sm"
+        borderStyle="square"
+        placeholder="아이디"
+      />
+      <Input
+        placeholderColor="light-grey"
+        inputPadding="sm"
+        borderStyle="square"
+        placeholder="비밀번호"
+      />
       <SignupSection>
         <CheckBoxSection>
           <CheckBox
@@ -28,15 +36,19 @@ const Login: React.FC = () => {
             onChange={handleCheckBoxChange}
           />
         </CheckBoxSection>
-        <p>회원가입</p>
+        <Button buttonStyle="grey" buttonSize="sm">
+          회원가입
+        </Button>
       </SignupSection>
-
-      <Button buttonStyle="square-green">로그인</Button>
-      <p>아이디/비밀번호 찾기</p>
-
+      <LoginContainer>
+        <Button buttonStyle="square-green">로그인</Button>
+      </LoginContainer>
+      <Button buttonStyle="grey" buttonSize="sm">
+        아이디/비밀번호 찾기
+      </Button>
       <Hr />
-      <p>간편 로그인/회원가입</p>
-      <div>카카오로그인 자리</div>
+      <LargeText>간편 로그인/회원가입</LargeText>
+      <KakaoLoginButton>카카오로그인 자리</KakaoLoginButton>
     </Container>
   );
 };
@@ -48,26 +60,51 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 70%;
 
-  // background-color: yellow;
+  & > * {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const SignupSection = styled.div`
+  padding-bottom: 12px;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-
-  // background-color: red;
 `;
 
 const CheckBoxSection = styled.div`
+  padding: 8px 0;
   display: flex;
   flex-direction: flex-start;
 `;
 
 const Hr = styled.hr`
+  margin: 12px 0 18px 0;
   border: 0;
   border-top: 1px solid var(--color-grey-2);
-  width: 80%;
+`;
+
+const LargeText = styled.p`
+  font-size: var(--font-size-hd-1);
+  padding-bottom: 20px;
+`;
+
+const LoginContainer = styled.div`
+  display: flex;
+  width: 100%;
+  padding-bottom: 12px;
+
+  button {
+    width: 100%;
+  }
+`;
+
+const KakaoLoginButton = styled.div`
+  background-color: yellow;
+  height: 30px;
 `;
