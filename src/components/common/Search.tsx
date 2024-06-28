@@ -7,18 +7,48 @@ const searchSizes = {
   md: css`
     width: 500px;
     font-size: var(--font-size-md-2);
-    padding: 16px 20px;
+    padding: 6px 8px;
   `,
   sm: css`
     width: 300px;
     font-size: var(--font-size-sm);
-    padding: 10px 12px;
+    padding: 4px 8px;
   `,
+};
+
+const searchStyles = {
+  round: css`
+    border-radius: 30px;
+  `,
+  square: css``,
 };
 
 interface StyledSearchProps {
   searchSize?: 'sm' | 'md';
+  searchStyle?: 'round' | 'square';
 }
+
+const SearchBox = styled.div<StyledSearchProps>`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-2);
+  height: auto;
+  ${(props) => props.searchSize && searchSizes[props.searchSize]}
+  ${(props) => props.searchStyle && searchStyles[props.searchStyle]}
+`;
+
+const StyledInput = styled.input<StyledSearchProps>`
+  border: none;
+  width: 100%;
+  ${(props) => props.searchSize && searchSizes[props.searchSize]}
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 interface SearchProps extends StyledSearchProps {
   placeholder?: string;
@@ -27,6 +57,7 @@ interface SearchProps extends StyledSearchProps {
 
 const Search: React.FC<SearchProps> = ({
   searchSize = 'md',
+  searchStyle = 'round',
   onSearch,
   ...props
 }) => {
@@ -46,7 +77,7 @@ const Search: React.FC<SearchProps> = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <SearchBox searchSize={searchSize}>
+      <SearchBox searchSize={searchSize} searchStyle={searchStyle}>
         <StyledInput
           type="text"
           onChange={handleChange}
@@ -62,29 +93,9 @@ const Search: React.FC<SearchProps> = ({
 
 export default Search;
 
-const SearchBox = styled.div<StyledSearchProps>`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: var(--color-white);
-  border: 1px solid var(--color-grey-2);
-  height: auto;
-  border-radius: 30px;
-`;
-
-const StyledInput = styled.input<StyledSearchProps>`
-  border: none;
-  border-radius: 30px;
-  width: 100%;
-  ${(props) => props.searchSize && searchSizes[props.searchSize]}
-  &:focus {
-    outline: none;
-  }
-`;
-
 const StyledIcon = styled(LuSearch)`
   font-size: 24px;
-  margin-right: 20px;
+  margin-right: 4px;
   color: var(--color-grey-2);
   cursor: pointer;
 `;

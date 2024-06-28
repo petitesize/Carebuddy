@@ -39,7 +39,6 @@ const buttonStyles = {
     border: solid 1px var(--color-grey-2);
   `,
   link: css`
-    margin-bottom: 10px;
     padding: 0 0 1px 0;
     border: none;
     border-bottom: solid 1px;

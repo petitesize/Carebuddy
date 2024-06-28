@@ -4,15 +4,14 @@ import styled from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 
-const Wrapper = styled.div`
-`;
+const Wrapper = styled.div``;
 
 const OutletWrapper = styled.div`
   /* min-height: 100vh;
   padding-top: 130px; */
   /* 반응화 고려 시 조절 필요 */
-  /* width: 1024px;
-  display: flex; */
+  /* width: 1024px; */
+  /* display: flex; */
   /* flex-direction: column; */
   /* justify-content: flex-start; */
   /* align-items: center; */
@@ -22,6 +21,9 @@ const OutletWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  // display: flex;
+  // align-items: center; // 임시 - 전체 검색 페이지 때문에 추가
 `;
 
 const Layout: React.FC = () => (

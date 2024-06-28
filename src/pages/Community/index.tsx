@@ -18,40 +18,38 @@ import {
 // 임시 - 이 주석 삭제
 // eslint-disable-next-line no-empty-pattern
 const Community: React.FC = () => (
-  <Body>
-    <Main>
-      <ButtonContainer>
-        <Button buttonStyle="square-green" buttonSize="lg">
-          강아지
-        </Button>
-        <Button buttonStyle="square-white" buttonSize="lg">
-          고양이
-        </Button>
-      </ButtonContainer>
-      <CardContainer>
-        <CommunityCard
-          name={tempCommunityName}
-          introduction={tempCommunityIntroduction}
-        />
-        <CommunityCard
-          name={tempCommunityName}
-          introduction={tempCommunityIntroduction2}
-        />
-        <CommunityCard
-          name={tempCommunityName}
-          introduction={tempCommunityIntroduction}
-        />
-        <CommunityCard
-          name={tempCommunityName}
-          introduction={tempCommunityIntroduction}
-        />
-        <CommunityCard
-          name={tempCommunityName}
-          introduction={tempCommunityIntroduction}
-        />
-      </CardContainer>
-    </Main>
-  </Body>
+  <>
+    <ButtonContainer>
+      <Button buttonStyle="square-green" buttonSize="lg">
+        강아지
+      </Button>
+      <Button buttonStyle="square-white" buttonSize="lg">
+        고양이
+      </Button>
+    </ButtonContainer>
+    <CardContainer>
+      <CommunityCard
+        name={tempCommunityName}
+        introduction={tempCommunityIntroduction}
+      />
+      <CommunityCard
+        name={tempCommunityName}
+        introduction={tempCommunityIntroduction2}
+      />
+      <CommunityCard
+        name={tempCommunityName}
+        introduction={tempCommunityIntroduction}
+      />
+      <CommunityCard
+        name={tempCommunityName}
+        introduction={tempCommunityIntroduction}
+      />
+      <CommunityCard
+        name={tempCommunityName}
+        introduction={tempCommunityIntroduction}
+      />
+    </CardContainer>
+  </>
 );
 
 export default Community;
@@ -69,19 +67,3 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
-
-/* 임시 레이아웃 */
-
-const Body = styled.div`
-  flex: 1;
-  padding-top: 80px;
-`;
-
-const Main = styled.div`
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 1024px;
-`;
-
-/* 임시 레이아웃 끝 */

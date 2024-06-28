@@ -35,8 +35,7 @@ const CommunityFeed: React.FC = () => {
   );
 
   return (
-    <Body>
-      <Main>
+      <>
         <TopBar category="커뮤니티" title={tempGroupArray1.groupName} communityCategory={tempGroupArray1.category}  />
         <SearchContainer>
           <Search
@@ -70,33 +69,16 @@ const CommunityFeed: React.FC = () => {
             <SidePanel name="그룹 멤버" elementArray={tempGroup} />
           </SidePanelContainer>
         </Container>
-      </Main>
-    </Body>
+        </>
   );
 };
 
 export default CommunityFeed;
 
-/* 임시 레이아웃 */
-
-const Body = styled.div`
-  flex: 1;
-  padding-top: 80px;
-`;
-
-const Main = styled.div`
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 1024px;
-`;
-
-/* 임시 레이아웃 끝 */
-
 const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 200px;
+  height: 100px;
 `;
 
 const Container = styled.div`

@@ -62,11 +62,12 @@ const InfoContainer = styled.div`
   flex: 1; 
 `;
 
-const Introduction = styled.p`
+const Introduction = styled.pre`
   font-size: var(--font-size-ft-1);
   color: var(--color-grey-1);
   padding: 20px 0;
   line-height: 1.3;
+  white-space: pre-wrap; 
 `;
 
 const ButtonContainer = styled.div`

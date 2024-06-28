@@ -22,10 +22,12 @@ const Content = styled.div`
   width: 1024px;
   margin-left: auto;
   margin-right: auto;
+
 `;
 
 const Category = styled.div`
   font-size: 14px;
+
 `;
 
 const Title = styled.div`

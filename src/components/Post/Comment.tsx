@@ -47,8 +47,8 @@ export default Comment;
 const StyledComment = styled.div`
   display: flex;
   margin-top: 12px;
-  height: auto;
-  padding: 5px 0;
+  padding: 10px;
+  // background-color: red;
 
   img {
     width: 50px;
@@ -59,17 +59,21 @@ const StyledComment = styled.div`
 
 const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
-const UploadedDate = styled.p`
+const UploadedDate = styled.pre`
   font-size: var(--font-size-ft-1);
   color: var(--color-grey-1);
+  white-space: pre-wrap;
 `;
 
-const Content = styled.div`
+const Content = styled.pre`
   line-height: 1.3;
   font-size: var(--font-size-ft-1);
   margin: 10px 0;
+  white-space: pre-wrap;
 `;
 
 const ProfileImg = styled.img`
