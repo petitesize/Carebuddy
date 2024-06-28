@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 
 // 체크박스 텍스트 컬러 props
@@ -19,7 +19,7 @@ interface CheckBoxProps extends StyledCheckBoxProps {
   value: string;
   checked: boolean;
   text: string;
-  onChange: (checked: boolean) => void;
+  onChange: () => void;
 }
 
 const CheckBox: React.FC<CheckBoxProps> = ({
@@ -27,36 +27,21 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   checked = false,
   text,
   onChange,
-  textColor = 'grey'
-}) => {
-  const [isChecked, setIsChecked] = useState(checked);
-
-  const handleCheck = () => {
-    const newChecked = !isChecked;
-    setIsChecked(newChecked);
-    onChange(newChecked);
-  };
-
-  useEffect(() => {
-    console.log(isChecked)
-  }, [isChecked])
-  
-
-  return (
-    <Label htmlFor={value} className="chk_box">
-      <Input
-        type="checkbox"
-        id={value}
-        checked={isChecked}
-        onChange={handleCheck}
-      />
-      <TextContainer>
-        <Span className={isChecked ? 'on' : ''} />
-        <Text textColor={textColor}>{text}</Text>
-      </TextContainer>
-    </Label>
-  );
-};
+  textColor = 'grey',
+}) => (
+  <Label htmlFor={value} className="chk_box">
+    <Input
+      type="checkbox"
+      id={value}
+      checked={checked}
+      onChange={onChange}
+    />
+    <TextContainer>
+      <Span className={checked ? 'on' : ''} />
+      <Text textColor={textColor}>{text}</Text>
+    </TextContainer>
+  </Label>
+);
 
 export default CheckBox;
 

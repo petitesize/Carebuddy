@@ -10,7 +10,7 @@ import { LuChevronDown, LuChevronUp } from 'react-icons/lu';
 // 임시 데이터
 import { tempTerms } from '@constants/tempData';
 
-const BasicRegistration: React.FC = () => {
+const KakaoRegistration: React.FC = () => {
   const [agreeChecked, setAgreeChecked] = useState(false);
   const [agreeChecked2, setAgreeChecked2] = useState(false);
   const [agreeChecked3, setAgreeChecked3] = useState(false);
@@ -114,7 +114,7 @@ const BasicRegistration: React.FC = () => {
   );
 };
 
-export default BasicRegistration;
+export default KakaoRegistration;
 
 const Container = styled.div`
   display: flex;

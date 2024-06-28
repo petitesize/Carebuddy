@@ -29,6 +29,11 @@ import PetRegister from '@/components/PetRegister/PetRegister';
 // import SmallModal from '@/components/common/SmallModal';
 import BasicRegistration from '@/components/Registration/BasicRegistration';
 
+// 카카오 회원가입 모달 테스트용
+// import Button from '@components/common/Button';
+// import SmallModal from '@/components/common/SmallModal';
+import KakaoRegistration from '@/components/Registration/KaKaoRegistration';
+
 // 임시 데이터
 import {
   tempTitle,
@@ -87,6 +92,23 @@ const Home: React.FC = () => {
 
   const handleCloseModal4 = () => {
     setModalOpen4(false);
+  };
+
+  // const handleFormSubmit = () => {
+  //   // console.log('Form data:', formData);
+  //   // 모달 닫기
+  //   handleCloseModal();
+  // };
+
+  // 카카오 회원가입 모달 관련 상태&함수
+  const [modalOpen5, setModalOpen5] = useState(false);
+
+  const handleOpenModal5 = () => {
+    setModalOpen5(true);
+  };
+
+  const handleCloseModal5 = () => {
+    setModalOpen5(false);
   };
 
   // const handleFormSubmit = () => {
@@ -192,6 +214,14 @@ const Home: React.FC = () => {
         <SmallModal
           onClose={handleCloseModal4}
           component={<BasicRegistration />}
+        />
+      )}
+      {/* 카카오 회원가입 */}
+      <Button onClick={handleOpenModal5}>카카오 회원가입 모달</Button>
+      {modalOpen5 && (
+        <SmallModal
+          onClose={handleCloseModal5}
+          component={<KakaoRegistration />}
         />
       )}
 

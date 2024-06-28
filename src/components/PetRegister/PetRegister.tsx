@@ -25,13 +25,14 @@ const PetRegister = () => {
   const [, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
   // const [selectedFile, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
 
-  // const [formData, setFormData] = useState<FormData>({
-  //   name: '',
-  //   age: 0,
-  //   weight: 0,
-  //   gender: '',
-  //   species: '',
-  //   neutered: '',
+  // const [setFormData, setFormData] = useState<FormData>({
+  // const [, setFormData] = useState<FormData>({
+    // name: '',
+    // age: 0,
+    // weight: 0,
+    // gender: '',
+    // species: '',
+    // neutered: '',
   // });
 
   // petInfo 객체 초기화
@@ -75,8 +76,10 @@ const PetRegister = () => {
     type: 'name' | 'age' | 'weight'
   ) => {
     // 임시
+    // eslint-disable-next-line no-console
+    console.log(e, type);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { value } = e.target;
+    // const { value } = e.target;
 
     // setFormData((prevData) => ({
     //   ...prevData,
