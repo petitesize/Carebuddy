@@ -43,47 +43,45 @@ interface PostProps {
 // 임시 - 이 주석은 데이터 들어오면 삭제
 // eslint-disable-next-line no-empty-pattern
 const Post: React.FC<PostProps> = () => (
-
-    <Container>
-      <PostListButtonContainer>
-        <LuChevronLeft />
-        <p>글 목록 보기</p>
-      </PostListButtonContainer>
-      <TitleContainer>
-        <p>{tempTitle}</p>
-        <PostOption>
-          <LikeAndCommentCount
-            likeCount={tempLikeCount}
-            commentCount={tempCommentCount}
-          />
-          <ActionButton buttonBorder="border-solid" direction="horizonal" />
-        </PostOption>
-      </TitleContainer>
-      <InformationContainer>
-        <ProfileImg src={tempProfileSrc} alt="프로필 이미지" />
-        <p>{tempNickname}</p>
-        <p>|</p>
-        <p>{tempDate}</p>
-      </InformationContainer>
-      <ContentContainer>
-        <pre>{tempContent}</pre>
-        <img src={tempProfileSrc} alt="이미지" />
-        <Likes>
-          <LuThumbsUp />
-          <p>추천해요 {tempLikeCount}</p>
-        </Likes>
-      </ContentContainer>
-      <CommentContainer>
-        <CommentWritingBox nickname={tempNickname} />
-        <Comment
-          text={tempCommentText}
-          nickname={tempNickname}
-          date={tempDate}
-          profileImg={tempProfileSrc}
+  <Container>
+    <PostListButtonContainer>
+      <LuChevronLeft />
+      <p>글 목록 보기</p>
+    </PostListButtonContainer>
+    <TitleContainer>
+      <p>{tempTitle}</p>
+      <PostOption>
+        <LikeAndCommentCount
+          likeCount={tempLikeCount}
+          commentCount={tempCommentCount}
         />
-      </CommentContainer>
-    </Container>
-
+        <ActionButton buttonBorder="border-solid" direction="horizonal" />
+      </PostOption>
+    </TitleContainer>
+    <InformationContainer>
+      <ProfileImg src={tempProfileSrc} alt="프로필 이미지" />
+      <p>{tempNickname}</p>
+      <p>|</p>
+      <p>{tempDate}</p>
+    </InformationContainer>
+    <ContentContainer>
+      <Pre>{tempContent}</Pre>
+      <img src={tempProfileSrc} alt="이미지" />
+      <Likes>
+        <LuThumbsUp />
+        <p>추천해요 {tempLikeCount}</p>
+      </Likes>
+    </ContentContainer>
+    <CommentContainer>
+      <CommentWritingBox nickname={tempNickname} />
+      <Comment
+        text={tempCommentText}
+        nickname={tempNickname}
+        date={tempDate}
+        profileImg={tempProfileSrc}
+      />
+    </CommentContainer>
+  </Container>
 );
 
 export default Post;
@@ -171,4 +169,8 @@ const Likes = styled.div`
 const CommentContainer = styled.div`
   grid-column: 2 / 3;
   grid-row: 4 / 5;
+`;
+
+const Pre = styled.pre`
+  white-space: pre-wrap;
 `;

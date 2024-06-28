@@ -35,41 +35,45 @@ const CommunityFeed: React.FC = () => {
   );
 
   return (
-      <>
-        <TopBar category="커뮤니티" title={tempGroupArray1.groupName} communityCategory={tempGroupArray1.category}  />
-        <SearchContainer>
-          <Search
-            // onSearch={(value) => handleSearch(value)}
-            placeholder="검색할 게시글의 제목을 입력하세요"
+    <>
+      <TopBar
+        category="커뮤니티"
+        title={tempGroupArray1.groupName}
+        communityCategory={tempGroupArray1.category}
+      />
+      <SearchContainer>
+        <Search
+          // onSearch={(value) => handleSearch(value)}
+          placeholder="검색할 게시글의 제목을 입력하세요"
+        />
+      </SearchContainer>
+      <Container>
+        <FeedBoxContainer>
+          <FeedOptionContainer>
+            <WriteButton />
+          </FeedOptionContainer>
+          <FeedBox
+            postId={tempPostId}
+            title={tempTitle}
+            content={tempContent}
+            uploadedDate={tempDate}
+            nickname={tempNickname}
+            profileSrc={tempProfileSrc}
           />
-        </SearchContainer>
-        <Container>
-          <FeedBoxContainer>
-            <FeedOptionContainer>
-              <WriteButton />
-            </FeedOptionContainer>
-            <FeedBox
-              postId={tempPostId}
-              title={tempTitle}
-              content={tempContent}
-              uploadedDate={tempDate}
-              nickname={tempNickname}
-              profileSrc={tempProfileSrc}
-            />
-          </FeedBoxContainer>
-          <SidePanelContainer>
-            <LinkButtonContainer>
-              <Button buttonStyle="link" buttonSize="sm">
-                그룹 탈퇴
-              </Button>
-              <Button buttonStyle="link" buttonSize="sm">
-                다른 그룹 둘러보기
-              </Button>
-            </LinkButtonContainer>
-            <SidePanel name="그룹 멤버" elementArray={tempGroup} />
-          </SidePanelContainer>
-        </Container>
-        </>
+        </FeedBoxContainer>
+        <SidePanelContainer>
+          <LinkButtonContainer>
+            <Button buttonStyle="link" buttonSize="sm">
+              그룹 탈퇴
+            </Button>
+            <Button buttonStyle="link" buttonSize="sm">
+              다른 그룹 둘러보기
+            </Button>
+          </LinkButtonContainer>
+          <SidePanel name="그룹 멤버" elementArray={tempGroup} />
+        </SidePanelContainer>
+      </Container>
+    </>
   );
 };
 
@@ -108,6 +112,7 @@ const FeedBoxContainer = styled.div`
 const LinkButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 `;
 
 const SidePanelContainer = styled.div``;
