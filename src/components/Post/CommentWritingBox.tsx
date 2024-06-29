@@ -39,7 +39,8 @@ const StyledCommentWritingBox = styled.div`
   border-radius: 10px;
   padding: 10px 15px;
   position: relative;
-  height: 120px;
+  min-height: 120px;
+  height: auto;
   margin: 20px 0;
 `;
 
@@ -50,12 +51,14 @@ const Nickname = styled.p`
 const CommentBox = styled.textarea`
   height: 70px;
   border: none;
+  resize: none;
+  outline: none;
 `;
 
 const ButtonContainer = styled.div`
-  position: absolute;
-  top: 110px;
-  right: 15px;
   font-size: var(--font-size-ft-1);
-  margin: 0 5px 10px 5px;
+  margin-top: 10px;
+  position: absolute;
+  top: 80px;
+  left: 650px;
 `;

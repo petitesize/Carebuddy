@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // 아이콘
 import { LuThumbsUp, LuMessageSquare } from 'react-icons/lu';
@@ -29,18 +29,19 @@ const StyledLikeAndCommentCount = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 80px;
+  width: 100px;
   height: 32px;
   background-color: var(--color-beige-main);
   border-radius: 4px;
   padding: 5px 16px;
+  color: var(--color-black);
 
   p {
     font-size: var(--font-size-ft-1);
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
 `;

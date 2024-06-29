@@ -11,12 +11,10 @@ import {
   Community,
   Diary,
   Mypage,
-  TempPetRegister,
-  TempPetEdit,
   Userpage,
   HosInfo,
   PharInfo,
-  SmallModal
+  GlobalSearch
 } from '@/pages';
 
 const router = createBrowserRouter([
@@ -38,10 +36,7 @@ const router = createBrowserRouter([
       { path: 'userpage', element: <Userpage /> },
       { path: 'hosInfo', element: <HosInfo /> },
       { path: 'pharInfo', element: <PharInfo /> },
-      // petRegister, petEdit, smallModal 모달용 임시 페이지
-      { path: 'pet-register', element: <TempPetRegister /> },
-      { path: 'pet-edit', element: <TempPetEdit /> },
-      { path: 'small-modal', element: <SmallModal /> },
+      { path: 'globalSearch', element: <GlobalSearch /> },
     ],
   },
 ]);
@@ -99,6 +94,13 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
+    *, *::before, *::after { 
+    font-family: 'Pretendard-Regular', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   html, body, input, #root {
     width: 100%;
     height: auto;
@@ -107,6 +109,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     color:#343434;
     white-space: nowrap;
+    overflow-x: hidden;
   }
 `;
 

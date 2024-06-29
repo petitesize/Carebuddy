@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import LikeAndCommentCount from '@components/Post/LikesAndCommentCount';
+import CommunityCategory from '@components/GlobalSearch/CommunityCategory';
+
 import formatDate from '@/utils/formatDate';
+
+// 임시 데이터
+import { tempLikeCount, tempCommentCount } from '@constants/tempData';
 
 type FeedBoxProps = {
   postId: string;
@@ -11,6 +17,8 @@ type FeedBoxProps = {
   profileSrc: string;
   nickname: string;
   uploadedDate: string;
+  communityName?: string;
+  communityCategory?: string;
 };
 
 const FeedBox: React.FC<FeedBoxProps> = ({
@@ -20,14 +28,40 @@ const FeedBox: React.FC<FeedBoxProps> = ({
   nickname,
   uploadedDate,
   postId,
+  communityName,
+  communityCategory,
 }) => {
+  // 커뮤니티일 때만 설정
+  const [isSearchResult, setIsSearchResult] = useState(false);
+
+  useEffect(() => {
+    if (communityName) {
+      setIsSearchResult(true);
+    } else {
+      setIsSearchResult(false);
+    }
+  }, [communityName]);
+
+  // 유틸함수화 할듯 아마
   const processedContent = content.split('. ').slice(0, 2).join('. '); // 두 문장만 보여주기
-  const formattedDate = formatDate({ rowDate: uploadedDate }); // tlrks 제외하고 날짜만 보여주기
+  const formattedDate = formatDate({ rowDate: uploadedDate }); // 시간 제외하고 날짜만 보여주기
 
   return (
     <StyledFeedBox to={`/post/${postId}`}>
       <TitleContainer>
-        <Title>{title}</Title>
+        <LeftContainer>
+          <Title>{title}</Title>
+          {isSearchResult && (
+            <>
+              <CommunityCategory>{communityName}</CommunityCategory>
+              <CommunityCategory>{communityCategory}</CommunityCategory>
+            </>
+          )}
+        </LeftContainer>
+        <LikeAndCommentCount
+          likeCount={tempLikeCount}
+          commentCount={tempCommentCount}
+        />
       </TitleContainer>
       <Content>
         {processedContent}
@@ -50,28 +84,37 @@ const StyledFeedBox = styled(Link)`
   flex-direction: column;
   border-radius: 12px;
   border: solid 1px var(--color-grey-2);
-  height: 150px;
-  padding: 24px 20px;
+  height: auto;
+  padding: 20px;
   margin: 10px 0 20px 0;
   text-decoration: none;
   cursor: pointer;
 `;
 
 const TitleContainer = styled.div`
-  // 좋아요 댓글 개수 띄워주는 모달 추가될거라 flex row 그대로
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   align-items: center;
 `;
 
+const LeftContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin-right: 4px;
+  }
+`;
+
 const ProfileContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 12px 0;
   color: var(--color-grey-1);
   font-size: var(--font-size-sm-1);
   border-top: 1px solid var(--color-grey-2);
+  padding-top: 12px;
 
   p {
     margin: 0 4px;
@@ -96,7 +139,6 @@ const Content = styled.pre`
   white-space: pre-wrap;
   line-height: 1.4;
   font-size: var(--font-size-ft-1);
-  min-height: 60px;
 `;
 
 const MoreSpan = styled.span`

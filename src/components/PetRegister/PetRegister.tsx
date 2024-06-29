@@ -4,15 +4,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-// 임시 데이터
-import { tempProfileSrc } from '@constants/tempData';
-
-// 컴포넌트
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
 
-// 아이콘
 import { LuCamera } from 'react-icons/lu';
+
+// 임시 데이터
+import { tempProfileSrc } from '@constants/tempData';
 
 // 인터페이스
 // import { FormData } from '@/pages/Temp-PetRegister';
@@ -27,13 +25,14 @@ const PetRegister = () => {
   const [, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
   // const [selectedFile, setSelectedFile] = useState<File | null>(null); // 전송할 이미지
 
-  // const [formData, setFormData] = useState<FormData>({
-  //   name: '',
-  //   age: 0,
-  //   weight: 0,
-  //   gender: '',
-  //   species: '',
-  //   neutered: '',
+  // const [setFormData, setFormData] = useState<FormData>({
+  // const [, setFormData] = useState<FormData>({
+    // name: '',
+    // age: 0,
+    // weight: 0,
+    // gender: '',
+    // species: '',
+    // neutered: '',
   // });
 
   // petInfo 객체 초기화
@@ -77,8 +76,10 @@ const PetRegister = () => {
     type: 'name' | 'age' | 'weight'
   ) => {
     // 임시
+    // eslint-disable-next-line no-console
+    console.log(e, type);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { value } = e.target;
+    // const { value } = e.target;
 
     // setFormData((prevData) => ({
     //   ...prevData,

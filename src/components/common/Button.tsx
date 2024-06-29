@@ -3,7 +3,12 @@ import styled, { css } from 'styled-components';
 
 // 버튼 스타일, 사이즈 props
 interface StyledButtonProps {
-  buttonStyle?: 'round-green' | 'square-green' | 'square-white' | 'link';
+  buttonStyle?:
+    | 'round-green'
+    | 'square-green'
+    | 'square-white'
+    | 'link'
+    | 'grey';
   buttonSize?: 'sm' | 'md' | 'lg';
 }
 
@@ -34,7 +39,6 @@ const buttonStyles = {
     border: solid 1px var(--color-grey-2);
   `,
   link: css`
-    margin-bottom: 10px;
     padding: 0 0 1px 0;
     border: none;
     border-bottom: solid 1px;
@@ -42,6 +46,15 @@ const buttonStyles = {
     font-size: var(--font-size-ft-1);
     font-weight: var(--font-weight-regular);
     cursor: pointer;
+  `,
+
+  grey: css`
+    font-size: var(--font-size-ft-1);
+    color: var(--color-grey-1);
+    font-weight: var(--font-weight-regular);
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
   `,
 };
 
