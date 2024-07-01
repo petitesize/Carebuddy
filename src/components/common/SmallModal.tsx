@@ -21,6 +21,7 @@ const SmallModal: React.FC<SmallModalProps> = ({ onClose, component }) => {
       <ModalContent onClick={(e) => e.stopPropagation()}>
         {component}
       </ModalContent>
+      <p>모달 테스트</p>
     </ModalBackground>
   );
 };

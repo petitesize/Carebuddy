@@ -84,75 +84,66 @@ const InfoContainer = styled.div`
 `;
 
 const Withdraw = styled.div`
-  font-size: var(--font-size-ft-1); //14
+  font-size: var(--font-size-ft-1);
   text-decoration: underline;
-  cursor: pointer; /* 클릭할 수 있음을 나타내기 위해 커서 변경 */
+  cursor: pointer;
 `;
 
-const UserInfoContainer = ({ email, nickname, introduction }) => (
+const UserInfoContainer = () => (
   <Container>
     <InfoContainer>
       <Item>이메일</Item>
-      <Data>{email}</Data>
+      <Data>carebuddy@naver.com</Data>
     </InfoContainer>
     <InfoContainer>
       <Item>닉네임</Item>
-      <Data>{nickname}</Data>
+      <Data>케어버디</Data>
     </InfoContainer>
     <InfoContainer>
       <Item>소개글</Item>
-      <Data>{introduction}</Data>
+      <Data>소개글입니다^^</Data>
     </InfoContainer>
   </Container>
 );
 
-const ProfileContainer = ({ introduction, setIntroduction }) => {
-  const handleInputChange = (e) => {
-    setIntroduction(e.target.value);
-  };
-
-  const handleSaveClick = () => {
-    alert('소개글이 저장되었습니다');
-  };
-
-  return (
-    <Container>
-      <UserContainer>
-        <ImgContainer>
-          <ImageBox><img src={defaultImg} alt="프로필 사진" /></ImageBox>
-          <LinkButton>프로필 사진 업로드 하기</LinkButton>
-        </ImgContainer>
-        <Info>
-          <List>
-            <Item>닉네임</Item>
-            <Input
-              placeholder="입력하여주세요."
-              value="케어버디"
-            />
-          </List>
-          <List>
-            <Item>소개글</Item>
-            <Data>
-              <TextArea
-                size="md"
-                placeholder="소개글을 입력하세요"
-                value={introduction}
-                onChange={handleInputChange}
-              />
-            </Data>
-          </List>
-          <ButtonContainer>
-            <Button onClick={handleSaveClick}>저장하기</Button>
-          </ButtonContainer>
-        </Info>
-      </UserContainer>
-    </Container>
-  );
+const handleSaveClick = () => {
+  alert('소개글이 저장되었습니다');
 };
 
+const ProfileContainer = () => (
+  <Container>
+    <UserContainer>
+      <ImgContainer>
+        <ImageBox><img src={defaultImg} alt="프로필 사진" /></ImageBox>
+        <LinkButton>프로필 사진 업로드 하기</LinkButton>
+      </ImgContainer>
+      <Info>
+        <List>
+          <Item>닉네임</Item>
+          <Input
+            placeholder="입력하여주세요."
+            value="케어버디"
+          />
+        </List>
+        <List>
+          <Item>소개글</Item>
+          <Data>
+            <TextArea
+              size="md"
+              placeholder="소개글을 입력하세요"
+            />
+          </Data>
+        </List>
+        <ButtonContainer>
+          <Button onClick={handleSaveClick}>저장하기</Button>
+        </ButtonContainer>
+      </Info>
+    </UserContainer>
+  </Container>
+);
+
 const Mypage: React.FC = () => {
-  const [introduction, setIntroduction] = useState('안녕하세요');
-  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleWithdrawClick = () => {
     setIsModalOpen(true);
@@ -167,8 +158,8 @@ const Mypage: React.FC = () => {
   };
 
   const contentItems = [
-    { id: '1', content: '회원정보', component: <UserInfoContainer email="carebuddy@naver.com" nickname="케어버디" introduction={introduction} /> },
-    { id: '2', content: '프로필', component: <ProfileContainer introduction={introduction} setIntroduction={setIntroduction} /> },
+    { id: '1', content: '회원정보', component: <UserInfoContainer /> },
+    { id: '2', content: '프로필', component: <ProfileContainer /> },
     { id: '3', content: '반려동물 관리', component: <PetCardContainer /> },
     { id: '4', content: '작성 글 목록', component: <ListContainer /> },
   ];

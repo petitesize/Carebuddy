@@ -34,7 +34,7 @@ const Logo = styled.img`
   width: 40px;
 `;
 
-const UserTure: React.FC<{ onConfirm: () => void, onCancel: () => void }> = ({ onConfirm, onCancel }) => (
+const UserTure: React.FC<{ onConfirm: () => void }> = ({ onConfirm }) => (
   <Container>
     <Logo src={imgSrc} />
     <Title>탈퇴 완료</Title>

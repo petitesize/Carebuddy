@@ -45,8 +45,7 @@ const UserAsk: React.FC<{ onConfirm: () => void, onCancel: () => void }> = ({ on
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setIsModalOpen(true), 0); // 모달이 닫힌 후 열리도록 함
+    setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
@@ -73,7 +72,7 @@ const UserAsk: React.FC<{ onConfirm: () => void, onCancel: () => void }> = ({ on
         <WithdrawButton onClick={handleOpenModal}>탈퇴하기</WithdrawButton>
         {isModalOpen && (
           <SmallModal
-            component={<UserTrue onConfirm={onConfirm} onCancel={handleCloseModal} />}
+            component={<UserTrue onConfirm={onConfirm} />}
             onClose={handleCloseModal}
           />
         )}
