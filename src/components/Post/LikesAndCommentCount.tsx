@@ -29,11 +29,11 @@ const StyledLikeAndCommentCount = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100px;
-  height: 32px;
+  width: 88px;
+  height: 28px;
   background-color: var(--color-beige-main);
   border-radius: 4px;
-  padding: 5px 16px;
+  padding: 5px 13px;
   color: var(--color-black);
 
   p {
@@ -41,7 +41,7 @@ const StyledLikeAndCommentCount = styled.div`
   }
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
 `;

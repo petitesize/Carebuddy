@@ -74,6 +74,7 @@ const PetRegister = () => {
     // 임시
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     type: 'name' | 'age' | 'weight'
+
   ) => {
     // 임시
     // eslint-disable-next-line no-console
@@ -111,7 +112,7 @@ const PetRegister = () => {
       </Section>
       <Section>
         <Heading>반려동물 이름</Heading>
-        <Input onChange={(e) => handleInputChange(e, 'name')} />
+        <Input onChange={(e) => handleInputChange(e, 'name')} placeholder="이름을 입력해주세요" />
       </Section>
       <Section>
         <Heading>반려동물 성별</Heading>
@@ -157,7 +158,7 @@ const PetRegister = () => {
       </Section>
       <Section>
         <Heading>반려동물 나이</Heading>
-        <Input type="number" onChange={(e) => handleInputChange(e, 'age')} />
+        <Input type="number" onChange={(e) => handleInputChange(e, 'age')} placeholder="나이를 입력해주세요" />
       </Section>
       <Section>
         <Heading>중성화 여부</Heading>
@@ -183,7 +184,7 @@ const PetRegister = () => {
 
       <Section>
         <Heading>반려동물 체중</Heading>
-        <Input type="number" onChange={(e) => handleInputChange(e, 'weight')} />
+        <Input type="number" onChange={(e) => handleInputChange(e, 'weight')} placeholder="체중을 입력해주세요"/>
       </Section>
     </>
   );
@@ -197,11 +198,15 @@ const Section = styled.div`
   & > * {
     margin-right: 10px;
   }
+
+  input {
+    padding: 8px 6px;
+  }
 `;
 
 const Heading = styled.p`
-  padding: 10px 0;
-  font-size: var(--font-size-hd-1);
+  padding: 12px 0;
+  font-size: var(--font-size-md-2);
 `;
 
 const ImageContainer = styled.div`

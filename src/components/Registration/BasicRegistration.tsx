@@ -45,17 +45,31 @@ const BasicRegistration: React.FC = () => {
 
   return (
     <Container>
+      <LargeText>회원가입</LargeText>
+
       <Section>
         <Heading>아이디</Heading>
-        <Input />
+        <EmailContainer>
+          <Input placeholder="이메일 형식으로 입력해주세요." />
+          <Button buttonSize="sm" buttonStyle="square-grey">
+            발송
+          </Button>
+        </EmailContainer>
+        <p>메일 발송하면 보이는 영역</p>
+        <EmailContainer>
+          <Input placeholder="메일로 발송된 인증 번호를 입력해주세요." />
+          <Button buttonSize="sm" buttonStyle="square-grey">
+            인증
+          </Button>
+        </EmailContainer>
       </Section>
 
       <Section>
         <Heading>회원정보 입력</Heading>
         <P>닉네임*</P>
-        <Input />
+        <Input placeholder="닉네임을 입력해주세요." />
         <P>핸드폰 번호*</P>
-        <Input />
+        <Input placeholder="핸드폰 번호(-제외)를 입력해주세요." />
       </Section>
 
       <Section>
@@ -131,7 +145,7 @@ const Container = styled.div`
 const Section = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 0;
+  padding: 6px 0;
 
   & > * {
     margin: 4px 0;
@@ -139,11 +153,12 @@ const Section = styled.div`
 
   input {
     width: 100%;
+    padding: 8px 6px;
   }
 `;
 
 const Heading = styled.p`
-  font-size: var(--font-size-hd-1);
+  font-size: var(--font-size-md-2);
   padding: 4px 0;
 `;
 
@@ -152,11 +167,15 @@ const SmallP = styled.p`
   color: var(--color-grey-1);
 `;
 
-const P = styled.p``;
+const P = styled.p`
+  font-size: var(--font-size-ft-1);
+  color: var(--color-black);
+`;
 
 const Hr = styled.hr`
   border: 0;
   border-top: 1px solid var(--color-grey-2);
+  margin: 8px 0;
 `;
 
 const P2 = styled.p`
@@ -174,4 +193,22 @@ const TermContainer = styled.div`
   font-size: var(--font-size-sm-1);
   line-height: 1.5;
   color: var(--color-grey-1);
+`;
+
+const LargeText = styled.p`
+  font-size: var(--font-size-hd-1);
+  padding-bottom: 8px;
+  font-color: var(--color-black;);
+`;
+
+const EmailContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  button{
+  // width: 18%
+  }
+
+  input {
+  width: 80%;}
 `;

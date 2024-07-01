@@ -1,12 +1,14 @@
+// 데이터 들어오면 로직으로 키그 조정
+
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// 아이콘
 import { LuMessagesSquare } from 'react-icons/lu';
 
-// 컴포넌트
 import Button from '../common/Button';
+
+
 
 type CommunityCardProps = {
   name: string;
@@ -38,7 +40,7 @@ const Container = styled(Link)`
   flex-direction: row;
 
   width: 236px;
-  min-height: 120px;
+  height: 170px;
   text-decoration: none;
   cursor: pointer;
   border: solid 1px var(--color-grey-2);
