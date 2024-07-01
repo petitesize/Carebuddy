@@ -193,7 +193,7 @@ const Home: React.FC = () => {
         />
       )}
       {/* 동물 정보 수정 */}
-      <Button onClick={handleOpenModal3}>동물 등록 모달</Button>
+      <Button onClick={handleOpenModal3}>동물 수정 모달</Button>
       {modalOpen3 && (
         <Modal
           onClose={handleCloseModal3}
@@ -231,7 +231,7 @@ const Home: React.FC = () => {
         <FeedBoxContainer>
           <FeedOptionContainer>
             <SelectContainer>
-              <p>분류: </p>
+              <P>분류: </P>
               <Select
                 selectStyle="round"
                 selectSize="sm"
@@ -271,7 +271,6 @@ const ContentContainer = styled.div`
 `;
 
 const FeedBoxContainer = styled.div`
-  // background-color: yellow; // 임시
   color: var(--color-grey-1);
 `;
 
@@ -279,7 +278,6 @@ const FeedOptionContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   justify-content: space-between;
-  // background-color: aqua; // 임시
 `;
 
 const SelectContainer = styled.div`
@@ -291,3 +289,8 @@ const SelectContainer = styled.div`
     margin-right: 10px;
   }
 `;
+
+const P = styled.p`
+font-weight: var(--font-weight-medium);
+font-size: var(--font-size-ft-1);
+`

@@ -39,7 +39,7 @@ const GlobalSearch: React.FC = () => {
           </SearchContainer>
           <FeedOptionContainer>
             <SelectContainer>
-              <p>분류:</p>
+              <P>분류:</P>
               <Select
                 selectStyle="round"
                 selectSize="sm"
@@ -49,36 +49,38 @@ const GlobalSearch: React.FC = () => {
             </SelectContainer>
             <WriteButton />
           </FeedOptionContainer>
-          <FeedBox
-            postId={tempPostId}
-            title={tempTitle}
-            content={tempContent}
-            uploadedDate={tempDate}
-            nickname={tempNickname}
-            profileSrc={tempProfileSrc}
-            communityName={tempGroupArray1.groupName}
-            communityCategory={tempGroupArray1.category}
-          />
-          <FeedBox
-            postId={tempPostId}
-            title={tempTitle}
-            content={tempContent}
-            uploadedDate={tempDate}
-            nickname={tempNickname}
-            profileSrc={tempProfileSrc}
-            communityName={tempGroupArray1.groupName}
-            communityCategory={tempGroupArray1.category}
-          />
-          <FeedBox
-            postId={tempPostId}
-            title={tempTitle}
-            content={tempContent}
-            uploadedDate={tempDate}
-            nickname={tempNickname}
-            profileSrc={tempProfileSrc}
-            communityName={tempGroupArray1.groupName}
-            communityCategory={tempGroupArray1.category}
-          />
+          <FeedBoxContainer>
+            <FeedBox
+              postId={tempPostId}
+              title={tempTitle}
+              content={tempContent}
+              uploadedDate={tempDate}
+              nickname={tempNickname}
+              profileSrc={tempProfileSrc}
+              communityName={tempGroupArray1.groupName}
+              communityCategory={tempGroupArray1.category}
+            />
+            <FeedBox
+              postId={tempPostId}
+              title={tempTitle}
+              content={tempContent}
+              uploadedDate={tempDate}
+              nickname={tempNickname}
+              profileSrc={tempProfileSrc}
+              communityName={tempGroupArray1.groupName}
+              communityCategory={tempGroupArray1.category}
+            />
+            <FeedBox
+              postId={tempPostId}
+              title={tempTitle}
+              content={tempContent}
+              uploadedDate={tempDate}
+              nickname={tempNickname}
+              profileSrc={tempProfileSrc}
+              communityName={tempGroupArray1.groupName}
+              communityCategory={tempGroupArray1.category}
+            />
+          </FeedBoxContainer>
         </BorderContainer>
       </Container>
     </>
@@ -118,6 +120,18 @@ const FeedOptionContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   justify-content: space-between;
-  // background-color: aqua; // 임시
-  padding-top: 10px;
+  padding-top: 8px;
+`;
+
+const P = styled.p`
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-ft-1);
+`;
+
+const FeedBoxContainer = styled.div`
+  color: var(--color-grey-1);
+
+  & > * {
+    margin-bottom: 20px;
+  }
 `;

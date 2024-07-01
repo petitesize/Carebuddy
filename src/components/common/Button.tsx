@@ -7,8 +7,10 @@ interface StyledButtonProps {
     | 'round-green'
     | 'square-green'
     | 'square-white'
+    | 'square-grey'
     | 'link'
-    | 'grey';
+    | 'grey'
+    | 'black';
   buttonSize?: 'sm' | 'md' | 'lg';
 }
 
@@ -38,6 +40,13 @@ const buttonStyles = {
     color: black;
     border: solid 1px var(--color-grey-2);
   `,
+  'square-grey': css`
+    border-radius: 0;
+    background-color: var(--color-grey-3);
+    color: black;
+    border: none;
+  `,
+
   link: css`
     padding: 0 0 1px 0;
     border: none;
@@ -45,14 +54,19 @@ const buttonStyles = {
     background-color: transparent;
     font-size: var(--font-size-ft-1);
     font-weight: var(--font-weight-regular);
-    cursor: pointer;
+    color: var(--color-black);
   `,
 
   grey: css`
-    font-size: var(--font-size-ft-1);
     color: var(--color-grey-1);
     font-weight: var(--font-weight-regular);
-    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+  `,
+
+  black: css`
+    color: var(--color-black);
+    font-weight: var(--font-weight-regular);
     background-color: transparent;
     padding: 0;
   `,

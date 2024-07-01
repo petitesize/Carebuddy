@@ -32,23 +32,24 @@ const Login: React.FC = () => {
           <CheckBox
             value="keepLogin"
             text="기억하기"
+            textColor="black"
             checked={keepLogin}
             onChange={handleCheckBoxChange}
           />
         </CheckBoxSection>
-        <Button buttonStyle="grey" buttonSize="sm">
+        <Button buttonStyle="black" buttonSize="sm">
           회원가입
         </Button>
       </SignupSection>
       <LoginContainer>
         <Button buttonStyle="square-green">로그인</Button>
       </LoginContainer>
-      <Button buttonStyle="grey" buttonSize="sm">
+      <Button buttonStyle="black" buttonSize="sm">
         아이디/비밀번호 찾기
       </Button>
       <Hr />
-      <LargeText>간편 로그인/회원가입</LargeText>
-      <KakaoLoginButton>카카오로그인 자리</KakaoLoginButton>
+      {/* <LargeText>간편 로그인/회원가입</LargeText> */}
+      <KakaoLoginButton>카카오로 계속하기</KakaoLoginButton>
     </Container>
   );
 };
@@ -91,7 +92,8 @@ const Hr = styled.hr`
 
 const LargeText = styled.p`
   font-size: var(--font-size-hd-1);
-  padding-bottom: 20px;
+  padding-bottom: 16px;
+  font-color: var(--color-black;);
 `;
 
 const LoginContainer = styled.div`

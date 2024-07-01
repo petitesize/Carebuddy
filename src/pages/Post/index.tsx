@@ -2,14 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 // import { Link } from 'react-router-dom';
 
-// 컴포넌트
 import ActionButton from '@/components/common/ActtionButton';
-// import Button from '@/components/common/Button';
 import LikeAndCommentCount from '@/components/Post/LikesAndCommentCount';
 import CommentWritingBox from '@/components/Post/CommentWritingBox';
 import Comment from '@/components/Post/Comment';
+import TopBar from '@/components/common/TopBar';
 
-// 아이콘
 import { LuThumbsUp, LuChevronLeft } from 'react-icons/lu';
 
 // 임시 데이터
@@ -43,45 +41,48 @@ interface PostProps {
 // 임시 - 이 주석은 데이터 들어오면 삭제
 // eslint-disable-next-line no-empty-pattern
 const Post: React.FC<PostProps> = () => (
-  <Container>
-    <PostListButtonContainer>
-      <LuChevronLeft />
-      <p>글 목록 보기</p>
-    </PostListButtonContainer>
-    <TitleContainer>
-      <p>{tempTitle}</p>
-      <PostOption>
-        <LikeAndCommentCount
-          likeCount={tempLikeCount}
-          commentCount={tempCommentCount}
+  <>
+    <TopBar category="커뮤니티" title="눈 / 피부 / 귀" communityCategory="고양이" />
+    <Container>
+      <PostListButtonContainer>
+        <LuChevronLeft />
+        <p>글 목록 보기</p>
+      </PostListButtonContainer>
+      <TitleContainer>
+        <p>{tempTitle}</p>
+        <PostOption>
+          <LikeAndCommentCount
+            likeCount={tempLikeCount}
+            commentCount={tempCommentCount}
+          />
+          <ActionButton buttonBorder="border-solid" direction="horizonal" />
+        </PostOption>
+      </TitleContainer>
+      <InformationContainer>
+        <ProfileImg src={tempProfileSrc} alt="프로필 이미지" />
+        <p>{tempNickname}</p>
+        <p>|</p>
+        <p>{tempDate}</p>
+      </InformationContainer>
+      <ContentContainer>
+        <Pre>{tempContent}</Pre>
+        <img src={tempProfileSrc} alt="이미지" />
+        <Likes>
+          <LuThumbsUp />
+          <p>추천해요 {tempLikeCount}</p>
+        </Likes>
+      </ContentContainer>
+      <CommentContainer>
+        <CommentWritingBox nickname={tempNickname} />
+        <Comment
+          text={tempCommentText}
+          nickname={tempNickname}
+          date={tempDate}
+          profileImg={tempProfileSrc}
         />
-        <ActionButton buttonBorder="border-solid" direction="horizonal" />
-      </PostOption>
-    </TitleContainer>
-    <InformationContainer>
-      <ProfileImg src={tempProfileSrc} alt="프로필 이미지" />
-      <p>{tempNickname}</p>
-      <p>|</p>
-      <p>{tempDate}</p>
-    </InformationContainer>
-    <ContentContainer>
-      <Pre>{tempContent}</Pre>
-      <img src={tempProfileSrc} alt="이미지" />
-      <Likes>
-        <LuThumbsUp />
-        <p>추천해요 {tempLikeCount}</p>
-      </Likes>
-    </ContentContainer>
-    <CommentContainer>
-      <CommentWritingBox nickname={tempNickname} />
-      <Comment
-        text={tempCommentText}
-        nickname={tempNickname}
-        date={tempDate}
-        profileImg={tempProfileSrc}
-      />
-    </CommentContainer>
-  </Container>
+      </CommentContainer>
+    </Container>
+  </>
 );
 
 export default Post;

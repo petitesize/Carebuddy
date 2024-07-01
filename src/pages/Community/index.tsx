@@ -4,12 +4,13 @@ import styled from 'styled-components';
 // 컴포넌트
 import CommunityCard from '@/components/Community/CommunityCard';
 import Button from '@/components/common/Button';
+import TopBar from '@/components/common/TopBar';
 
 // 임시 데이터
 import {
   tempCommunityName,
   tempCommunityIntroduction,
-  tempCommunityIntroduction2,
+  // tempCommunityIntroduction2,
 } from '@constants/tempData';
 
 // type CommunityProps = {
@@ -19,6 +20,10 @@ import {
 // eslint-disable-next-line no-empty-pattern
 const Community: React.FC = () => (
   <>
+    <TopBar
+      category="커뮤니티"
+      title="모든 커뮤니티"
+    />
     <ButtonContainer>
       <Button buttonStyle="square-green" buttonSize="lg">
         강아지
@@ -34,7 +39,7 @@ const Community: React.FC = () => (
       />
       <CommunityCard
         name={tempCommunityName}
-        introduction={tempCommunityIntroduction2}
+        introduction={tempCommunityIntroduction}
       />
       <CommunityCard
         name={tempCommunityName}

@@ -16,13 +16,11 @@ export default CommunityCategory;
 const Container = styled.div`
   background-color: var(--color-beige-main);
   border-radius: 4px;
-  padding: 5px 16px;
+  padding: 4px 12px;
   color: var(--color-black);
-
-  width: auto;
-  height: auto;
 `;
 
 const Text = styled.p`
-  font-size: var(--font-size-ft-1);
+  font-size: var(--font-size-sm-1);
 `;
+
