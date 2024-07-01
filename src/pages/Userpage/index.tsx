@@ -3,7 +3,7 @@ import React from 'react';
 import defaultImg from '@/assets/person.png'
 import ListContainer from "@/components/Mypage&Userpage/ListContainer";
 import PetCardContainer from "@/components/Mypage&Userpage/PetCardContainer";
-
+import TopBar from '@/components/common/TopBar';
 
 const Container = styled.div`
 `;
@@ -48,6 +48,7 @@ const ImgContainer = styled.div`
 const Info = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 `;
 
 const InputList = styled.span`
@@ -91,6 +92,7 @@ const contentItems = [
 
 const Userpage: React.FC = () => (
   <Container>
+    <TopBar category="carebuddy" title="유저 페이지" />
     {contentItems.map(item => (
       <React.Fragment key={item.id}>
         <Menu>
