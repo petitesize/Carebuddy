@@ -6,7 +6,7 @@ interface SmallModalProps {
   component: React.ReactNode;
 }
 
-const SmallModal: React.FC<SmallModalProps> = ({onClose, component}) => {
+const SmallModal: React.FC<SmallModalProps> = ({ onClose, component }) => {
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'; // 모달 열렸을 때 배경 스크롤 막음
